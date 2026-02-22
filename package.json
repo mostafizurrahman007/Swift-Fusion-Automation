@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "mochawesome-report-generator": "^6.3.2",
+    "save-dev": "^0.0.1-security",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^10.1.0",
+    "cypress": "^15.10.0",
+    "cypress-terminal-report": "^7.3.3",
+    "cypress-xpath": "^2.0.1",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.0"
+  }
+}
