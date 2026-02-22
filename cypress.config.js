@@ -62,8 +62,8 @@ module.exports = defineConfig({
   experimentalModifyObstructiveThirdPartyCode: true, 
 
   e2e: {
-    // baseUrl: "https://192.168.10.253:4941", 
-    baseUrl: "http://192.168.10.253:4200/", 
+    baseUrl: "https://192.168.10.253:4941", 
+    // baseUrl: "http://192.168.10.253:4200/", 
 
     setupNodeEvents(on, config) {
       // 1. Terminal Report Plugin

@@ -38,12 +38,11 @@ class HomePage {
     cy.get("div[data-drawer-trigger=Menu]>img")
       .should("exist")
       .and("be.visible")
-      .click({ force: true });
     cy.get("div[data-drawer-trigger=Menu]", { timeout: 10000 })
       .should("be.visible", { force: true })
       .click({ force: true }, { timeout: 15000 });
     cy.get(".drawer-container > div.flex.border-b button")
-      .eq(0)
+      .first()
       .should("exist")
       .and("be.visible")
       .click({ force: true });
@@ -59,7 +58,7 @@ class HomePage {
       .eq(0)
       .should("exist")
       .and("be.visible")
-      .click({ force: true });
+      .click({ force: true },  { timeout: 15000 });
 
     cy.log("Clicking on MX");
     cy.get("div[data-drawer-trigger=Menu]>img", { timeout: 15000 })
@@ -191,6 +190,12 @@ class HomePage {
       }
     });
   }
+
+  goToCamt_029(){
+        commonLocators.ByTextWithTag('p', 
+            ' CAMT.029.001.09 Resolution Of Investigation ', {timeout:10000})
+            .click({force:true});
+    }
 }
 
 export default new HomePage();
