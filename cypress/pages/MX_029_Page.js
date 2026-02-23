@@ -115,6 +115,11 @@ class MX_029_Page {
         commonLocators.ByControlName("bizMsgIdr").clear().type("A");
     }
 
+    relatedBusinessMsgID(){
+        // commonLocators.ByTextWithTag('div', 'Related Information').should('be.visible').click();
+        commonLocators.ByControlName('rltdBizMsgIdr').clear().type(1);
+    }
+
     assignmentIdentificationField(){
         commonLocators.ByControlName("assgnmtId").clear().type("1");
     }
@@ -166,8 +171,8 @@ class MX_029_Page {
 
     save(){
         commonLocators.ByTextWithTag('button', 'Save').should('be.visible').click({force:true})
-        cy.get("#toast-container", {timeout:4000}).should('be.visible').and('contain.text', ' message saved successfully ')
+        cy.get('div[role="alert"]', {timeout:4000}).should('be.visible').and('contain.text', ' message saved successfully ')
     }
 }
 
-export default new MX_029_Page;
+export default new MX_029_Page

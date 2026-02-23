@@ -87,6 +87,7 @@ describe("Automation Suite", () => {
     // MX_029_Page.relatedFromBIC();
     // MX_029_Page.relatedToBIC();
     MX_029_Page.businessMsg();
+    MX_029_Page.relatedBusinessMsgID();
     MX_029_Page.assignmentIdentificationField();
     MX_029_Page.assignerBIC();
     MX_029_Page.confirmationDialog();
