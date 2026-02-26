@@ -103,24 +103,36 @@ describe("Automation Suite", () => {
   });
 
   it.only("Check CAMT_109 Automation", () => {
-  
-      HomePage.menu1();
-      // HomePage.search("CAMT53");
-      HomePage.search_MX_Message();
-      HomePage.goToCamt_109();
-      MX_109_Page.inputFromBIC()
-      MX_109_Page.inputToBIC()
-      MX_109_Page.businessMsg()
-      MX_109_Page.msgID()
-      MX_109_Page.dateCreationField()
-      MX_109_Page.numberOfCheques()
-      MX_109_Page.originalIdentification()
-      MX_109_Page.chequeNumber()
-      MX_109_Page.issueDateField()
-      MX_109_Page.currencyField()
-      MX_109_Page.amountField()
-      MX_109_Page.codeField()
-      MX_109_Page.save()
-      
-    });
+    HomePage.menu1();
+    // HomePage.search("CAMT53");
+    HomePage.search_MX_Message();
+    HomePage.goToCamt_109();
+    MX_109_Page.charSetField();
+    MX_109_Page.inputFromBIC();
+    MX_109_Page.inputToBIC();
+    MX_109_Page.fromClearingSystemID();
+    MX_109_Page.toClearingSystemID();
+    MX_109_Page.fromMemberID();
+    MX_109_Page.toMemberID();
+    MX_109_Page.fromLei();
+    MX_109_Page.toLei();
+    MX_109_Page.businessMsg();
+    MX_109_Page.msgID();
+    MX_109_Page.dateCreationField();
+    MX_109_Page.copyDuplicateField();
+    MX_109_Page.priorityField();
+    MX_109_Page.registryField();
+    MX_109_Page.numberOfCheques();
+    MX_109_Page.chequeIdentificationField();
+    MX_109_Page.originalIdentification();
+    MX_109_Page.chequeNumber();
+    MX_109_Page.issueDateField();
+    MX_109_Page.currencyField();
+    MX_109_Page.amountField();
+    MX_109_Page.chequeEffectiveDateField();
+    MX_109_Page.chequeCancellationOriginatorField();
+    MX_109_Page.codeField();
+    MX_109_Page.chequeCancellationAdditionalInfoField();
+    MX_109_Page.save();
+  });
 });

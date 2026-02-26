@@ -23,6 +23,47 @@ class MX_109_Page {
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
+  fromClearingSystemID() {
+    commonLocators
+      .inputByPlaceholder(" Search clearing system id code")
+      .eq(0)
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
+      .should("be.visible")
+      .click();
+  }
+
+  toClearingSystemID() {
+    commonLocators
+      .inputByPlaceholder(" Search clearing system id code")
+      .eq(1)
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
+      .should("be.visible")
+      .click();
+  }
+
+  fromMemberID() {
+    commonLocators.ByControlName("fromMembId").clear().type(1);
+  }
+
+  toMemberID() {
+    commonLocators.ByControlName("toMembId").clear().type(1);
+  }
+
+  fromLei() {
+    commonLocators
+      .ByControlName("fromLei")
+      .clear()
+      .type("11111111111111111111");
+  }
+
+  toLei() {
+    commonLocators.ByControlName("toLei").clear().type("11111111111111111111");
+  }
+
   businessMsg() {
     commonLocators.ByControlName("bizMsgIdr").clear().type("A");
   }
@@ -38,8 +79,33 @@ class MX_109_Page {
       .type(getCurrentDateDDMMYYYY() + "{enter}");
   }
 
+  copyDuplicateField() {
+    commonLocators.inputByPlaceholder(" Search copy duplicate").click();
+    commonLocators.ByTextWithTag("div", " COPY ").should("be.visible").click();
+  }
+
+  priorityField() {
+    commonLocators.ByControlName("priority").click();
+    commonLocators
+      .ByTextWithTag("div", " Normal ")
+      .should("be.visible")
+      .click();
+  }
+
+  registryField() {
+    commonLocators.ByControlName("CtrlSum").clear().type("1");
+  }
+
   numberOfCheques() {
     commonLocators.ByControlName("GrpHdrNbOfChqs").clear().type("1");
+  }
+
+  chequeIdentificationField() {
+    commonLocators
+      .ByControlName("ChqInstrId")
+      .should("be.visible")
+      .clear()
+      .type("A");
   }
 
   originalIdentification() {
@@ -73,12 +139,35 @@ class MX_109_Page {
       .type("1");
   }
 
+  chequeEffectiveDateField() {
+    commonLocators
+      .ByControlName("ectvDtDt")
+      .clear()
+      .type(getCurrentDateDDMMYYYY() + "{enter}");
+  }
+
+  chequeCancellationOriginatorField() {
+    commonLocators.ByControlName("orgtr").click();
+    commonLocators
+      .ByTextWithTag("div", " Drawee Agent ")
+      .should("be.visible")
+      .click();
+  }
+
   codeField() {
     commonLocators.inputByPlaceholder(" Search code").click();
     commonLocators
       .ByTextWithTag("div", " Accepted ")
       .should("be.visible")
       .click();
+  }
+
+  chequeCancellationAdditionalInfoField() {
+    commonLocators
+      .ByControlName("AddtlInf")
+      .should("be.visible")
+      .clear()
+      .type("A");
   }
 
   save() {
