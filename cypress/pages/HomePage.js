@@ -37,7 +37,7 @@ class HomePage {
     cy.log("Clicking on MX");
     cy.get("div[data-drawer-trigger=Menu]>img")
       .should("exist")
-      .and("be.visible")
+      .and("be.visible");
     cy.get("div[data-drawer-trigger=Menu]", { timeout: 10000 })
       .should("be.visible", { force: true })
       .click({ force: true }, { timeout: 15000 });
@@ -58,7 +58,7 @@ class HomePage {
       .eq(0)
       .should("exist")
       .and("be.visible")
-      .click({ force: true },  { timeout: 15000 });
+      .click({ force: true }, { timeout: 15000 });
 
     cy.log("Clicking on MX");
     cy.get("div[data-drawer-trigger=Menu]>img", { timeout: 15000 })
@@ -191,11 +191,22 @@ class HomePage {
     });
   }
 
-  goToCamt_029(){
-        commonLocators.ByTextWithTag('p', 
-            ' CAMT.029.001.09 Resolution Of Investigation ', {timeout:10000})
-            .click({force:true});
-    }
+  goToCamt_029() {
+    commonLocators
+      .ByTextWithTag("p", " CAMT.029.001.09 Resolution Of Investigation ", {
+        timeout: 10000,
+      })
+      .click({ force: true });
+  }
+
+  goToCamt_109() {
+    commonLocators
+      .ByTextWithTag('p', ' CAMT.109.001.01 Cheque Cancellation Or Stop Report ', {
+        timeout: 10000,
+      })
+      .scrollIntoView()
+      .click({ force: true });
+  }
 }
 
 export default new HomePage();

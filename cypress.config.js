@@ -35,54 +35,47 @@
 //   },
 // });
 
-
-
 //Modeified
 const { defineConfig } = require("cypress");
 const xlsx = require("xlsx");
-const installLogsPrinter = require('cypress-terminal-report/src/installLogsPrinter');
+const installLogsPrinter = require("cypress-terminal-report/src/installLogsPrinter");
 
 module.exports = defineConfig({
   reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
     reportDir: "cypress/reports",
-    overwrite: false,
+    overwrite: true,
     html: true,
     json: true,
     charts: true,
   },
 
-  video: true,
+  video: false,
   screenshotsFolder: "cypress/screenshots",
   videosFolder: "cypress/videos",
 
-  chromeWebSecurity: false, 
-  defaultCommandTimeout: 10000, 
+  chromeWebSecurity: false,
+  defaultCommandTimeout: 10000,
   pageLoadTimeout: 60000,
-  experimentalModifyObstructiveThirdPartyCode: true, 
+  experimentalModifyObstructiveThirdPartyCode: true,
 
   e2e: {
-    baseUrl: "https://192.168.10.253:4941", 
-    // baseUrl: "http://192.168.10.253:4200/", 
+    baseUrl: "https://192.168.10.253:4941",
+    screenshotOnRunFailure: true,
 
     setupNodeEvents(on, config) {
-      // 1. Terminal Report Plugin
       installLogsPrinter(on, {
-        printLogsToConsole: 'always', 
+        printLogsToConsole: "always",
         includeSuccessfulHookLogs: true,
       });
 
-      // 2. Mochawesome reporter plugin
       require("cypress-mochawesome-reporter/plugin")(on);
 
-      // 3. COMBINED TASKS (Add 'log' here)
       on("task", {
-        // Your custom terminal logger (Log4j style)
         log(message) {
           console.log(message);
           return null;
         },
-        // Your existing Excel reader
         readExcel({ filePath, sheetName }) {
           const workbook = xlsx.readFile(filePath);
           const worksheet = workbook.Sheets[sheetName];
@@ -90,7 +83,6 @@ module.exports = defineConfig({
         },
       });
 
-      // 4. Browser Launch Options
       on("before:browser:launch", (browser = {}, launchOptions) => {
         if (browser.family === "chromium") {
           launchOptions.args.push("--ignore-certificate-errors");
@@ -106,5 +98,3 @@ module.exports = defineConfig({
     },
   },
 });
-
-

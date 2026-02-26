@@ -5,6 +5,7 @@ import LoginPage from "../pages/LoginPage";
 import HomePage from "../pages/HomePage";
 import MessagePage from "../pages/MessagePage";
 import MX_029_Page from "../pages/MX_029_Page";
+import MX_109_Page from "../pages/MX_109_Page";
 import { commonLocators } from "../support/locators/commonLocators";
 
 describe("Automation Suite", () => {
@@ -61,7 +62,7 @@ describe("Automation Suite", () => {
     // HomePage.logout()
   });
 
-  it.only("MX_029 Test", () => {
+  it("MX_029 Test", () => {
     HomePage.menu1();
     HomePage.search_MX_Message();
     HomePage.goToCamt_029();
@@ -100,4 +101,26 @@ describe("Automation Suite", () => {
     MX_029_Page.UETR();
     MX_029_Page.save();
   });
+
+  it.only("Check CAMT_109 Automation", () => {
+  
+      HomePage.menu1();
+      // HomePage.search("CAMT53");
+      HomePage.search_MX_Message();
+      HomePage.goToCamt_109();
+      MX_109_Page.inputFromBIC()
+      MX_109_Page.inputToBIC()
+      MX_109_Page.businessMsg()
+      MX_109_Page.msgID()
+      MX_109_Page.dateCreationField()
+      MX_109_Page.numberOfCheques()
+      MX_109_Page.originalIdentification()
+      MX_109_Page.chequeNumber()
+      MX_109_Page.issueDateField()
+      MX_109_Page.currencyField()
+      MX_109_Page.amountField()
+      MX_109_Page.codeField()
+      MX_109_Page.save()
+      
+    });
 });
