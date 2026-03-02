@@ -170,4 +170,4 @@ class OldSwift_Camt_029_Page {
     }
 }
 
-export default new OldSwift_Camt_029_Page;
+export default new OldSwift_Camt_029_Page();

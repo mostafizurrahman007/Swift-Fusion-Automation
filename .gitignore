@@ -20,11 +20,10 @@ cypress/downloads/
 .cypress-cache/
 
 # ==============================
-# Mocha / Mochawesome Reports
+# Allure Reports
 # ==============================
-mochawesome-report/
-mochawesome.json
-mochawesome*.json
+allure-results/
+allure-report/
 
 # ==============================
 # Coverage Reports (if using nyc)

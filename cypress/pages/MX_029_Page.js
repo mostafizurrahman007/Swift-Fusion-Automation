@@ -175,4 +175,4 @@ class MX_029_Page {
     }
 }
 
-export default new MX_029_Page
+export default new MX_029_Page();

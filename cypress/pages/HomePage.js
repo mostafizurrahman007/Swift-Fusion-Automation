@@ -89,15 +89,7 @@ class HomePage {
     commonLocators
       .ByTextWithTag("p", "MX Messages", { timeout: 10000 })
       .should("be.visible")
-      .click({ force: true }); // 1. Listen for the specific Resource Manager API
-    commonLocators
-      .ByTextWithTag(
-        "div.flex-1 p.text-sm.font-medium.text-gray-800.break-words",
-        "CAMT.029.001.09 Resolution Of Investigation",
-        { timeout: 100000 },
-      )
-      .scrollIntoView()
-      .click({ force: true });
+      .click();
   }
 
   search_MX_Message1() {
@@ -202,6 +194,15 @@ class HomePage {
   goToCamt_109() {
     commonLocators
       .ByTextWithTag('p', ' CAMT.109.001.01 Cheque Cancellation Or Stop Report ', {
+        timeout: 10000,
+      })
+      .scrollIntoView()
+      .click({ force: true });
+  }
+
+  goToPacs_002() {
+    commonLocators
+      .ByTextWithTag('p', ' PACS.002.001.10 FI To FI Payment Status Report ', {
         timeout: 10000,
       })
       .scrollIntoView()

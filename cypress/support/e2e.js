@@ -15,7 +15,23 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import 'cypress-mochawesome-reporter/register';
+// import 'cypress-mochawesome-reporter/register';
+
+
+import '@shelex/cypress-allure-plugin';
+// Attach screenshot automatically on failure (Allure)
+Cypress.on('test:after:run', (test, runnable) => {
+  if (test.state === 'failed') {
+    const screenshotFileName = `${runnable.parent.title} -- ${test.title} (failed).png`;
+    cy.allure().attachment(
+      'Screenshot on Failure',
+      `cypress/screenshots/${Cypress.spec.name}/${screenshotFileName}`,
+      'image/png'
+    );
+  }
+});
+
+
 
 require('cypress-xpath');
 

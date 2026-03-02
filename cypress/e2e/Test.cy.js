@@ -6,6 +6,7 @@ import HomePage from "../pages/HomePage";
 import MessagePage from "../pages/MessagePage";
 import MX_029_Page from "../pages/MX_029_Page";
 import MX_109_Page from "../pages/MX_109_Page";
+import MX_Pacs_002_Page from "../pages/MX_Pacs_002_Page";
 import { commonLocators } from "../support/locators/commonLocators";
 
 describe("Automation Suite", () => {
@@ -102,7 +103,7 @@ describe("Automation Suite", () => {
     MX_029_Page.save();
   });
 
-  it.only("Check CAMT_109 Automation", () => {
+  it("CAMT_109 Automation", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -134,5 +135,61 @@ describe("Automation Suite", () => {
     MX_109_Page.codeField();
     MX_109_Page.chequeCancellationAdditionalInfoField();
     MX_109_Page.save();
+  });
+
+  it.only("PACS_002 Automation", () => {
+    HomePage.menu1();
+    // HomePage.search("CAMT53");
+    HomePage.search_MX_Message();
+    HomePage.goToPacs_002();
+    MX_Pacs_002_Page.charSetField();
+    MX_Pacs_002_Page.inputFromBIC();
+    MX_Pacs_002_Page.inputToBIC();
+    MX_Pacs_002_Page.fromClearingSystemID();
+    MX_Pacs_002_Page.toClearingSystemID();
+    MX_Pacs_002_Page.fromMemberID();
+    MX_Pacs_002_Page.toMemberID();
+    MX_Pacs_002_Page.fromLei();
+    MX_Pacs_002_Page.toLei();
+    MX_Pacs_002_Page.priorityField();
+    MX_Pacs_002_Page.registryField();
+    MX_Pacs_002_Page.marketIdentificationField();
+    MX_Pacs_002_Page.copyDuplicateField();
+    MX_Pacs_002_Page.possibleDuplicateField();
+    MX_Pacs_002_Page.relatedCharSetField();
+    MX_Pacs_002_Page.relatedFromBIC();
+    MX_Pacs_002_Page.relatedToBIC();
+    MX_Pacs_002_Page.relatedFromClearingSystemID();
+    MX_Pacs_002_Page.relatedToClearingSystemID();
+    MX_Pacs_002_Page.relatedFromMemberID();
+    MX_Pacs_002_Page.relatedToMemberID();
+    MX_Pacs_002_Page.relatedFromLei();
+    MX_Pacs_002_Page.relatedToLei();
+    MX_Pacs_002_Page.businessMsg();
+    MX_Pacs_002_Page.msgID();
+    MX_Pacs_002_Page.businessServiceField();
+    MX_Pacs_002_Page.dateCreationField();
+    MX_Pacs_002_Page.originalMsgIdentification();
+    MX_Pacs_002_Page.originalMsgNameIdentification();
+    MX_Pacs_002_Page.originalEndToEndID();
+    MX_Pacs_002_Page.transactionStatus();
+    MX_Pacs_002_Page.originatorNameField();
+    MX_Pacs_002_Page.originatorCountryField();
+    MX_Pacs_002_Page.originatorPostalDepartmentField();
+    MX_Pacs_002_Page.originatorPostalStreetField();
+    MX_Pacs_002_Page.originatorPostalPostCodeField();
+    MX_Pacs_002_Page.originatorPostalTownNameField();
+    MX_Pacs_002_Page.originatorPostalDistrictNameField();
+    MX_Pacs_002_Page.originatorPostalCountryNameField();
+    MX_Pacs_002_Page.reasonCodeField();
+    MX_Pacs_002_Page.reasonPropietaryField();
+    MX_Pacs_002_Page.clearingSystemRef();
+    MX_Pacs_002_Page.instrucingAgentBicfi();
+    MX_Pacs_002_Page.instrucingClearingMemberID();
+    MX_Pacs_002_Page.instrucingClearingID();
+    MX_Pacs_002_Page.instrucedAgentBicfi();
+    MX_Pacs_002_Page.instrucedClearingMemberID();
+    MX_Pacs_002_Page.instrucedClearingID();
+    MX_Pacs_002_Page.save();
   });
 });
