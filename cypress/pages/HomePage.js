@@ -208,6 +208,15 @@ class HomePage {
       .scrollIntoView()
       .click({ force: true });
   }
+
+  goToPacs_004() {
+    commonLocators
+      .ByTextWithTag('p', ' PACS.004.001.09 Payment Return ', {
+        timeout: 10000,
+      })
+      .scrollIntoView()
+      .click({ force: true });
+  }
 }
 
 export default new HomePage();
