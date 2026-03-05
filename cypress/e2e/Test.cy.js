@@ -8,6 +8,7 @@ import MX_029_Page from "../pages/MX_029_Page";
 import MX_109_Page from "../pages/MX_109_Page";
 import MX_Pacs_002_Page from "../pages/MX_Pacs_002_Page";
 import MX_Pacs_004_Page from "../pages/MX_Pacs_004_Page";
+import MX_Pacs_009_Page from "../pages/MX_Pacs_009_Page";
 import { commonLocators } from "../support/locators/commonLocators";
 
 describe("Automation Suite", () => {
@@ -194,7 +195,7 @@ describe("Automation Suite", () => {
     MX_Pacs_002_Page.save();
   });
 
-  it.only("PACS_004 Automation", () => {
+  it("PACS_004 Automation", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -256,5 +257,73 @@ describe("Automation Suite", () => {
     // MX_Pacs_004_Page.instrucedClearingMemberID();
     // MX_Pacs_004_Page.instrucedClearingID();
     MX_Pacs_004_Page.save();
+  });
+
+  it.only("PACS_009 Automation", () => {
+    HomePage.menu1();
+    // HomePage.search("CAMT53");
+    HomePage.search_MX_Message();
+    HomePage.goToPacs_009();
+    MX_Pacs_009_Page.charSetField();
+    MX_Pacs_009_Page.inputFromBIC();
+    MX_Pacs_009_Page.inputToBIC();
+    MX_Pacs_009_Page.fromClearingSystemID();
+    MX_Pacs_009_Page.toClearingSystemID();
+    MX_Pacs_009_Page.fromMemberID();
+    MX_Pacs_009_Page.toMemberID();
+    MX_Pacs_009_Page.fromLei();
+    MX_Pacs_009_Page.toLei();
+    MX_Pacs_009_Page.businessMsgID();
+    MX_Pacs_009_Page.groupHeaderMsgID();
+    // MX_Pacs_009_Page.groupHeaderDateCreationField();
+    // MX_Pacs_009_Page.originalInstructionIdentification();
+    MX_Pacs_009_Page.paymentEndToEndID();
+    MX_Pacs_009_Page.paymentTransactionID();
+    MX_Pacs_009_Page.paymentClearingSystemRef();
+    // MX_Pacs_009_Page.internetBankingSettlementDate();
+    MX_Pacs_009_Page.internetBankingSettlementPriorityField();
+    // MX_Pacs_009_Page.returnedInstrucedCurrencyField();
+    // MX_Pacs_009_Page.returnedInstrucedAmountField();
+    MX_Pacs_009_Page.interBankCurrencyField();
+    MX_Pacs_009_Page.internetBankingAMountField();
+    MX_Pacs_009_Page.priorityField();
+    // MX_Pacs_009_Page.registryField();
+    // MX_Pacs_009_Page.marketIdentificationField();
+    MX_Pacs_009_Page.copyDuplicateField();
+    MX_Pacs_009_Page.possibleDuplicateField();
+    // MX_Pacs_009_Page.relatedCharSetField();
+    // MX_Pacs_009_Page.relatedFromBIC();
+    // MX_Pacs_009_Page.relatedToBIC();
+    // MX_Pacs_009_Page.relatedFromClearingSystemID();
+    // MX_Pacs_009_Page.relatedToClearingSystemID();
+    // MX_Pacs_009_Page.relatedFromMemberID();
+    // MX_Pacs_009_Page.relatedToMemberID();
+    // MX_Pacs_009_Page.relatedFromLei();
+    // MX_Pacs_009_Page.relatedToLei();
+    // MX_Pacs_009_Page.msgID();
+    // MX_Pacs_009_Page.businessServiceField();
+    // MX_Pacs_009_Page.dateCreationField();
+    // MX_Pacs_009_Page.originalMsgIdentification();
+    // MX_Pacs_009_Page.originalMsgNameIdentification();
+    // MX_Pacs_009_Page.originalEndToEndID();
+    // MX_Pacs_009_Page.transactionStatus();
+    // MX_Pacs_009_Page.originatorNameField();
+    // MX_Pacs_009_Page.originatorCountryField();
+    // MX_Pacs_009_Page.originatorPostalDepartmentField();
+    // MX_Pacs_009_Page.originatorPostalStreetField();
+    // MX_Pacs_009_Page.originatorPostalPostCodeField();
+    // MX_Pacs_009_Page.originatorPostalTownNameField();
+    // MX_Pacs_009_Page.originatorPostalDistrictNameField();
+    // MX_Pacs_009_Page.originatorPostalCountryNameField();
+    // MX_Pacs_009_Page.reasonCodeField();
+    // MX_Pacs_009_Page.reasonPropietaryField();
+    // MX_Pacs_009_Page.clearingSystemRef();
+    // MX_Pacs_009_Page.instrucingAgentBicfi();
+    // MX_Pacs_009_Page.instrucingClearingMemberID();
+    // MX_Pacs_009_Page.instrucingClearingID();
+    // MX_Pacs_009_Page.instrucedAgentBicfi();
+    // MX_Pacs_009_Page.instrucedClearingMemberID();
+    // MX_Pacs_009_Page.instrucedClearingID();
+    MX_Pacs_009_Page.save();
   });
 });

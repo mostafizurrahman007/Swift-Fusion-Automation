@@ -217,6 +217,15 @@ class HomePage {
       .scrollIntoView()
       .click({ force: true });
   }
+
+  goToPacs_009() {
+    commonLocators
+      .ByTextWithTag('p', ' PACS.009.001.08 Financial Institution Credit Trans ', {
+        timeout: 10000,
+      })
+      .scrollIntoView()
+      .click({ force: true });
+  }
 }
 
 export default new HomePage();
