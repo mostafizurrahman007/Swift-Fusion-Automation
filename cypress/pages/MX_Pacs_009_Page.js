@@ -357,6 +357,19 @@ class MX_Pacs_009_Page {
       .click();
   }
 
+  debtorBic(){
+    commonLocators.ByControlName("Bicfi").first().dblclick();
+    commonLocators
+      .inputByPlaceholder("SWIFT code search...")
+      .clear()
+      .type("M");
+    commonLocators
+      .ByAria_Label_Btn("Find")
+      .should("be.visible")
+      .click();
+    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+  }
+
   save() {
     commonLocators.ByTextWithTag("button", "Save").click({ force: true });
 

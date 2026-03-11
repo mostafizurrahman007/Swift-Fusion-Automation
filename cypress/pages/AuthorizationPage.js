@@ -20,13 +20,19 @@ class AuthorizationPage {
       })
       .scrollIntoView()
       .click({ force: true });
+
+    cy.get(".drawer-container > div.flex.border-b button")
+      .eq(0)
+      .should("exist")
+      .and("be.visible")
+      .click({ force: true }, { timeout: 15000 });
   }
 
   authorize(text) {
     commonLocators
-      .ByControlName("messageType")
-      .clear()
-      .type(text + "{enter}");
+      .inputByPlaceholder("Search messages...")
+      .should("be.visible")
+      .click({ force: true });
   }
 }
 

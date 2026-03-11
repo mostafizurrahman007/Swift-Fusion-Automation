@@ -325,7 +325,8 @@ describe("Automation Suite", () => {
     // MX_Pacs_009_Page.instrucedAgentBicfi();
     // MX_Pacs_009_Page.instrucedClearingMemberID();
     // MX_Pacs_009_Page.instrucedClearingID();
-    MX_Pacs_009_Page.save();
+    MX_Pacs_009_Page.debtorBic();
+    // MX_Pacs_009_Page.save();
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.authorize("PACS_009");
   });
