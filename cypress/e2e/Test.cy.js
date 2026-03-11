@@ -327,6 +327,6 @@ describe("Automation Suite", () => {
     // MX_Pacs_009_Page.instrucedClearingID();
     MX_Pacs_009_Page.save();
     AuthorizationPage.openMenuAndGoToAuthorization();
-    AuthorizationPage.authorize("PACS_002");
+    AuthorizationPage.authorize("PACS_009");
   });
 });
