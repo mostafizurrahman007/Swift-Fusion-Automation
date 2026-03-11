@@ -3,6 +3,7 @@
 
 import LoginPage from "../pages/LoginPage";
 import HomePage from "../pages/HomePage";
+import AuthorizationPage from "../pages/AuthorizationPage";
 import MessagePage from "../pages/MessagePage";
 import MX_029_Page from "../pages/MX_029_Page";
 import MX_109_Page from "../pages/MX_109_Page";
@@ -325,5 +326,7 @@ describe("Automation Suite", () => {
     // MX_Pacs_009_Page.instrucedClearingMemberID();
     // MX_Pacs_009_Page.instrucedClearingID();
     MX_Pacs_009_Page.save();
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.authorize("PACS_002");
   });
 });

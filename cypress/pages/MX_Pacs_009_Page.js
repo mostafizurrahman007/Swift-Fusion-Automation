@@ -12,11 +12,11 @@ class MX_Pacs_009_Page {
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
     commonLocators
-      .inputByPlaceholder("Enter SWIFT code prefix to search...")
+      .inputByPlaceholder("SWIFT code search...")
       .clear()
       .type("M");
     commonLocators
-      .ByAria_Label_Btn("Find SWIFT Code")
+      .ByAria_Label_Btn("Find")
       .should("be.visible")
       .click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
