@@ -11,14 +11,8 @@ class MX_Pacs_009_Page {
 
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators
-      .inputByPlaceholder("SWIFT code search...")
-      .clear()
-      .type("M");
-    commonLocators
-      .ByAria_Label_Btn("Find")
-      .should("be.visible")
-      .click();
+    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
+    commonLocators.ByAria_Label_Btn("Find").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
@@ -196,11 +190,11 @@ class MX_Pacs_009_Page {
     commonLocators.ByControlName("endToEndId").clear().type(1);
   }
 
-  paymentTransactionID(){
+  paymentTransactionID() {
     commonLocators.ByControlName("txId").clear().type(1);
   }
 
-  paymentClearingSystemRef(){
+  paymentClearingSystemRef() {
     commonLocators.ByControlName("clrSysRef").clear().type("A");
   }
 
@@ -357,17 +351,18 @@ class MX_Pacs_009_Page {
       .click();
   }
 
-  debtorBic(){
-    commonLocators.ByControlName("Bicfi").first().dblclick();
-    commonLocators
-      .inputByPlaceholder("SWIFT code search...")
-      .clear()
-      .type("M");
-    commonLocators
-      .ByAria_Label_Btn("Find")
-      .should("be.visible")
-      .click();
+  debtorBic() {
+    commonLocators.ByControlName("Bicfi").eq(0).dblclick();
+    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
+    commonLocators.ByAria_Label_Btn("Find").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+  }
+
+  creditorBic() {
+    commonLocators.ByControlName("Bicfi").eq(1).dblclick();
+    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("K");
+    commonLocators.ByAria_Label_Btn("Find").click().should("be.visible");
+    commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
   save() {

@@ -32,7 +32,8 @@ class AuthorizationPage {
     commonLocators
       .inputByPlaceholder("Search messages...")
       .should("be.visible")
-      .click({ force: true });
+      .clear()
+      .type(text + '{enter}')
   }
 }
 
