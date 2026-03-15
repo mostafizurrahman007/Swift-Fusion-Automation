@@ -11,8 +11,14 @@ class MX_Pacs_009_Page {
 
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
-    commonLocators.ByAria_Label_Btn("Find").should("be.visible").click();
+    commonLocators
+      .inputByPlaceholder("Enter SWIFT code prefix to search...")
+      .clear()
+      .type("M");
+    commonLocators
+      .ByAria_Label_Btn("Find SWIFT Code")
+      .should("be.visible")
+      .click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
@@ -353,8 +359,14 @@ class MX_Pacs_009_Page {
 
   debtorBic() {
     commonLocators.ByControlName("Bicfi").eq(0).dblclick();
-    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
-    commonLocators.ByAria_Label_Btn("Find").should("be.visible").click();
+    commonLocators
+      .inputByPlaceholder("Enter SWIFT code prefix to search...")
+      .clear()
+      .type("M");
+    commonLocators
+      .ByAria_Label_Btn("Find SWIFT Code")
+      .should("be.visible")
+      .click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
@@ -377,7 +389,17 @@ class MX_Pacs_009_Page {
         cy.log("Alert Message: " + alertMessage);
 
         expect(alertMessage.toLowerCase()).to.include("saved");
+
+        cy.get('div[role="alert"]', { timeout: 4000 })
+          .first()
+          .should("be.visible")
+          .click();
       });
+
+    cy.get('div[role="alert"]', { timeout: 4000 })
+      .first()
+      .should("be.visible")
+      .click();
   }
 }
 

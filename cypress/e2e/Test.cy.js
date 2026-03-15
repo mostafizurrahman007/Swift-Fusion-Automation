@@ -329,6 +329,6 @@ describe("Automation Suite", () => {
     MX_Pacs_009_Page.creditorBic();
     MX_Pacs_009_Page.save();
     AuthorizationPage.openMenuAndGoToAuthorization();
-    AuthorizationPage.authorize("PACS_009");
+    AuthorizationPage.authorize("PACS009");
   });
 });

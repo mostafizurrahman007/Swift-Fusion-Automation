@@ -29,12 +29,13 @@ class AuthorizationPage {
   }
 
   authorize(text) {
-    commonLocators
-      .inputByPlaceholder("Search messages...")
-      .should("be.visible")
-      .clear()
-      .type(text + '{enter}')
-  }
+  cy.get('input[controlname="messageType"]')
+    .scrollIntoView()
+    .should('be.visible')
+    .click()
+    .clear()
+    .type(`${text}{enter}`);
+}
 }
 
 export default new AuthorizationPage();
