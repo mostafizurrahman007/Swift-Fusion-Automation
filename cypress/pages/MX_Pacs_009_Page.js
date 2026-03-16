@@ -5,8 +5,11 @@ import { commonLocators } from "../support/locators/commonLocators";
 import { getCurrentDateDDMMYYYY } from "../utils/dateUtils";
 
 class MX_Pacs_009_Page {
+
+  businessMsg = "pacs";
+
   charSetField() {
-    commonLocators.ByControlName("charSet").clear().type("A");
+    commonLocators.ByControlName("charSet").clear().type("Auth1");
   }
 
   inputFromBIC() {
@@ -142,7 +145,7 @@ class MX_Pacs_009_Page {
   }
 
   businessMsgID() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type("A");
+    commonLocators.ByControlName("bizMsgIdr").clear().type(this.businessMsg);
   }
 
   msgID() {
@@ -390,10 +393,10 @@ class MX_Pacs_009_Page {
 
         expect(alertMessage.toLowerCase()).to.include("saved");
 
-        cy.get('div[role="alert"]', { timeout: 4000 })
-          .first()
-          .should("be.visible")
-          .click();
+        // cy.get('div[role="alert"]', { timeout: 4000 })
+        //   .first()
+        //   .should("be.visible")
+        //   .click();
       });
 
     cy.get('div[role="alert"]', { timeout: 4000 })

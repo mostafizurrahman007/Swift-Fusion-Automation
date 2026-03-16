@@ -28,14 +28,38 @@ class AuthorizationPage {
       .click({ force: true }, { timeout: 15000 });
   }
 
-  authorize(text) {
-  cy.get('input[controlname="messageType"]')
-    .scrollIntoView()
-    .should('be.visible')
-    .click()
-    .clear()
-    .type(`${text}{enter}`);
-}
+  messageType(text) {
+    cy.get('input[controlname="messageType"]')
+      .scrollIntoView()
+      .should("be.visible")
+      .click()
+      .clear()
+      .type(`${text}{enter}`);
+  }
+
+  authorizeByBusinessMsgIdentifier(identifier) {
+    cy.contains("div", identifier)
+      .scrollIntoView()
+      .parents("tr")
+      .find('input[type="checkbox"]')
+      .check({ force: true });
+
+    cy.contains("button", "Authorize").should("be.visible").click();
+  }
+
+  confirmAuthorization(){
+    commonLocators.ByTextWithTag('button', ' Yes, Authorize ').should('be.visible').click()
+    cy.contains('p', 'messages authorized successfully!', { timeout: 4000 })
+  .should('be.visible')
+  .invoke('text')
+  .then((msg) => {
+    const alertMessage = msg.trim();
+    cy.log("Alert Message: " + alertMessage);
+
+    expect(alertMessage.toLowerCase()).to.include("messages authorized successfully!");
+  });
+  commonLocators.ByTextWithTag('button', ' OK ').should('be.visible').click();
+  }
 }
 
 export default new AuthorizationPage();
