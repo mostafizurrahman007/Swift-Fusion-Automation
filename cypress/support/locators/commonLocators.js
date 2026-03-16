@@ -10,4 +10,7 @@ export const commonLocators = {
 
   ByControlName: (text) =>
     cy.get(`[controlname="${text}"]`),
+
+   ByPanelID: (text) =>
+    cy.get(`[panelid="${text}"]`),
 }
