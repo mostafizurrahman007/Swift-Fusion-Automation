@@ -4,9 +4,8 @@
 import { commonLocators } from "../support/locators/commonLocators";
 import { getCurrentDateDDMMYYYY } from "../utils/dateUtils";
 
-class MX_Pacs_009_Page {
-
-  groupHeaderMsgIDText = "pacsA";
+class MX_Pacs_008_Page {
+  groupHeaderMsgIDText = "DadA";
 
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("Auth1");
@@ -55,11 +54,11 @@ class MX_Pacs_009_Page {
   }
 
   fromMemberID() {
-    commonLocators.ByControlName("fromMmbId").clear().type(1);
+    commonLocators.ByControlName("fromMembId").clear().type(1);
   }
 
   toMemberID() {
-    commonLocators.ByControlName("toMmbId").clear().type(1);
+    commonLocators.ByControlName("toMembId").clear().type(1);
   }
 
   fromLei() {
@@ -84,7 +83,7 @@ class MX_Pacs_009_Page {
   }
 
   relatedCharSetField() {
-    commonLocators.ByControlName("rltdCharSet").clear().type("A");
+    commonLocators.ByControlName("rltdCharSet").clear().type("Abcnn");
   }
 
   relatedFromBIC() {
@@ -145,7 +144,7 @@ class MX_Pacs_009_Page {
   }
 
   businessMsgID() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type('Ank');
+    commonLocators.ByControlName("bizMsgIdr").clear().type('Many');
   }
 
   msgID() {
@@ -153,7 +152,7 @@ class MX_Pacs_009_Page {
   }
 
   businessServiceField() {
-    commonLocators.ByControlName("rltdBizSvc").clear().type("A");
+    commonLocators.ByControlName("rltdBizSvc").clear().type("Abca");
   }
 
   groupHeaderMsgID() {
@@ -204,7 +203,7 @@ class MX_Pacs_009_Page {
   }
 
   paymentClearingSystemRef() {
-    commonLocators.ByControlName("clrSysRef").clear().type("A");
+    commonLocators.ByControlName("clrSysRef").clear().type("Ayy");
   }
 
   internetBankingSettlementDate() {
@@ -235,7 +234,7 @@ class MX_Pacs_009_Page {
   }
 
   originatorNameField() {
-    commonLocators.ByControlName("orgtrNm").clear().type("A");
+    commonLocators.ByControlName("orgtrNm").clear().type("Akl");
   }
 
   originatorCountryField() {
@@ -266,8 +265,13 @@ class MX_Pacs_009_Page {
       .click();
   }
 
+  chargeBearerField() {
+    commonLocators.ByControlName("chrgBr").click();
+    commonLocators.ByTextWithTag("div", "Debitor").should("be.visible").click();
+  }
+
   originatorPostalDepartmentField() {
-    commonLocators.ByControlName("orgtrDept").clear().type("A");
+    commonLocators.ByControlName("orgtrDept").clear().type("Ajk");
   }
 
   originatorPostalStreetField() {
@@ -299,7 +303,7 @@ class MX_Pacs_009_Page {
   }
 
   reasonPropietaryField() {
-    commonLocators.ByControlName("rsnCd").clear().type("A");
+    commonLocators.ByControlName("rsnCd").clear().type("Ayu");
   }
 
   clearingSystemRef() {
@@ -312,14 +316,8 @@ class MX_Pacs_009_Page {
 
   instrucingAgentBicfi() {
     commonLocators.ByControlName("TxInfInstgAgtFinInstnIdBICFI").dblclick();
-    commonLocators
-      .inputByPlaceholder("Enter SWIFT code prefix to search...")
-      .clear()
-      .type("M");
-    commonLocators
-      .ByAria_Label_Btn("Find SWIFT Code")
-      .should("be.visible")
-      .click();
+    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
+    commonLocators.ByAria_Label_Btn("Find").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
@@ -337,14 +335,8 @@ class MX_Pacs_009_Page {
 
   instrucedAgentBicfi() {
     commonLocators.ByControlName("TxInfInstdAgtFinInstnIdBICFI").dblclick();
-    commonLocators
-      .inputByPlaceholder("Enter SWIFT code prefix to search...")
-      .clear()
-      .type("K");
-    commonLocators
-      .ByAria_Label_Btn("Find SWIFT Code")
-      .click()
-      .should("be.visible");
+    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("K");
+    commonLocators.ByAria_Label_Btn("Find").click().should("be.visible");
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
@@ -360,17 +352,75 @@ class MX_Pacs_009_Page {
       .click();
   }
 
-  debtorBic() {
-    commonLocators.ByControlName("Bicfi").eq(0).dblclick();
+  debatorName() {
+    commonLocators.ByControlName("dbtrNm").clear().type("Anik");
+  }
+
+  debatorCountryName(){
+    commonLocators.ByControlName("dbtrCtryOfRes").click();
     commonLocators
-      .inputByPlaceholder("Enter SWIFT code prefix to search...")
-      .clear()
-      .type("M");
-    commonLocators
-      .ByAria_Label_Btn("Find SWIFT Code")
+      .ByTextWithTag("div", "001 - Bangladesh")
       .should("be.visible")
       .click();
+  }
+
+  debatorPostalAddressPanel(){
+    commonLocators.ByPanelID('expansion-header-44').should('be.visible').click();
+  }
+
+  debatorPostalAddressDepartmentName(){
+    commonLocators.ByControlName("dbtrDept").clear().type("IT");
+  }
+
+  debatorPostalAddressStreetName(){
+    commonLocators.ByControlName("dbtrStrtNm").clear().type("South Street");
+  }
+
+  debatorPostalAddressPostCode(){
+    commonLocators.ByControlName("dbtrPstCd").clear().type(1212);
+  }
+
+  debatorPostalAddressTownName(){
+    commonLocators.ByControlName("dbtrTwnNm").clear().type("Dhaka");
+  }
+
+  debatorPostalAddressCountryName(){
+    commonLocators.ByControlName("dbtrCtry").clear().type('Bangladesh{enter}').blur()
+  }
+  
+  debtorBic() {
+    commonLocators.ByControlName("Bicfi").eq(0).dblclick();
+    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
+    commonLocators.ByAria_Label_Btn("Find").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+  }
+
+  creaditorName() {
+    commonLocators.ByControlName("cdtrNm").clear().type("Mostafiz");
+  }
+
+ creaditorPostalAddressPanel (){
+    commonLocators.ByPanelID('expansion-header-48').should('be.visible').click();
+  }
+
+  creaditorPostalAddressDepartmentName(){
+    commonLocators.ByControlName("cdtrDept").clear().type("IT");
+  }
+
+  creaditorPostalAddressStreetName(){
+    commonLocators.ByControlName("cdtrStrtNm").clear().type("South Street");
+  }
+
+  creaditorPostalAddressPostCode(){
+    commonLocators.ByControlName("cdtrPstCd").clear().type(1212);
+  }
+
+  creaditorPostalAddressTownName(){
+    commonLocators.ByControlName("cdtrTwnNm").clear().type("Dhaka");
+  }
+
+  creaditorPostalAddressCountryName(){
+    commonLocators.ByControlName("cdtrCtry").clear().type('Bangladesh{enter}')
   }
 
   creditorBic() {
@@ -381,9 +431,9 @@ class MX_Pacs_009_Page {
   }
 
   save() {
-    commonLocators.ByTextWithTag("button", "Save").click({ force: true });
+    commonLocators.ByTextWithTag('button', 'Save').click().blur();
 
-    cy.get('div[role="alert"]', { timeout: 4000 })
+    cy.get('div[role="alert"]', { timeout: 5000 })
       .first()
       .should("be.visible")
       .invoke("text")
@@ -406,4 +456,4 @@ class MX_Pacs_009_Page {
   }
 }
 
-export default new MX_Pacs_009_Page();
+export default new MX_Pacs_008_Page();

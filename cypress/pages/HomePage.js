@@ -218,6 +218,15 @@ class HomePage {
       .click({ force: true });
   }
 
+  goToPacs_008() {
+    commonLocators
+      .ByTextWithTag('p', ' PACS.008.001.08 FI To FI Customer Credit Transfer ', {
+        timeout: 10000,
+      })
+      .scrollIntoView()
+      .click({ force: true });
+  }
+
   goToPacs_009() {
     commonLocators
       .ByTextWithTag('p', ' PACS.009.001.08 Financial Institution Credit Trans ', {
