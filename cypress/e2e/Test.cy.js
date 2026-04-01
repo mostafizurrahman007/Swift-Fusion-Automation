@@ -15,6 +15,9 @@ import { commonLocators } from "../support/locators/commonLocators";
 
 describe("Automation Suite", () => {
   beforeEach("Login with valid credentials", () => {
+    cy.clearCookies();
+    cy.clearLocalStorage();
+
     cy.task("readExcel", {
       filePath: "cypress/fixtures/credentials.xlsx",
       sheetName: "login_credentials",
@@ -331,7 +334,9 @@ describe("Automation Suite", () => {
     MX_Pacs_009_Page.save();
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("PACS009");
-    AuthorizationPage.authorizeByBusinessMsgIdentifier(MX_Pacs_009_Page.groupHeaderMsgIDText);
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_Pacs_009_Page.groupHeaderMsgIDText,
+    );
     AuthorizationPage.confirmAuthorization();
   });
 
@@ -340,7 +345,7 @@ describe("Automation Suite", () => {
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
     HomePage.goToPacs_008();
-    MX_Pacs_008_Page.charSetField();
+    /*MX_Pacs_008_Page.charSetField();
     MX_Pacs_008_Page.inputFromBIC();
     MX_Pacs_008_Page.inputToBIC();
     MX_Pacs_008_Page.fromClearingSystemID();
@@ -403,7 +408,7 @@ describe("Automation Suite", () => {
     // MX_Pacs_008_Page.instrucedClearingID();
     MX_Pacs_008_Page.debatorName();
     MX_Pacs_008_Page.debatorCountryName();
-    MX_Pacs_008_Page.debatorPostalAddressPanel()
+    MX_Pacs_008_Page.debatorPostalAddressPanel();
     MX_Pacs_008_Page.debatorPostalAddressDepartmentName();
     MX_Pacs_008_Page.debatorPostalAddressStreetName();
     MX_Pacs_008_Page.debatorPostalAddressPostCode();
@@ -417,11 +422,14 @@ describe("Automation Suite", () => {
     MX_Pacs_008_Page.creaditorPostalAddressPostCode();
     MX_Pacs_008_Page.creaditorPostalAddressTownName();
     MX_Pacs_008_Page.creaditorPostalAddressCountryName();
-    MX_Pacs_008_Page.creditorBic();
-    MX_Pacs_008_Page.save();
-    AuthorizationPage.openMenuAndGoToAuthorization();
-    AuthorizationPage.messageType("PACS008");
-    AuthorizationPage.authorizeByBusinessMsgIdentifier(MX_Pacs_008_Page.groupHeaderMsgIDText);
-    AuthorizationPage.confirmAuthorization();
+    MX_Pacs_008_Page.creditorBic();*/
+    MX_Pacs_008_Page.remittanceStructureddPanelHandle();
+    MX_Pacs_008_Page.remittanceStructuredReferredDocTypeNumber();
+    MX_Pacs_008_Page.remittanceStructuredReferredLineTypeNumber();
+    // MX_Pacs_008_Page.save();
+    // AuthorizationPage.openMenuAndGoToAuthorization();
+    // AuthorizationPage.messageType("PACS008");
+    // AuthorizationPage.authorizeByBusinessMsgIdentifier(MX_Pacs_008_Page.groupHeaderMsgIDText);
+    // AuthorizationPage.confirmAuthorization();
   });
 });

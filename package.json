@@ -10,7 +10,7 @@
     "@shelex/cypress-allure-plugin": "^2.41.2",
     "@testing-library/cypress": "^10.1.0",
     "allure-commandline": "^2.37.0",
-    "cypress": "^15.11.0",
+    "cypress": "^15.13.0",
     "cypress-terminal-report": "^7.3.3",
     "cypress-xpath": "^2.0.1",
     "mochawesome": "^7.1.4",

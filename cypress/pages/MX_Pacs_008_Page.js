@@ -5,7 +5,7 @@ import { commonLocators } from "../support/locators/commonLocators";
 import { getCurrentDateDDMMYYYY } from "../utils/dateUtils";
 
 class MX_Pacs_008_Page {
-  groupHeaderMsgIDText = "DadA";
+  groupHeaderMsgIDText = "DadA11";
 
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("Auth1");
@@ -144,7 +144,7 @@ class MX_Pacs_008_Page {
   }
 
   businessMsgID() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type('Many');
+    commonLocators.ByControlName("bizMsgIdr").clear().type("Many1");
   }
 
   msgID() {
@@ -156,7 +156,10 @@ class MX_Pacs_008_Page {
   }
 
   groupHeaderMsgID() {
-    commonLocators.ByControlName("msgId").clear().type(this.groupHeaderMsgIDText);
+    commonLocators
+      .ByControlName("msgId")
+      .clear()
+      .type(this.groupHeaderMsgIDText);
   }
 
   groupHeaderDateCreationField() {
@@ -356,7 +359,7 @@ class MX_Pacs_008_Page {
     commonLocators.ByControlName("dbtrNm").clear().type("Anik");
   }
 
-  debatorCountryName(){
+  debatorCountryName() {
     commonLocators.ByControlName("dbtrCtryOfRes").click();
     commonLocators
       .ByTextWithTag("div", "001 - Bangladesh")
@@ -364,30 +367,37 @@ class MX_Pacs_008_Page {
       .click();
   }
 
-  debatorPostalAddressPanel(){
-    commonLocators.ByPanelID('expansion-header-44').should('be.visible').click();
+  debatorPostalAddressPanel() {
+    commonLocators
+      .ByPanelID("expansion-header-44")
+      .should("be.visible")
+      .click();
   }
 
-  debatorPostalAddressDepartmentName(){
+  debatorPostalAddressDepartmentName() {
     commonLocators.ByControlName("dbtrDept").clear().type("IT");
   }
 
-  debatorPostalAddressStreetName(){
+  debatorPostalAddressStreetName() {
     commonLocators.ByControlName("dbtrStrtNm").clear().type("South Street");
   }
 
-  debatorPostalAddressPostCode(){
+  debatorPostalAddressPostCode() {
     commonLocators.ByControlName("dbtrPstCd").clear().type(1212);
   }
 
-  debatorPostalAddressTownName(){
+  debatorPostalAddressTownName() {
     commonLocators.ByControlName("dbtrTwnNm").clear().type("Dhaka");
   }
 
-  debatorPostalAddressCountryName(){
-    commonLocators.ByControlName("dbtrCtry").clear().type('Bangladesh{enter}').blur()
+  debatorPostalAddressCountryName() {
+    commonLocators
+      .ByControlName("dbtrCtry")
+      .clear()
+      .type("Bangladesh{enter}")
+      .blur();
   }
-  
+
   debtorBic() {
     commonLocators.ByControlName("Bicfi").eq(0).dblclick();
     commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
@@ -399,28 +409,31 @@ class MX_Pacs_008_Page {
     commonLocators.ByControlName("cdtrNm").clear().type("Mostafiz");
   }
 
- creaditorPostalAddressPanel (){
-    commonLocators.ByPanelID('expansion-header-48').should('be.visible').click();
+  creaditorPostalAddressPanel() {
+    commonLocators
+      .ByPanelID("expansion-header-48")
+      .should("be.visible")
+      .click();
   }
 
-  creaditorPostalAddressDepartmentName(){
+  creaditorPostalAddressDepartmentName() {
     commonLocators.ByControlName("cdtrDept").clear().type("IT");
   }
 
-  creaditorPostalAddressStreetName(){
+  creaditorPostalAddressStreetName() {
     commonLocators.ByControlName("cdtrStrtNm").clear().type("South Street");
   }
 
-  creaditorPostalAddressPostCode(){
+  creaditorPostalAddressPostCode() {
     commonLocators.ByControlName("cdtrPstCd").clear().type(1212);
   }
 
-  creaditorPostalAddressTownName(){
+  creaditorPostalAddressTownName() {
     commonLocators.ByControlName("cdtrTwnNm").clear().type("Dhaka");
   }
 
-  creaditorPostalAddressCountryName(){
-    commonLocators.ByControlName("cdtrCtry").clear().type('Bangladesh{enter}')
+  creaditorPostalAddressCountryName() {
+    commonLocators.ByControlName("cdtrCtry").clear().type("Bangladesh{enter}");
   }
 
   creditorBic() {
@@ -430,8 +443,47 @@ class MX_Pacs_008_Page {
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
+  remittanceStructureddPanelHandle() {
+    commonLocators
+      .ByPanelID("expansion-header-10")
+      .eq(1)
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByPanelID("expansion-header-53")
+      .parent()
+      .find("button:has(svg)")
+      .click();
+  }
+
+  remittanceStructuredReferredDocTypeNumber() {
+    commonLocators
+      .ByPanelID("expansion-header-54")
+      .parent()
+      .find("button:has(svg)")
+      .click();
+
+    commonLocators.ByControlName("nb").should("be.visible").clear().type(123);
+  }
+
+  remittanceStructuredReferredLineTypeNumber() {
+    commonLocators
+      .ByPanelID("expansion-header-62")
+      .parent()
+      .find("button:has(svg)")
+      .click();
+
+    commonLocators.ByPanelID('expansion-header-65')
+      .parent('div')
+      .find('[controlname="nb"]')
+      .should("be.visible")
+      .clear()
+      .type("1234");
+  }
+
   save() {
-    commonLocators.ByTextWithTag('button', 'Save').click().blur();
+    commonLocators.ByTextWithTag("button", "Save").click().blur();
 
     cy.get('div[role="alert"]', { timeout: 5000 })
       .first()
