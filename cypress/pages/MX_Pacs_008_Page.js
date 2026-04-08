@@ -474,9 +474,10 @@ class MX_Pacs_008_Page {
       .find("button:has(svg)")
       .click();
 
-    commonLocators.ByPanelID('expansion-header-65')
-      .parent('div')
-      .find('[controlname="nb"]')
+    commonLocators
+      .ByPanelID("expansion-header-65")
+      .closest('[role="region"], div')
+      .find('input[controlname="nb"]')
       .should("be.visible")
       .clear()
       .type("1234");
