@@ -11,7 +11,6 @@ import MX_Pacs_002_Page from "../pages/MX_Pacs_002_Page";
 import MX_Pacs_004_Page from "../pages/MX_Pacs_004_Page";
 import MX_Pacs_008_Page from "../pages/MX_Pacs_008_Page";
 import MX_Pacs_009_Page from "../pages/MX_Pacs_009_Page";
-import { commonLocators } from "../support/locators/commonLocators";
 
 describe("Automation Suite", () => {
   beforeEach("Login with valid credentials", () => {
