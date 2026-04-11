@@ -3,6 +3,7 @@
 
 import { commonLocators } from "../support/locators/commonLocators";
 import { getCurrentDateDDMMYYYY } from "../utils/dateUtils";
+import { safeCheck } from "../utils/safeActionsBodyPanelCheck";
 
 class MX_Pacs_008_Page {
   groupHeaderMsgIDText = "DadA11";
@@ -443,7 +444,7 @@ class MX_Pacs_008_Page {
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
-  remittanceStructureddPanelHandle() {
+  /*remittanceStructureddPanelHandle() {
     commonLocators
       .ByPanelID("expansion-header-10")
       .eq(1)
@@ -464,23 +465,75 @@ class MX_Pacs_008_Page {
       .find("button:has(svg)")
       .click();
 
-    commonLocators.ByControlName("nb").should("be.visible").clear().type(123);
+    commonLocators.ByControlName("nb").eq(0).should("be.visible").clear().type(123);
   }
 
   remittanceStructuredReferredLineTypeNumber() {
     commonLocators
       .ByPanelID("expansion-header-62")
-      .parent()
       .find("button:has(svg)")
       .click();
 
-    commonLocators
-      .ByPanelID("expansion-header-65")
-      .closest('[role="region"], div')
-      .find('input[controlname="nb"]')
+    cy.get('input[controlname="nb"]', { timeout: 15000 })
+      .eq(1)
       .should("be.visible")
       .clear()
       .type("1234");
+  }*/
+
+  safeRemittanceStructuredFlow() {
+    // Panel 10
+    safeCheck('[panelid="expansion-header-10"]', () => {
+      commonLocators
+        .ByPanelID("expansion-header-10")
+        .eq(1)
+        .scrollIntoView()
+        .click({ force: true });
+    });
+
+    // Panel 53
+    safeCheck('[panelid="expansion-header-53"]', () => {
+      commonLocators
+        .ByPanelID("expansion-header-53")
+        .parent()
+        .find("button:has(svg)")
+        .click({ force: true });
+    });
+
+    // Panel 54
+    safeCheck('[panelid="expansion-header-54"]', () => {
+      commonLocators
+        .ByPanelID("expansion-header-54")
+        .parent()
+        .find("button:has(svg)")
+        .click({ force: true });
+    });
+
+    // First NB input
+    safeCheck('[controlname="nb"]', () => {
+      commonLocators
+        .ByControlName("nb")
+        .eq(0)
+        .clear()
+        .type("123", { force: true });
+    });
+
+    // Panel 62
+    safeCheck('[panelid="expansion-header-62"]', () => {
+      commonLocators
+        .ByPanelID("expansion-header-62")
+        .find("button:has(svg)")
+        .click({ force: true });
+    });
+
+    // Second NB input
+    safeCheck('input[controlname="nb"]', () => {
+      cy.get('input[controlname="nb"]').then(($inputs) => {
+        if ($inputs.length > 1) {
+          cy.wrap($inputs).eq(1).clear().type("1234", { force: true });
+        }
+      });
+    });
   }
 
   save() {
