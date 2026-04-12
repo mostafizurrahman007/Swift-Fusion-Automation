@@ -2,7 +2,7 @@
 /// <reference types="cypress-xpath" />
 
 import { commonLocators } from "../support/locators/commonLocators";
-import { getCurrentDateDDMMYYYY } from "../utils/dateUtils";
+import { getCurrentDateDDMMYYYY } from "../utils/commonUtils";
 
 class MX_Pacs_004_Page {
   charSetField() {

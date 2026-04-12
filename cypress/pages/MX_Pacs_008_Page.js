@@ -518,6 +518,15 @@ class MX_Pacs_008_Page {
         .type("123", { force: true });
     });
 
+    //First release date
+    safeCheck('[controlname="rltdDt"]', () => {
+      commonLocators
+        .ByControlName("rltdDt")
+        .eq(0)
+        .clear()
+        .type(getCurrentDateDDMMYYYY() + "{enter}");
+    });
+
     // Panel 62
     safeCheck('[panelid="expansion-header-62"]', () => {
       commonLocators
@@ -533,6 +542,42 @@ class MX_Pacs_008_Page {
           cy.wrap($inputs).eq(1).clear().type("1234", { force: true });
         }
       });
+    });
+
+    //Second release date
+    safeCheck('[controlname="rltdDt"]', () => {
+      commonLocators
+        .ByControlName("rltdDt")
+        .eq(1)
+        .clear()
+        .type(getCurrentDateDDMMYYYY() + "{enter}");
+    });
+
+    //Click on amount header
+    safeCheck('[panelid="expansion-header-64"]', () => {
+      commonLocators
+        .ByPanelID("expansion-header-64")
+        .scrollIntoView()
+        .click({ force: true });
+    });
+
+    //First currency in tax amount section
+    safeCheck('[controlname="ccy"]', () => {
+      commonLocators.ByControlName("ccy").eq(0).click();
+      commonLocators
+        .ByTextWithTag("div", " USD - US Dollar ")
+        .should("be.visible")
+        .click();
+    });
+
+    //First amount in tax amount section
+    safeCheck('[controlname="amt"]', () => {
+      commonLocators
+        .ByControlName("amt")
+        .eq(0)
+        .should("be.visible")
+        .clear()
+        .type(5000);
     });
   }
 
