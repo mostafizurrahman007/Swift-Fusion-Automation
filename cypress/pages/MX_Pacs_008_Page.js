@@ -2,8 +2,8 @@
 /// <reference types="cypress-xpath" />
 
 import { commonLocators } from "../support/locators/commonLocators";
-import { getCurrentDateDDMMYYYY } from "../utils/dateUtils";
-import { safeCheck } from "../utils/safeActionsBodyPanelCheck";
+import { getCurrentDateDDMMYYYY } from "../utils/commonUtils";
+import { safeCheck } from "../utils/commonUtils";
 
 class MX_Pacs_008_Page {
   groupHeaderMsgIDText = "DadA11";
