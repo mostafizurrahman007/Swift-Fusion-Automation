@@ -8,7 +8,7 @@ export function getCurrentDateDDMMYYYY() {
   return `${day}/${month}/${year}`;
 }
 
-// Cypress Safe Check Utility
+// Cypress Safe Check inside dom Utility
 export const safeCheck = (selector, action) => {
   cy.get("body").then(($body) => {
     const exists = $body.find(selector).length > 0;
