@@ -2,11 +2,15 @@
 /// <reference types="cypress-xpath" />
 
 import { commonLocators } from "../support/locators/commonLocators";
-import { getCurrentDateDDMMYYYY } from "../utils/commonUtils";
+import {
+  getCurrentDateDDMMYYYY,
+  randomString,
+  randomWithPrefix,
+} from "../utils/commonUtils";
 import { safeCheck } from "../utils/commonUtils";
 
 class MX_Pacs_008_Page {
-  groupHeaderMsgIDText = "DadA11";
+  groupHeaderMsgIDText = 'Anik';
 
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("Auth1");
@@ -145,7 +149,7 @@ class MX_Pacs_008_Page {
   }
 
   businessMsgID() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type("Many1");
+    commonLocators.ByControlName("bizMsgIdr").clear().type(1);
   }
 
   msgID() {
@@ -561,7 +565,7 @@ class MX_Pacs_008_Page {
         .click({ force: true });
     });
 
-    //First currency in tax amount section
+    //First currency
     safeCheck('[controlname="ccy"]', () => {
       commonLocators.ByControlName("ccy").eq(0).click();
       commonLocators
@@ -570,7 +574,7 @@ class MX_Pacs_008_Page {
         .click();
     });
 
-    //First amount in tax amount section
+    //First amount
     safeCheck('[controlname="amt"]', () => {
       commonLocators
         .ByControlName("amt")
@@ -578,6 +582,174 @@ class MX_Pacs_008_Page {
         .should("be.visible")
         .clear()
         .type(5000);
+    });
+
+    //2nd currency
+    safeCheck('[controlname="ccy"]', () => {
+      commonLocators.ByControlName("ccy").eq(1).click();
+      commonLocators
+        .ByTextWithTag("div", " USD - US Dollar ")
+        .should("be.visible")
+        .click();
+    });
+
+    //2nd amount
+    safeCheck('[controlname="amt"]', () => {
+      commonLocators
+        .ByControlName("amt")
+        .eq(1)
+        .should("be.visible")
+        .clear()
+        .type(5000);
+    });
+
+    //3rd currency
+    safeCheck('[controlname="ccy"]', () => {
+      commonLocators.ByControlName("ccy").eq(2).click();
+      commonLocators
+        .ByTextWithTag("div", " USD - US Dollar ")
+        .should("be.visible")
+        .click();
+    });
+
+    //3rd amount
+    safeCheck('[controlname="amt"]', () => {
+      commonLocators
+        .ByControlName("amt")
+        .eq(2)
+        .should("be.visible")
+        .clear()
+        .type(5000);
+    });
+
+    //1st Debit/Credit indicator
+    safeCheck('[controlname="cdtDbtInd"]', () => {
+      commonLocators.ByControlName("cdtDbtInd").eq(0).click();
+      commonLocators
+        .ByTextWithTag("div", " Debit ")
+        .should("be.visible")
+        .click();
+    });
+
+    //Click on remmited amount header
+    safeCheck('[panelid="expansion-header-71"]', () => {
+      commonLocators
+        .ByPanelID("expansion-header-71")
+        .scrollIntoView()
+        .click({ force: true });
+    });
+
+    //4th currency
+    safeCheck('[controlname="ccy"]', () => {
+      commonLocators.ByControlName("rmtdAmtCcy").click();
+      commonLocators
+        .ByTextWithTag("div", " USD - US Dollar ")
+        .should("be.visible")
+        .click();
+    });
+
+    //4th amount
+    safeCheck('[controlname="amt"]', () => {
+      commonLocators
+        .ByControlName("rmtdAmt")
+        .should("be.visible")
+        .clear()
+        .type(5000);
+    });
+
+    //Click on invoicer panel
+    safeCheck('[panelid="expansion-header-56"]', () => {
+      commonLocators
+        .ByPanelID("expansion-header-56")
+        .scrollIntoView()
+        .click({ force: true });
+    });
+
+    //Creditor type reference
+    safeCheck('[controlname="cdtrRefInfRef"]', () => {
+      commonLocators
+        .ByControlName("cdtrRefInfRef")
+        .should("be.visible")
+        .clear()
+        .type("Noob");
+    });
+
+    //Invoicer
+    safeCheck('[panelid="expansion-header-57"]', () => {
+      commonLocators
+        .ByPanelID("expansion-header-57")
+        .scrollIntoView()
+        .click({ force: true });
+    });
+
+    //Invoicer name
+    safeCheck('[controlname="invcrNm"]', () => {
+      commonLocators
+        .ByControlName("invcrNm")
+        .should("be.visible")
+        .clear()
+        .type("Noob");
+    });
+
+    //Postal address
+    safeCheck('[panelid="expansion-header-75"]', () => {
+      commonLocators
+        .ByPanelID("expansion-header-75")
+        .scrollIntoView()
+        .click({ force: true });
+    });
+
+    //Post box
+    safeCheck('[controlname="invcrPstBx"]', () => {
+      commonLocators
+        .ByControlName("invcrPstBx")
+        .should("be.visible")
+        .clear()
+        .type("Dhaka");
+    });
+
+    //Town name
+    safeCheck('[controlname="invcrTwnNm"]', () => {
+      commonLocators
+        .ByControlName("invcrTwnNm")
+        .should("be.visible")
+        .clear()
+        .type("Dhaka");
+    });
+
+    //District name
+    safeCheck('[controlname="invcrDstrctNm"]', () => {
+      commonLocators
+        .ByControlName("invcrDstrctNm")
+        .should("be.visible")
+        .clear()
+        .type("Dhaka");
+    });
+
+    //Country name
+    safeCheck('[controlname="invcrCtry"]', () => {
+      commonLocators.ByControlName("invcrCtry").click();
+      commonLocators
+        .ByTextWithTag("div", " 001 - Bangladesh ")
+        .should("be.visible")
+        .click();
+    });
+
+    /*//Garnishment remittance
+    safeCheck('[panelid="expansion-header-60"]', () => {
+      commonLocators
+        .ByPanelID("expansion-header-60")
+        .scrollIntoView()
+        .click({ force: true });
+    });*/
+
+    //Garnishment Additional information1
+    safeCheck('[controlname="addtlRmtInf1"]', () => {
+      commonLocators
+        .ByControlName("addtlRmtInf1")
+        .should("be.visible")
+        .clear()
+        .type("Noob");
     });
   }
 

@@ -20,3 +20,22 @@ export const safeCheck = (selector, action) => {
     }
   });
 };
+
+// Random Test data
+export const randomString = (length = 8) => {
+  const chars =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+};
+
+export const randomNumber = (min = 1000, max = 9999) => {
+  return Cypress._.random(min, max);
+};
+
+export const randomWithPrefix = (prefix) => {
+  return `${prefix}_${randomString(6)}`;
+};

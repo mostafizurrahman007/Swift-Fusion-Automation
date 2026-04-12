@@ -344,7 +344,7 @@ describe("Automation Suite", () => {
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
     HomePage.goToPacs_008();
-    /*MX_Pacs_008_Page.charSetField();
+    MX_Pacs_008_Page.charSetField();
     MX_Pacs_008_Page.inputFromBIC();
     MX_Pacs_008_Page.inputToBIC();
     MX_Pacs_008_Page.fromClearingSystemID();
@@ -422,14 +422,14 @@ describe("Automation Suite", () => {
     MX_Pacs_008_Page.creaditorPostalAddressTownName();
     MX_Pacs_008_Page.creaditorPostalAddressCountryName();
     MX_Pacs_008_Page.creditorBic();
-    MX_Pacs_008_Page.remittanceStructureddPanelHandle();
-    MX_Pacs_008_Page.remittanceStructuredReferredDocTypeNumber();
-    MX_Pacs_008_Page.remittanceStructuredReferredLineTypeNumber();*/
+    // MX_Pacs_008_Page.remittanceStructureddPanelHandle();
+    // MX_Pacs_008_Page.remittanceStructuredReferredDocTypeNumber();
+    // MX_Pacs_008_Page.remittanceStructuredReferredLineTypeNumber();
     MX_Pacs_008_Page.safeRemittanceStructuredFlow();
-    /*MX_Pacs_008_Page.save();
+    MX_Pacs_008_Page.save();
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("PACS008");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(MX_Pacs_008_Page.groupHeaderMsgIDText);
-    AuthorizationPage.confirmAuthorization();*/
+    AuthorizationPage.confirmAuthorization();
   });
 });
