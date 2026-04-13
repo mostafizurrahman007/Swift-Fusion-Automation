@@ -11,6 +11,7 @@ import MX_Pacs_002_Page from "../pages/MX_Pacs_002_Page";
 import MX_Pacs_004_Page from "../pages/MX_Pacs_004_Page";
 import MX_Pacs_008_Page from "../pages/MX_Pacs_008_Page";
 import MX_Pacs_009_Page from "../pages/MX_Pacs_009_Page";
+import MX_Camt_105_Page from "../pages/MX_Camt_105_Page";
 
 describe("Automation Suite", () => {
   beforeEach("Login with valid credentials", () => {
@@ -339,7 +340,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it.only("PACS_008 Automation", () => {
+  it("PACS_008 Automation", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -429,7 +430,46 @@ describe("Automation Suite", () => {
     MX_Pacs_008_Page.save();
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("PACS008");
-    AuthorizationPage.authorizeByBusinessMsgIdentifier(MX_Pacs_008_Page.groupHeaderMsgIDText);
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_Pacs_008_Page.groupHeaderMsgIDText,
+    );
     AuthorizationPage.confirmAuthorization();
+  });
+
+  it.only("CAMT_105 Automation", () => {
+    HomePage.menu1();
+    // HomePage.search("CAMT53");
+    HomePage.search_MX_Message();
+    HomePage.goToCamt_105();
+    MX_Camt_105_Page.chooseMessageVariant("Single Charge");
+    MX_Camt_105_Page.charSetField();
+    MX_Camt_105_Page.inputFromBIC();
+    MX_Camt_105_Page.inputToBIC();
+    MX_Camt_105_Page.fromClearingSystemID();
+    MX_Camt_105_Page.toClearingSystemID();
+    MX_Camt_105_Page.fromMemberID();
+    MX_Camt_105_Page.toMemberID();
+    MX_Camt_105_Page.fromLei();
+    MX_Camt_105_Page.toLei();
+    MX_Camt_105_Page.businessMsg();
+    MX_Camt_105_Page.marketRegistryField();
+    MX_Camt_105_Page.marketIDField();
+    MX_Camt_105_Page.marketDateCreationField();
+    MX_Camt_105_Page.copyDuplicateField();
+    MX_Camt_105_Page.possibleCopyDuplicateField();
+    MX_Camt_105_Page.priorityField();
+    // MX_Camt_105_Page.msgID();
+    // MX_Camt_105_Page.numberOfCheques();
+    // MX_Camt_105_Page.chequeIdentificationField();
+    // MX_Camt_105_Page.originalIdentification();
+    // MX_Camt_105_Page.chequeNumber();
+    // MX_Camt_105_Page.issueDateField();
+    // MX_Camt_105_Page.currencyField();
+    // MX_Camt_105_Page.amountField();
+    // MX_Camt_105_Page.chequeEffectiveDateField();
+    // MX_Camt_105_Page.chequeCancellationOriginatorField();
+    // MX_Camt_105_Page.codeField();
+    // MX_Camt_105_Page.chequeCancellationAdditionalInfoField();
+    // MX_Camt_105_Page.save();
   });
 });

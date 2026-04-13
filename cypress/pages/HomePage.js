@@ -193,16 +193,20 @@ class HomePage {
 
   goToCamt_109() {
     commonLocators
-      .ByTextWithTag('p', ' CAMT.109.001.01 Cheque Cancellation Or Stop Report ', {
-        timeout: 10000,
-      })
+      .ByTextWithTag(
+        "p",
+        " CAMT.109.001.01 Cheque Cancellation Or Stop Report ",
+        {
+          timeout: 10000,
+        },
+      )
       .scrollIntoView()
       .click({ force: true });
   }
 
   goToPacs_002() {
     commonLocators
-      .ByTextWithTag('p', ' PACS.002.001.10 FI To FI Payment Status Report ', {
+      .ByTextWithTag("p", " PACS.002.001.10 FI To FI Payment Status Report ", {
         timeout: 10000,
       })
       .scrollIntoView()
@@ -211,7 +215,7 @@ class HomePage {
 
   goToPacs_004() {
     commonLocators
-      .ByTextWithTag('p', ' PACS.004.001.09 Payment Return ', {
+      .ByTextWithTag("p", " PACS.004.001.09 Payment Return ", {
         timeout: 10000,
       })
       .scrollIntoView()
@@ -220,16 +224,33 @@ class HomePage {
 
   goToPacs_008() {
     commonLocators
-      .ByTextWithTag('p', ' PACS.008.001.08 FI To FI Customer Credit Transfer ', {
-        timeout: 10000,
-      })
+      .ByTextWithTag(
+        "p",
+        " PACS.008.001.08 FI To FI Customer Credit Transfer ",
+        {
+          timeout: 10000,
+        },
+      )
       .scrollIntoView()
       .click({ force: true });
   }
 
   goToPacs_009() {
     commonLocators
-      .ByTextWithTag('p', ' PACS.009.001.08 Financial Institution Credit Trans ', {
+      .ByTextWithTag(
+        "p",
+        " PACS.009.001.08 Financial Institution Credit Trans ",
+        {
+          timeout: 10000,
+        },
+      )
+      .scrollIntoView()
+      .click({ force: true });
+  }
+
+  goToCamt_105() {
+    commonLocators
+      .ByTextWithTag("p", " CAMT.105.001.02 Charges Payment Notification ", {
         timeout: 10000,
       })
       .scrollIntoView()
