@@ -264,7 +264,7 @@ describe("Automation Suite", () => {
     MX_Pacs_004_Page.save();
   });
 
-  it.only("PACS_009 Automation", () => {
+  it("PACS_009 Automation", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -436,7 +436,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it("CAMT_105 Automation", () => {
+  it.only("CAMT_105 Automation", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -473,7 +473,12 @@ describe("Automation Suite", () => {
     MX_Camt_105_Page.relatedMarketDateCreationField();
     MX_Camt_105_Page.relatedCopyDuplicateField();
     MX_Camt_105_Page.relatedPriorityField();
-    // MX_Camt_105_Page.msgID();
+    MX_Camt_105_Page.groupMsgID();
+    MX_Camt_105_Page.groupChargeCreationDate();
+    MX_Camt_105_Page.chargeRequestorBIC();
+    MX_Camt_105_Page.crgReqClrMbrCode();
+    MX_Camt_105_Page.crgReqClrMbrID();
+    MX_Camt_105_Page.crgReqClrMbrLei();
     // MX_Camt_105_Page.numberOfCheques();
     // MX_Camt_105_Page.chequeIdentificationField();
     // MX_Camt_105_Page.originalIdentification();

@@ -200,15 +200,44 @@ class MX_Camt_105_Page {
   }
 
   marketRegistryField() {
-    commonLocators.ByControlName("mktPrctcRegy").clear().type("1");
+    commonLocators.ByControlName("mktPrctcRegy").clear().type("123");
   }
 
   marketIDField() {
-    commonLocators.ByControlName("mktPrctcId").clear().type("1");
+    commonLocators.ByControlName("mktPrctcId").clear().type("123");
   }
 
-  msgID() {
-    commonLocators.ByControlName("GrpHdrmsgId").clear().type("1");
+  groupMsgID() {
+    commonLocators.ByControlName("grpHdrMsgId").clear().type("123");
+  }
+
+  groupChargeCreationDate() {
+    commonLocators
+      .ByControlName("grpHdrCreDtTm")
+      .clear()
+      .type(getCurrentDateDDMMYYYY() + "{enter}");
+  }
+
+  chargeRequestorBIC() {
+    commonLocators.ByControlName("chrgsRqstrBicfi").dblclick();
+    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
+    commonLocators.ByAria_Label_Btn("Find").should("be.visible").click();
+    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+  }
+
+  crgReqClrMbrCode() {
+    commonLocators.ByControlName("clrSysMmbIdCd").clear().type("123");
+  }
+
+  crgReqClrMbrID() {
+    commonLocators
+      .ByControlName("chrgsRqstrLei")
+      .clear()
+      .type("111111111111111111111");
+  }
+
+  crgReqClrMbrLei() {
+    commonLocators.ByControlName("clrSysMmbIdMmbId").clear().type("1");
   }
 
   numberOfCheques() {
