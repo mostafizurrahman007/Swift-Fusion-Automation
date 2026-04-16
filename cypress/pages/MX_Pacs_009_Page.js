@@ -5,8 +5,7 @@ import { commonLocators } from "../support/locators/commonLocators";
 import { getCurrentDateDDMMYYYY } from "../utils/commonUtils";
 
 class MX_Pacs_009_Page {
-
-  groupHeaderMsgIDText = "pacsA";
+  groupHeaderMsgIDText = "pacsC";
 
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("Auth1");
@@ -145,7 +144,7 @@ class MX_Pacs_009_Page {
   }
 
   businessMsgID() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type('Ank');
+    commonLocators.ByControlName("bizMsgIdr").clear().type("Ank");
   }
 
   msgID() {
@@ -157,7 +156,10 @@ class MX_Pacs_009_Page {
   }
 
   groupHeaderMsgID() {
-    commonLocators.ByControlName("msgId").clear().type(this.groupHeaderMsgIDText);
+    commonLocators
+      .ByControlName("msgId")
+      .clear()
+      .type(this.groupHeaderMsgIDText);
   }
 
   groupHeaderDateCreationField() {

@@ -264,7 +264,7 @@ describe("Automation Suite", () => {
     MX_Pacs_004_Page.save();
   });
 
-  it("PACS_009 Automation", () => {
+  it.only("PACS_009 Automation", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -436,7 +436,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it.only("CAMT_105 Automation", () => {
+  it("CAMT_105 Automation", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -458,6 +458,21 @@ describe("Automation Suite", () => {
     MX_Camt_105_Page.copyDuplicateField();
     MX_Camt_105_Page.possibleCopyDuplicateField();
     MX_Camt_105_Page.priorityField();
+    MX_Camt_105_Page.relatedCharSetField();
+    MX_Camt_105_Page.relatedInputFromBIC();
+    MX_Camt_105_Page.relatedInputToBIC();
+    MX_Camt_105_Page.relatedFromClearingSystemID();
+    MX_Camt_105_Page.relatedToClearingSystemID();
+    MX_Camt_105_Page.relatedFromMemberID();
+    MX_Camt_105_Page.relatedToMemberID();
+    MX_Camt_105_Page.relatedFromLei();
+    MX_Camt_105_Page.relatedToLei();
+    MX_Camt_105_Page.relatedBusinessMsgID();
+    MX_Camt_105_Page.relatedMsgDefinitionID();
+    MX_Camt_105_Page.relatedBusinessService();
+    MX_Camt_105_Page.relatedMarketDateCreationField();
+    MX_Camt_105_Page.relatedCopyDuplicateField();
+    MX_Camt_105_Page.relatedPriorityField();
     // MX_Camt_105_Page.msgID();
     // MX_Camt_105_Page.numberOfCheques();
     // MX_Camt_105_Page.chequeIdentificationField();

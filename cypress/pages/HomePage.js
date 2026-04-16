@@ -239,7 +239,7 @@ class HomePage {
     commonLocators
       .ByTextWithTag(
         "p",
-        " PACS.009.001.08 Financial Institution Credit Trans ",
+        " PACS.009.001.08 Financial Institution Credit Transfer ",
         {
           timeout: 10000,
         },

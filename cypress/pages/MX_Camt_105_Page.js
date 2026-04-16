@@ -78,37 +78,28 @@ class MX_Camt_105_Page {
     commonLocators.ByControlName("bizMsgIdr").clear().type("Anik");
   }
 
-  ///////////////////////////////////
+  // Related Field Started
 
   relatedCharSetField() {
-    commonLocators.ByControlName("charSet").clear().type("Full Sized");
+    commonLocators.ByControlName("rltdCharSet").clear().type("Related Sized");
   }
 
   relatedInputFromBIC() {
-    commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators
-      .inputByPlaceholder("Enter SWIFT code prefix to search...")
-      .clear()
-      .type("M");
-    commonLocators
-      .ByAria_Label_Btn("Find SWIFT Code")
-      .should("be.visible")
-      .click();
+    commonLocators.ByControlName("rltdFrBicfi").dblclick();
+    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
+    commonLocators.ByAria_Label_Btn("Find").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
   relatedInputToBIC() {
-    commonLocators.ByControlName("toBicfi").dblclick();
+    commonLocators.ByControlName("rltdToBicfi").dblclick();
     commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("K");
     commonLocators.ByAria_Label_Btn("Find").click().should("be.visible");
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
   relatedFromClearingSystemID() {
-    commonLocators
-      .inputByPlaceholder(" Search clearing system id code")
-      .eq(0)
-      .click();
+    commonLocators.ByControlName("rltdFrmClrSysIdCd").click();
     commonLocators
       .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
       .should("be.visible")
@@ -116,10 +107,7 @@ class MX_Camt_105_Page {
   }
 
   relatedToClearingSystemID() {
-    commonLocators
-      .inputByPlaceholder(" Search clearing system id code")
-      .eq(1)
-      .click();
+    commonLocators.ByControlName("rltdToClrSysIdCd").click();
     commonLocators
       .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
       .should("be.visible")
@@ -127,57 +115,60 @@ class MX_Camt_105_Page {
   }
 
   relatedFromMemberID() {
-    commonLocators.ByControlName("fromMembId").clear().type(1);
+    commonLocators.ByControlName("rltdFrmMembId").clear().type(1);
   }
 
-  relatedrelatedFoMemberID() {
-    commonLocators.ByControlName("toMembId").clear().type(1);
+  relatedToMemberID() {
+    commonLocators.ByControlName("rltdToMembId").clear().type(1);
   }
 
   relatedFromLei() {
     commonLocators
-      .ByControlName("fromLei")
+      .ByControlName("rltdFrmLei")
       .clear()
       .type("11111111111111111111");
   }
 
   relatedToLei() {
-    commonLocators.ByControlName("toLei").clear().type("11111111111111111111");
+    commonLocators
+      .ByControlName("rltdToLei")
+      .clear()
+      .type("11111111111111111111");
   }
 
   relatedBusinessMsgID() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type("Anik");
+    commonLocators.ByControlName("rltdBizMsgIdr").clear().type("Anik");
   }
 
   relatedMsgDefinitionID() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type("Anik");
+    commonLocators.ByControlName("rltdMsgDefIdr").clear().type("Anik");
   }
 
   relatedBusinessService() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type("Anik");
+    commonLocators.ByControlName("rltdBizSvc").clear().type("Anik");
   }
 
   relatedMarketDateCreationField() {
     commonLocators
-      .ByControlName("creDt")
+      .ByControlName("rltdCreDt")
       .clear()
       .type(getCurrentDateDDMMYYYY() + "{enter}");
   }
 
   relatedCopyDuplicateField() {
-    commonLocators.ByControlName("cpyDplct").should("be.visible").click();
+    commonLocators.ByControlName("rltdCpyDplct").should("be.visible").click();
     commonLocators.ByTextWithTag("div", " COPY ").should("be.visible").click();
   }
 
   relatedPriorityField() {
-    commonLocators.ByControlName("prty").click();
+    commonLocators.ByControlName("rltdPriority").click();
     commonLocators
-      .ByTextWithTag("div", " Normal ")
+      .ByTextWithTag("div", " HIGH - High Priority ")
       .should("be.visible")
       .click();
   }
 
-  ///////////////////////////////////////////////
+  // Related Field Ended
 
   marketDateCreationField() {
     commonLocators
@@ -192,14 +183,18 @@ class MX_Camt_105_Page {
   }
 
   possibleCopyDuplicateField() {
-    commonLocators.ByControlName("psblDplct").should("be.visible").click();
+    commonLocators
+      .ByControlName("psblDplct")
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
     commonLocators.ByTextWithTag("div", " COPY ").should("be.visible").click();
   }
 
   priorityField() {
     commonLocators.ByControlName("prty").click();
     commonLocators
-      .ByTextWithTag("div", " Normal ")
+      .ByTextWithTag("div", " HIGH - High Priority ")
       .should("be.visible")
       .click();
   }
