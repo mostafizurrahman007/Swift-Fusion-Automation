@@ -2,9 +2,11 @@
 /// <reference types="cypress-xpath" />
 
 import { commonLocators } from "../support/locators/commonLocators";
-import { getCurrentDateDDMMYYYY } from "../utils/commonUtils";
+import { getCurrentDateDDMMYYYY, randomString } from "../utils/commonUtils";
 
 class MX_Camt_105_Page {
+  businessMsgText = randomString();
+  
   chooseMessageVariant(text) {
     commonLocators.ByTextWithTag("div", text).should("be.visible").click();
   }
@@ -75,13 +77,13 @@ class MX_Camt_105_Page {
   }
 
   businessMsg() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type("Anik");
+    commonLocators.ByControlName("bizMsgIdr").clear().type(this.businessMsgText);
   }
 
   // Related Field Started
 
   relatedCharSetField() {
-    commonLocators.ByControlName("rltdCharSet").clear().type("Related Sized");
+    commonLocators.ByControlName("rltdCharSet").clear().type("Related");
   }
 
   relatedInputFromBIC() {
@@ -236,20 +238,81 @@ class MX_Camt_105_Page {
       .type("111111111111111111111");
   }
 
-  crgReqClrMbrLei() {
+  crgReqClrLei() {
     commonLocators.ByControlName("clrSysMmbIdMmbId").clear().type("1");
   }
 
-  numberOfCheques() {
-    commonLocators.ByControlName("GrpHdrNbOfChqs").clear().type("1");
+  chargesIdentification() {
+    commonLocators.ByControlName("perTxChrgsId").clear().type("456");
   }
 
-  chequeIdentificationField() {
+  underlyingTrnsMsgID() {
+    commonLocators.ByControlName("undrlygTxMsgId").clear().type("123");
+  }
+
+  underlyingTrnsMsgNameID() {
+    commonLocators.ByControlName("undrlygTxmsgNmId").clear().type("Ank");
+  }
+
+  // Total Charges per record section
+  numberOfChequesBrkdwn() {
     commonLocators
-      .ByControlName("ChqInstrId")
-      .should("be.visible")
+      .ByControlName("nbOfChrgsBrkdwnItms")
       .clear()
-      .type("A");
+      .type("1", { force: true });
+  }
+
+  totalChargesAmt() {
+    commonLocators
+      .ByControlName("ttlChrgsAmt")
+      .clear()
+      .type("1000", { force: true });
+  }
+
+  totalChargeCurrencyField() {
+    commonLocators.ByControlName("ttlChrgsAmtCcy").click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  totalCrgDebitCreditIndicator() {
+    commonLocators.ByControlName("cdtDbtInd").click();
+    commonLocators.ByTextWithTag("div", " DBIT ").should("be.visible").click();
+  }
+
+  // CHarge Item #1
+  crgItem1Amt() {
+    commonLocators.ByControlName("chrgsBrkdwnAmt").clear().type("1000");
+  }
+
+  crgItem1Currency() {
+    commonLocators.ByControlName("chrgsPerRcrdAmtCcy").click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  crgItem1DebitCreditIndicator() {
+    commonLocators.ByControlName("chrgsBrkdwnCdtDbtInd").click();
+    commonLocators.ByTextWithTag("div", " DBIT ").should("be.visible").click();
+  }
+
+  crgItem1TypeCode() {
+    commonLocators.ByControlName("chrgsBrkdwnTpCd").click();
+    commonLocators
+      .ByTextWithTag("div", " COMM - Commission ")
+      .should("be.visible")
+      .click();
+  }
+
+  crgBrkdwnValueDate() {
+    commonLocators
+      .ByControlName("valDt")
+      .clear()
+      .type(getCurrentDateDDMMYYYY() + "{enter}");
   }
 
   originalIdentification() {
@@ -317,8 +380,8 @@ class MX_Camt_105_Page {
   save() {
     commonLocators.ByTextWithTag("button", "Save").click({ force: true });
 
-    cy.get('div[role="alert"]', { timeout: 4000 })
-      .first()
+    // Target the success toast specifically, not just the first alert
+    cy.get('.toast-success div[role="alert"]', { timeout: 4000 })
       .should("be.visible")
       .invoke("text")
       .then((msg) => {

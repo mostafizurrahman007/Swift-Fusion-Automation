@@ -436,7 +436,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it.only("CAMT_105 Automation", () => {
+  it.only("CAMT_105 Automation for Single Charge", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -478,7 +478,19 @@ describe("Automation Suite", () => {
     MX_Camt_105_Page.chargeRequestorBIC();
     MX_Camt_105_Page.crgReqClrMbrCode();
     MX_Camt_105_Page.crgReqClrMbrID();
-    MX_Camt_105_Page.crgReqClrMbrLei();
+    MX_Camt_105_Page.crgReqClrLei();
+    MX_Camt_105_Page.chargesIdentification();
+    MX_Camt_105_Page.underlyingTrnsMsgID();
+    MX_Camt_105_Page.underlyingTrnsMsgNameID();
+    MX_Camt_105_Page.numberOfChequesBrkdwn();
+    MX_Camt_105_Page.crgItem1Currency();
+    MX_Camt_105_Page.totalChargesAmt();
+    MX_Camt_105_Page.totalChargeCurrencyField();
+    MX_Camt_105_Page.totalCrgDebitCreditIndicator();
+    MX_Camt_105_Page.crgItem1Amt();
+    MX_Camt_105_Page.crgItem1DebitCreditIndicator();
+    MX_Camt_105_Page.crgItem1TypeCode();
+    MX_Camt_105_Page.crgBrkdwnValueDate();
     // MX_Camt_105_Page.numberOfCheques();
     // MX_Camt_105_Page.chequeIdentificationField();
     // MX_Camt_105_Page.originalIdentification();
@@ -490,6 +502,10 @@ describe("Automation Suite", () => {
     // MX_Camt_105_Page.chequeCancellationOriginatorField();
     // MX_Camt_105_Page.codeField();
     // MX_Camt_105_Page.chequeCancellationAdditionalInfoField();
-    // MX_Camt_105_Page.save();
+    MX_Camt_105_Page.save();
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.messageType("CAMT105");
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(MX_Camt_105_Page.businessMsgText);
+    AuthorizationPage.confirmAuthorization();
   });
 });
