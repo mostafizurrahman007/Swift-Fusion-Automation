@@ -6,7 +6,7 @@ import { getCurrentDateDDMMYYYY, randomString } from "../utils/commonUtils";
 
 class MX_Camt_105_Page {
   businessMsgText = randomString();
-  
+
   chooseMessageVariant(text) {
     commonLocators.ByTextWithTag("div", text).should("be.visible").click();
   }
@@ -77,7 +77,10 @@ class MX_Camt_105_Page {
   }
 
   businessMsg() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type(this.businessMsgText);
+    commonLocators
+      .ByControlName("bizMsgIdr")
+      .clear()
+      .type(this.businessMsgText);
   }
 
   // Related Field Started

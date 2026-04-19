@@ -505,7 +505,9 @@ describe("Automation Suite", () => {
     MX_Camt_105_Page.save();
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("CAMT105");
-    AuthorizationPage.authorizeByBusinessMsgIdentifier(MX_Camt_105_Page.businessMsgText);
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_Camt_105_Page.businessMsgText,
+    );
     AuthorizationPage.confirmAuthorization();
   });
 });
