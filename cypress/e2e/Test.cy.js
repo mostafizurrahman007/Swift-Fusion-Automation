@@ -436,7 +436,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it.only("CAMT_105 Automation for Single Charge", () => {
+  it("CAMT_105 Automation for Single Charge", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -509,5 +509,90 @@ describe("Automation Suite", () => {
       MX_Camt_105_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
+  });
+
+  it.only("CAMT_105 Automation for Multiple Charges", () => {
+    HomePage.menu1();
+    // HomePage.search("CAMT53");
+    HomePage.search_MX_Message();
+    HomePage.goToCamt_105();
+    MX_Camt_105_Page.chooseMessageVariant("Multiple Charges");
+    MX_Camt_105_Page.charSetField();
+    MX_Camt_105_Page.inputFromBIC();
+    MX_Camt_105_Page.inputToBIC();
+    MX_Camt_105_Page.fromClearingSystemID();
+    MX_Camt_105_Page.toClearingSystemID();
+    MX_Camt_105_Page.fromMemberID();
+    MX_Camt_105_Page.toMemberID();
+    MX_Camt_105_Page.fromLei();
+    MX_Camt_105_Page.toLei();
+    MX_Camt_105_Page.businessMsg();
+    MX_Camt_105_Page.marketRegistryField();
+    MX_Camt_105_Page.marketIDField();
+    MX_Camt_105_Page.marketDateCreationField();
+    MX_Camt_105_Page.copyDuplicateField();
+    MX_Camt_105_Page.possibleCopyDuplicateField();
+    MX_Camt_105_Page.priorityField();
+    MX_Camt_105_Page.relatedCharSetField();
+    MX_Camt_105_Page.relatedInputFromBIC();
+    MX_Camt_105_Page.relatedInputToBIC();
+    MX_Camt_105_Page.relatedFromClearingSystemID();
+    MX_Camt_105_Page.relatedToClearingSystemID();
+    MX_Camt_105_Page.relatedFromMemberID();
+    MX_Camt_105_Page.relatedToMemberID();
+    MX_Camt_105_Page.relatedFromLei();
+    MX_Camt_105_Page.relatedToLei();
+    MX_Camt_105_Page.relatedBusinessMsgID();
+    MX_Camt_105_Page.relatedMsgDefinitionID();
+    MX_Camt_105_Page.relatedBusinessService();
+    MX_Camt_105_Page.relatedMarketDateCreationField();
+    MX_Camt_105_Page.relatedCopyDuplicateField();
+    MX_Camt_105_Page.relatedPriorityField();
+    MX_Camt_105_Page.groupMsgID();
+    MX_Camt_105_Page.groupChargeCreationDate();
+    /*MX_Camt_105_Page.chargeRequestorBIC();
+    MX_Camt_105_Page.crgReqClrMbrCode();
+    MX_Camt_105_Page.crgReqClrMbrID();
+    MX_Camt_105_Page.crgReqClrLei();
+    MX_Camt_105_Page.chargesIdentification();
+    MX_Camt_105_Page.underlyingTrnsMsgID();
+    MX_Camt_105_Page.underlyingTrnsMsgNameID();*/
+    MX_Camt_105_Page.mulNumberOfChequesBrkdwn();
+    MX_Camt_105_Page.mulTotalChargesAmt();
+    MX_Camt_105_Page.mulTotalChargeCurrencyField();
+    MX_Camt_105_Page.mulTotalCrgDebitCreditIndicator();
+    MX_Camt_105_Page.mulChargesIdentification();
+    MX_Camt_105_Page.mulRecordIdentification();
+    MX_Camt_105_Page.mulChargeRequestorBIC();
+    MX_Camt_105_Page.mulCrgReqClrMbrCode();
+    MX_Camt_105_Page.mulCrgReqClrMbrID();
+    MX_Camt_105_Page.mulCrgReqClrLei();
+    MX_Camt_105_Page.mulNumberOfChequesBrkdwn();
+    MX_Camt_105_Page.mulTotalChargeCurrencyField();
+    MX_Camt_105_Page.mulTotalChargesAmt();
+    MX_Camt_105_Page.mulTotalChargeCurrencyField();
+    MX_Camt_105_Page.mulTotalCrgDebitCreditIndicator();
+    /*MX_Camt_105_Page.crgItem1Amt();
+    MX_Camt_105_Page.crgItem1DebitCreditIndicator();
+    MX_Camt_105_Page.crgItem1TypeCode();
+    MX_Camt_105_Page.crgBrkdwnValueDate();*/
+    // MX_Camt_105_Page.numberOfCheques();
+    // MX_Camt_105_Page.chequeIdentificationField();
+    // MX_Camt_105_Page.originalIdentification();
+    // MX_Camt_105_Page.chequeNumber();
+    // MX_Camt_105_Page.issueDateField();
+    // MX_Camt_105_Page.currencyField();
+    // MX_Camt_105_Page.amountField();
+    // MX_Camt_105_Page.chequeEffectiveDateField();
+    // MX_Camt_105_Page.chequeCancellationOriginatorField();
+    // MX_Camt_105_Page.codeField();
+    // MX_Camt_105_Page.chequeCancellationAdditionalInfoField();
+    /*MX_Camt_105_Page.save();
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.messageType("CAMT105");
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_Camt_105_Page.businessMsgText,
+    );
+    AuthorizationPage.confirmAuthorization();*/
   });
 });
