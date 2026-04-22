@@ -69,11 +69,14 @@ class MX_Camt_105_Page {
     commonLocators
       .ByControlName("fromLei")
       .clear()
-      .type("11111111111111111111");
+      .type("11111111111111111111", { force: true });
   }
 
   toLei() {
-    commonLocators.ByControlName("toLei").clear().type("11111111111111111111");
+    commonLocators
+      .ByControlName("toLei")
+      .clear()
+      .type("11111111111111111111", { force: true });
   }
 
   businessMsg() {
@@ -120,25 +123,25 @@ class MX_Camt_105_Page {
   }
 
   relatedFromMemberID() {
-    commonLocators.ByControlName("rltdFrmMembId").clear().type(1);
+    commonLocators.ByControlName("rltdFrmMembId").clear().type(123);
   }
 
   relatedToMemberID() {
-    commonLocators.ByControlName("rltdToMembId").clear().type(1);
+    commonLocators.ByControlName("rltdToMembId").clear().type(124);
   }
 
   relatedFromLei() {
     commonLocators
       .ByControlName("rltdFrmLei")
       .clear()
-      .type("11111111111111111111");
+      .type("11111111111111111111", { force: true });
   }
 
   relatedToLei() {
     commonLocators
       .ByControlName("rltdToLei")
       .clear()
-      .type("11111111111111111111");
+      .type("11111111111111111111", { force: true });
   }
 
   relatedBusinessMsgID() {
@@ -238,7 +241,7 @@ class MX_Camt_105_Page {
     commonLocators
       .ByControlName("chrgsRqstrLei")
       .clear()
-      .type("111111111111111111111");
+      .type("111111111111111111111", { force: true });
   }
 
   crgReqClrLei() {
@@ -262,7 +265,7 @@ class MX_Camt_105_Page {
     commonLocators
       .ByControlName("nbOfChrgsBrkdwnItms")
       .clear()
-      .type("2", { force: true });
+      .type("1", { force: true });
   }
 
   totalChargesAmt() {
@@ -330,7 +333,7 @@ class MX_Camt_105_Page {
     commonLocators
       .ByControlName("ttlChrgsAmtMul")
       .clear()
-      .type("1000", { force: true });
+      .type("2000", { force: true });
   }
 
   mulTotalChargeCurrencyField() {
@@ -377,25 +380,28 @@ class MX_Camt_105_Page {
   }
 
   mulCrgReqClrLei() {
-    commonLocators.ByControlName("record0ChrgsRqstrLei").clear().type("1");
+    commonLocators
+      .ByControlName("record0ChrgsRqstrLei")
+      .clear()
+      .type("11111111111111111111", { force: true });
   }
 
   // Total Charges per record section in multiple
-  mulNumberOfChequesBrkdwn() {
+  mulNumberOfChequesBrkdwn1() {
     commonLocators
       .ByControlName("record0NbOfChrgsBrkdwnItms")
       .clear()
       .type("2", { force: true });
   }
 
-  mulTotalChargesAmt() {
+  mulTotalChargesAmt1() {
     commonLocators
       .ByControlName("record0TtlChrgsAmt")
       .clear()
       .type("1000", { force: true });
   }
 
-  mulTotalChargeCurrencyField() {
+  mulTotalChargeCurrencyField1() {
     commonLocators.ByControlName("record0TtlChrgsAmtCcy").click();
     commonLocators
       .ByTextWithTag("div", " USD - US Dollar ")
@@ -403,36 +409,177 @@ class MX_Camt_105_Page {
       .click();
   }
 
-  mulTotalCrgDebitCreditIndicator() {
+  mulTotalCrgDebitCreditIndicator1() {
     commonLocators.ByControlName("record0CdtDbtInd").click();
     commonLocators.ByTextWithTag("div", " DBIT ").should("be.visible").click();
   }
 
   // CHarge Item #1
-  crgItem1Amt() {
-    commonLocators.ByControlName("chrgsBrkdwnAmt").clear().type("1000");
+  mulCrgItem1Amt() {
+    commonLocators.ByControlName("chrgsBrkdwnAmt").eq(0).clear().type("500");
   }
 
-  crgItem1Currency() {
-    commonLocators.ByControlName("chrgsPerRcrdAmtCcy").click();
+  mulCrgItem1Currency() {
+    commonLocators.ByControlName("chrgsPerRcrdAmtCcy").eq(0).click();
     commonLocators
       .ByTextWithTag("div", " USD - US Dollar ")
       .should("be.visible")
       .click();
   }
 
-  crgItem1DebitCreditIndicator() {
-    commonLocators.ByControlName("chrgsBrkdwnCdtDbtInd").click();
+  mulCrgItem1DebitCreditIndicator() {
+    commonLocators.ByControlName("chrgsBrkdwnCdtDbtInd").eq(0).click();
     commonLocators.ByTextWithTag("div", " DBIT ").should("be.visible").click();
   }
 
-  crgItem1TypeCode() {
-    commonLocators.ByControlName("chrgsBrkdwnTpCd").click();
+  mulCrgItem1TypeCode() {
+    commonLocators.ByControlName("chrgsBrkdwnTpCd").eq(0).click();
     commonLocators
       .ByTextWithTag("div", " COMM - Commission ")
       .should("be.visible")
       .click();
   }
+
+  // CHarge Item #2 in 1st record
+  mulCrgItem2Amt() {
+    commonLocators.ByControlName("chrgsBrkdwnAmt").eq(1).clear().type("500");
+  }
+
+  mulCrgItem2Currency() {
+    commonLocators.ByControlName("chrgsPerRcrdAmtCcy").eq(1).click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulCrgItem2DebitCreditIndicator() {
+    commonLocators.ByControlName("chrgsBrkdwnCdtDbtInd").eq(1).click();
+    commonLocators.ByTextWithTag("div", " DBIT ").should("be.visible").click();
+  }
+
+  mulCrgItem2TypeCode() {
+    commonLocators.ByControlName("chrgsBrkdwnTpCd").eq(1).click();
+    commonLocators
+      .ByTextWithTag("div", " COMM - Commission ")
+      .should("be.visible")
+      .click();
+  }
+
+  // Charge Record #2
+  mulRecordIdentification2() {
+    commonLocators.ByControlName("record1RcrdId").clear().type("456");
+  }
+
+  mulChargeRequestorBIC2() {
+    commonLocators.ByControlName("record1ChrgsRqstrBicfi").dblclick();
+    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
+    commonLocators.ByAria_Label_Btn("Find").should("be.visible").click();
+    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+  }
+
+  mulCrgReqClrMbrCode2() {
+    commonLocators
+      .ByControlName("record1ChrgsRqstrClrSysMmbIdCd")
+      .clear()
+      .type("123");
+  }
+
+  mulCrgReqClrMbrID2() {
+    commonLocators
+      .ByControlName("record1ChrgsRqstrClrSysMmbIdMmbId")
+      .clear()
+      .type("111111111111111111111");
+  }
+
+  mulCrgReqClrLei2() {
+    commonLocators
+      .ByControlName("record1ChrgsRqstrLei")
+      .clear()
+      .type("111111111111111111111", { force: true });
+  }
+
+  // Total Charges per record section in multiple
+  mulNumberOfChequesBrkdwn2() {
+    commonLocators
+      .ByControlName("record1NbOfChrgsBrkdwnItms")
+      .clear()
+      .type("2", { force: true });
+  }
+
+  mulTotalChargesAmt2() {
+    commonLocators
+      .ByControlName("record1TtlChrgsAmt")
+      .clear()
+      .type("1000", { force: true });
+  }
+
+  mulTotalChargeCurrencyField2() {
+    commonLocators.ByControlName("record1TtlChrgsAmtCcy").click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulTotalCrgDebitCreditIndicator2() {
+    commonLocators.ByControlName("record1CdtDbtInd").click();
+    commonLocators.ByTextWithTag("div", " DBIT ").should("be.visible").click();
+  }
+
+  // Charge Item #1 in 2nd record
+  mulCrgItem3Amt() {
+    commonLocators.ByControlName("chrgsBrkdwnAmt").eq(2).clear().type("500");
+  }
+
+  mulCrgItem3Currency() {
+    commonLocators.ByControlName("chrgsPerRcrdAmtCcy").eq(2).click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulCrgItem3DebitCreditIndicator() {
+    commonLocators.ByControlName("chrgsBrkdwnCdtDbtInd").eq(2).click();
+    commonLocators.ByTextWithTag("div", " DBIT ").should("be.visible").click();
+  }
+
+  mulCrgItem3TypeCode() {
+    commonLocators.ByControlName("chrgsBrkdwnTpCd").eq(2).click();
+    commonLocators
+      .ByTextWithTag("div", " COMM - Commission ")
+      .should("be.visible")
+      .click();
+  }
+
+  // Charge Item #2 in 2nd record
+  mulCrgItem4Amt() {
+    commonLocators.ByControlName("chrgsBrkdwnAmt").eq(3).clear().type("500");
+  }
+
+  mulCrgItem4Currency() {
+    commonLocators.ByControlName("chrgsPerRcrdAmtCcy").eq(3).click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulCrgItem4DebitCreditIndicator() {
+    commonLocators.ByControlName("chrgsBrkdwnCdtDbtInd").eq(3).click();
+    commonLocators.ByTextWithTag("div", " DBIT ").should("be.visible").click();
+  }
+
+  mulCrgItem4TypeCode() {
+    commonLocators.ByControlName("chrgsBrkdwnTpCd").eq(3).click();
+    commonLocators
+      .ByTextWithTag("div", " COMM - Commission ")
+      .should("be.visible")
+      .click();
+  }
+
+  /////////////////////////
 
   crgBrkdwnValueDate() {
     commonLocators
