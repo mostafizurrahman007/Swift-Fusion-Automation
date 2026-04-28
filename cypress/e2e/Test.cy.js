@@ -4,7 +4,6 @@
 import LoginPage from "../pages/LoginPage";
 import HomePage from "../pages/HomePage";
 import AuthorizationPage from "../pages/AuthorizationPage";
-import MessagePage from "../pages/MessagePage";
 import MX_029_Page from "../pages/MX_029_Page";
 import MX_109_Page from "../pages/MX_109_Page";
 import MX_Pacs_002_Page from "../pages/MX_Pacs_002_Page";
@@ -29,45 +28,6 @@ describe("Automation Suite", () => {
 
       LoginPage.login(user.username, user.password);
     });
-  });
-
-  it("Check MX Messages", () => {
-    // homePage.search("PACS02");
-
-    HomePage.menu();
-    // HomePage.search("CAMT53");
-    HomePage.search_MX_Message();
-    HomePage.errorLog();
-    // MessagePage.inputFromBIC();
-    // MessagePage.inputToBIC();
-    // MessagePage.businessMsg();
-    // MessagePage.firstIdentificationField();
-    // MessagePage.assignerBIC();
-    // MessagePage.confirmationDialog();
-    // MessagePage.cancellationStatusID();
-    // MessagePage.secondIdentificationField();
-    // HomePage.logout();
-  });
-
-  it("Check MX Messages Again", () => {
-    // homePage.search("PACS02");
-    HomePage.reloadWindow();
-    HomePage.menu();
-    // HomePage.menu1();
-    // HomePage.search("CAMT53");
-    // HomePage.search_MX_Message();
-    HomePage.search_MX_Message1();
-    HomePage.debug();
-    HomePage.errorLog();
-    // MessagePage.inputFromBIC();
-    // MessagePage.inputToBIC();
-    // MessagePage.businessMsg();
-    // MessagePage.firstIdentificationField();
-    // MessagePage.assignerBIC();
-    // MessagePage.confirmationDialog();
-    // MessagePage.cancellationStatusID();
-    // MessagePage.secondIdentificationField();
-    // HomePage.logout()
   });
 
   it("MX_029 Test", () => {
