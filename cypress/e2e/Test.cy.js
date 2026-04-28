@@ -510,13 +510,6 @@ describe("Automation Suite", () => {
     MX_Camt_105_Page.relatedPriorityField();
     MX_Camt_105_Page.groupMsgID();
     MX_Camt_105_Page.groupChargeCreationDate();
-    /*MX_Camt_105_Page.chargeRequestorBIC();
-    MX_Camt_105_Page.crgReqClrMbrCode();
-    MX_Camt_105_Page.crgReqClrMbrID();
-    MX_Camt_105_Page.crgReqClrLei();
-    MX_Camt_105_Page.chargesIdentification();
-    MX_Camt_105_Page.underlyingTrnsMsgID();
-    MX_Camt_105_Page.underlyingTrnsMsgNameID();*/
     //Multiple Charges
     MX_Camt_105_Page.mulNumberOfChequesBrkdwn();
     MX_Camt_105_Page.mulTotalChargesAmt();
