@@ -256,6 +256,19 @@ class HomePage {
       .scrollIntoView()
       .click({ force: true });
   }
+
+  goToCamt_055() {
+    commonLocators
+      .ByTextWithTag(
+        "p",
+        " CAMT.055.001.08 Customer Payment Cancellation Requ ",
+        {
+          timeout: 10000,
+        },
+      )
+      .scrollIntoView()
+      .click({ force: true });
+  }
 }
 
 export default new HomePage();

@@ -4,7 +4,7 @@
 import { commonLocators } from "../support/locators/commonLocators";
 import { getCurrentDateDDMMYYYY } from "../utils/commonUtils";
 
-class MX_Pacs_002_Page {
+class MX_Camt_055_Page {
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("A");
   }
@@ -308,4 +308,4 @@ class MX_Pacs_002_Page {
   }
 }
 
-export default new MX_Pacs_002_Page();
+export default new MX_Camt_055_Page();

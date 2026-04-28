@@ -11,6 +11,7 @@ import MX_Pacs_004_Page from "../pages/MX_Pacs_004_Page";
 import MX_Pacs_008_Page from "../pages/MX_Pacs_008_Page";
 import MX_Pacs_009_Page from "../pages/MX_Pacs_009_Page";
 import MX_Camt_105_Page from "../pages/MX_Camt_105_Page";
+import MX_Camt_055_Page from "../pages/MX_Camt_055_Page";
 
 describe("Automation Suite", () => {
   beforeEach("Login with valid credentials", () => {
@@ -396,7 +397,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it.only("CAMT_105 Automation for Single Charge", () => {
+  it("CAMT_105 Automation for Single Charge", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -570,5 +571,67 @@ describe("Automation Suite", () => {
       MX_Camt_105_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
+  });
+
+  it.only("PACS_002 Automation", () => {
+    HomePage.menu1();
+    // HomePage.search("CAMT53");
+    HomePage.search_MX_Message();
+    HomePage.goToCamt_055();
+    // MX_Camt_055_Page.charSetField();
+    // MX_Camt_055_Page.inputFromBIC();
+    // MX_Camt_055_Page.inputToBIC();
+    // MX_Camt_055_Page.fromClearingSystemID();
+    // MX_Camt_055_Page.toClearingSystemID();
+    // MX_Camt_055_Page.fromMemberID();
+    // MX_Camt_055_Page.toMemberID();
+    // MX_Camt_055_Page.fromLei();
+    // MX_Camt_055_Page.toLei();
+    // MX_Camt_055_Page.priorityField();
+    // MX_Camt_055_Page.registryField();
+    // MX_Camt_055_Page.marketIdentificationField();
+    // MX_Camt_055_Page.copyDuplicateField();
+    // MX_Camt_055_Page.possibleDuplicateField();
+    // MX_Camt_055_Page.relatedCharSetField();
+    // MX_Camt_055_Page.relatedFromBIC();
+    // MX_Camt_055_Page.relatedToBIC();
+    // MX_Camt_055_Page.relatedFromClearingSystemID();
+    // MX_Camt_055_Page.relatedToClearingSystemID();
+    // MX_Camt_055_Page.relatedFromMemberID();
+    // MX_Camt_055_Page.relatedToMemberID();
+    // MX_Camt_055_Page.relatedFromLei();
+    // MX_Camt_055_Page.relatedToLei();
+    // MX_Camt_055_Page.businessMsg();
+    // MX_Camt_055_Page.msgID();
+    // MX_Camt_055_Page.businessServiceField();
+    // MX_Camt_055_Page.dateCreationField();
+    // MX_Camt_055_Page.originalMsgIdentification();
+    // MX_Camt_055_Page.originalMsgNameIdentification();
+    // MX_Camt_055_Page.originalEndToEndID();
+    // MX_Camt_055_Page.transactionStatus();
+    // MX_Camt_055_Page.originatorNameField();
+    // MX_Camt_055_Page.originatorCountryField();
+    // MX_Camt_055_Page.originatorPostalDepartmentField();
+    // MX_Camt_055_Page.originatorPostalStreetField();
+    // MX_Camt_055_Page.originatorPostalPostCodeField();
+    // MX_Camt_055_Page.originatorPostalTownNameField();
+    // MX_Camt_055_Page.originatorPostalDistrictNameField();
+    // MX_Camt_055_Page.originatorPostalCountryNameField();
+    // MX_Camt_055_Page.reasonCodeField();
+    // MX_Camt_055_Page.reasonPropietaryField();
+    // MX_Camt_055_Page.clearingSystemRef();
+    // MX_Camt_055_Page.instrucingAgentBicfi();
+    // MX_Camt_055_Page.instrucingClearingMemberID();
+    // MX_Camt_055_Page.instrucingClearingID();
+    // MX_Camt_055_Page.instrucedAgentBicfi();
+    // MX_Camt_055_Page.instrucedClearingMemberID();
+    // MX_Camt_055_Page.instrucedClearingID();
+    // MX_Camt_055_Page.save();
+    // AuthorizationPage.openMenuAndGoToAuthorization();
+    // AuthorizationPage.messageType("CAMT055");
+    // AuthorizationPage.authorizeByBusinessMsgIdentifier(
+    //   MX_Camt_105_Page.businessMsgText,
+    // );
+    // AuthorizationPage.confirmAuthorization();
   });
 });
