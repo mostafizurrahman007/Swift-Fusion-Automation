@@ -11,15 +11,15 @@ class MX_109_Page {
 
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
-    commonLocators.ByAria_Label_Btn("Find").should("be.visible").click();
+    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("id_btn2").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
   inputToBIC() {
     commonLocators.ByControlName("toBicfi").dblclick();
-    commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("K");
-    commonLocators.ByAria_Label_Btn("Find").click().should("be.visible");
+    commonLocators.ByID("bicSearchInput").clear().type("K");
+    commonLocators.ByID("id_btn2").click().should("be.visible");
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 

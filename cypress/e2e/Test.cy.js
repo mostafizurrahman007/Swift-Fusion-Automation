@@ -436,7 +436,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it("CAMT_105 Automation for Single Charge", () => {
+  it.only("CAMT_105 Automation for Single Charge", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -511,7 +511,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it.only("CAMT_105 Automation for Multiple Charges", () => {
+  it("CAMT_105 Automation for Multiple Charges", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();

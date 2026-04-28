@@ -11,15 +11,15 @@ class MX_029_Page {
 
     inputFromBIC(){
         commonLocators.ByControlName("fromBicfi").dblclick();
-        commonLocators.inputByPlaceholder("Enter SWIFT code prefix to search...").clear().type("M");
-        commonLocators.ByAria_Label_Btn("Find SWIFT Code").should('be.visible').click();
+        commonLocators.ByID("bicSearchInput").clear().type("M");
+        commonLocators.ByID("id_btn2").should('be.visible').click();
         commonLocators.ByTextWithTag('td', ' MUTUAL TRUST BANK LTD.').dblclick();
     }
 
     inputToBIC(){
         commonLocators.ByControlName("toBicfi").dblclick();
-        commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("K");
-        commonLocators.ByAria_Label_Btn("Find").click().should('be.visible');
+        commonLocators.ByID("bicSearchInput").clear().type("K");
+        commonLocators.ByID("id_btn2").click().should('be.visible');
         commonLocators.ByTextWithTag('td', 'BANGLADESH KRISHI BANK').dblclick();
     }
 
@@ -98,16 +98,16 @@ class MX_029_Page {
     relatedFromBIC(){
         // commonLocators.ByTextWithTag('span', 'From').eq(5).should('be.visible').click();
         commonLocators.ByControlName("rltdFrBicfi").scrollIntoView({force:true}).dblclick();
-        commonLocators.inputByPlaceholder("Enter SWIFT code prefix to search...").clear().type("M");
-        commonLocators.ByAria_Label_Btn("Find SWIFT Code").should('be.visible').click();
+        commonLocators.ByID("bicSearchInput").clear().type("M");
+        commonLocators.ByID("id_btn2").should('be.visible').click();
         commonLocators.ByTextWithTag('td', ' MUTUAL TRUST BANK LTD.').dblclick();
     }
 
     relatedToBIC(){
         commonLocators.ByTextWithTag('span', 'To').should('be.visible').click();
         commonLocators.ByControlName("rltdToBicfi").dblclick();
-        commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("K");
-        commonLocators.ByAria_Label_Btn("Find").click().should('be.visible');
+        commonLocators.ByID("bicSearchInput").clear().type("K");
+        commonLocators.ByID("id_btn2").click().should('be.visible');
         commonLocators.ByTextWithTag('td', 'BANGLADESH KRISHI BANK').dblclick();
     }
 
@@ -126,8 +126,8 @@ class MX_029_Page {
 
     assignerBIC(){
         commonLocators.ByControlName("assgnrBicfi").dblclick();
-        commonLocators.inputByPlaceholder("Enter SWIFT code prefix to search...").clear().type("M");
-        commonLocators.ByAria_Label_Btn("Find SWIFT Code").click().should('be.visible');
+        commonLocators.ByID("bicSearchInput").clear().type("M");
+        commonLocators.ByID("id_btn2").click().should('be.visible');
         commonLocators.ByTextWithTag('td', ' MUTUAL TRUST BANK LTD.').dblclick();
     }
 
@@ -152,8 +152,8 @@ class MX_029_Page {
 
     agentBIC(){
         commonLocators.ByControlName("cretrBicfi").dblclick();
-        commonLocators.inputByPlaceholder("SWIFT code search...").clear().type("M");
-        commonLocators.ByAria_Label_Btn("Find").click().should('be.visible');
+        commonLocators.ByID("bicSearchInput").clear().type("M");
+        commonLocators.ByID("id_btn2").click().should('be.visible');
         commonLocators.ByTextWithTag('td', ' MUTUAL TRUST BANK LTD.').dblclick();
     }
 

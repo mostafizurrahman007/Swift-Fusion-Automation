@@ -11,14 +11,8 @@ class MX_Pacs_002_Page {
 
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators
-      .inputByPlaceholder("Enter SWIFT code prefix to search...")
-      .clear()
-      .type("M");
-    commonLocators
-      .ByAria_Label_Btn("Find SWIFT Code")
-      .should("be.visible")
-      .click();
+    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("id_btn2").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
@@ -262,14 +256,8 @@ class MX_Pacs_002_Page {
 
   instrucingAgentBicfi() {
     commonLocators.ByControlName("instgAgtBicfi").dblclick();
-    commonLocators
-      .inputByPlaceholder("Enter SWIFT code prefix to search...")
-      .clear()
-      .type("M");
-    commonLocators
-      .ByAria_Label_Btn("Find SWIFT Code")
-      .should("be.visible")
-      .click();
+    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("id_btn2").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
@@ -287,14 +275,8 @@ class MX_Pacs_002_Page {
 
   instrucedAgentBicfi() {
     commonLocators.ByControlName("instdAgtBicfi").dblclick();
-    commonLocators
-      .inputByPlaceholder("Enter SWIFT code prefix to search...")
-      .clear()
-      .type("K");
-    commonLocators
-      .ByAria_Label_Btn("Find SWIFT Code")
-      .click()
-      .should("be.visible");
+    commonLocators.ByID("bicSearchInput").clear().type("K");
+    commonLocators.ByID("id_btn2").click().should("be.visible");
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
