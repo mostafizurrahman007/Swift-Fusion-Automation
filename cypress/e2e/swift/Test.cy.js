@@ -25,7 +25,7 @@ describe("Automation Suite", () => {
       const user = data[0];
       cy.log(`Logging in as: ${user.username}`);
 
-      LoginPage.visit();
+      LoginPage.visit(user.url);
 
       LoginPage.login(user.username, user.password);
     });

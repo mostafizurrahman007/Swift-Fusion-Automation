@@ -35,8 +35,6 @@
 //   },
 // });
 
-
-
 //Modeified
 // const { defineConfig } = require("cypress");
 // const xlsx = require("xlsx");
@@ -101,9 +99,6 @@
 //   },
 // });
 
-
-
-
 //Modified with Allure
 const { defineConfig } = require("cypress");
 const xlsx = require("xlsx");
@@ -120,11 +115,10 @@ module.exports = defineConfig({
   experimentalModifyObstructiveThirdPartyCode: true,
 
   e2e: {
-    baseUrl: "https://192.168.10.253:4941",
+    // baseUrl: "",
     screenshotOnRunFailure: true,
 
     setupNodeEvents(on, config) {
-
       installLogsPrinter(on, {
         printLogsToConsole: "always",
         includeSuccessfulHookLogs: true,
@@ -148,7 +142,9 @@ module.exports = defineConfig({
         if (browser.family === "chromium") {
           launchOptions.args.push("--ignore-certificate-errors");
           launchOptions.args.push("--allow-insecure-localhost");
-          launchOptions.args.push("--disable-features=IsolateOrigins,site-per-process");
+          launchOptions.args.push(
+            "--disable-features=IsolateOrigins,site-per-process",
+          );
         } else if (browser.family === "firefox") {
           launchOptions.args.push("--ignore-certificate-errors");
         }

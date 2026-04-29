@@ -6,8 +6,8 @@ import {
   getCurrentDateDDMMYYYY,
   randomString,
   randomWithPrefix,
-} from "../utils/commonUtils";
-import { safeCheck } from "../utils/commonUtils";
+} from "../../utils/commonUtils";
+import { safeCheck } from "../../utils/commonUtils";
 
 class MX_Pacs_008_Page {
   groupHeaderMsgIDText = 'Anik';

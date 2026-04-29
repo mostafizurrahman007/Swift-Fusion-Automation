@@ -2,9 +2,9 @@
 /// <reference types="cypress-xpath" />
 
 class LoginPage {
-  visit() {
+  visit(url) {
     cy.log("Visiting the application");
-    cy.visit("/");
+    cy.visit(url);
   }
 
   login(username, password) {
