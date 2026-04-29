@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 /// <reference types="cypress-xpath" />
 
-import { commonLocators } from "../support/locators/commonLocators";
-import { getCurrentDateDDMMYYYY, randomString } from "../utils/commonUtils";
+import { commonLocators } from "../../support/locators/commonLocators";
+import { getCurrentDateDDMMYYYY, randomString } from "../../utils/commonUtils";
 
 class MX_Camt_105_Page {
   businessMsgText = randomString();

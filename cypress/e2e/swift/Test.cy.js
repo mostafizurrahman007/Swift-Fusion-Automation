@@ -1,17 +1,17 @@
 /// <reference types="cypress" />
 /// <reference types="cypress-xpath" />
 
-import LoginPage from "../pages/LoginPage";
-import HomePage from "../pages/HomePage";
-import AuthorizationPage from "../pages/AuthorizationPage";
-import MX_029_Page from "../pages/MX_029_Page";
-import MX_109_Page from "../pages/MX_109_Page";
-import MX_Pacs_002_Page from "../pages/MX_Pacs_002_Page";
-import MX_Pacs_004_Page from "../pages/MX_Pacs_004_Page";
-import MX_Pacs_008_Page from "../pages/MX_Pacs_008_Page";
-import MX_Pacs_009_Page from "../pages/MX_Pacs_009_Page";
-import MX_Camt_105_Page from "../pages/MX_Camt_105_Page";
-import MX_Camt_055_Page from "../pages/MX_Camt_055_Page";
+import LoginPage from "../../pages/swift/LoginPage";
+import HomePage from "../../pages/swift/HomePage";
+import AuthorizationPage from "../../pages/swift/AuthorizationPage";
+import MX_029_Page from "../../pages/swift/MX_029_Page";
+import MX_109_Page from "../../pages/swift/MX_109_Page";
+import MX_Pacs_002_Page from "../../pages/swift/MX_Pacs_002_Page";
+import MX_Pacs_004_Page from "../../pages/swift/MX_Pacs_004_Page";
+import MX_Pacs_008_Page from "../../pages/swift/MX_Pacs_008_Page";
+import MX_Pacs_009_Page from "../../pages/swift/MX_Pacs_009_Page";
+import MX_Camt_105_Page from "../../pages/swift/MX_Camt_105_Page";
+import MX_Camt_055_Page from "../../pages/swift/MX_Camt_055_Page";
 
 describe("Automation Suite", () => {
   beforeEach("Login with valid credentials", () => {
@@ -639,7 +639,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("CAMT055");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
-      MX_Camt_105_Page.businessMsgText,
+      MX_Camt_055_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
   });

@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 /// <reference types="cypress-xpath" />
 
-import { commonLocators } from "../support/locators/commonLocators";
-import { getCurrentDateDDMMYYYY } from "../utils/commonUtils";
+import { commonLocators } from "../../support/locators/commonLocators";
+import { getCurrentDateDDMMYYYY } from "../../utils/commonUtils";
 
 class MX_109_Page {
   charSetField() {

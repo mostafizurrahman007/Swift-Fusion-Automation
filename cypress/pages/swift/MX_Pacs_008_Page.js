@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="cypress-xpath" />
 
-import { commonLocators } from "../support/locators/commonLocators";
+import { commonLocators } from "../../support/locators/commonLocators";
 import {
   getCurrentDateDDMMYYYY,
   randomString,
