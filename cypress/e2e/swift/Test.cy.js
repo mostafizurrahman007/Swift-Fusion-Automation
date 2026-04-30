@@ -69,6 +69,12 @@ describe("Automation Suite", () => {
     MX_029_Page.originalMsgNameId();
     MX_029_Page.UETR();
     MX_029_Page.save();
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.messageType("CAMT029");
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_029_Page.businessMsgText,
+    );
+    AuthorizationPage.confirmAuthorization();
   });
 
   it("CAMT_109 Automation", () => {
@@ -103,6 +109,12 @@ describe("Automation Suite", () => {
     MX_109_Page.codeField();
     MX_109_Page.chequeCancellationAdditionalInfoField();
     MX_109_Page.save();
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.messageType("CAMT109");
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_109_Page.businessMsgText,
+    );
+    AuthorizationPage.confirmAuthorization();
   });
 
   it("PACS_002 Automation", () => {
@@ -119,9 +131,10 @@ describe("Automation Suite", () => {
     MX_Pacs_002_Page.toMemberID();
     MX_Pacs_002_Page.fromLei();
     MX_Pacs_002_Page.toLei();
-    MX_Pacs_002_Page.priorityField();
-    MX_Pacs_002_Page.registryField();
-    MX_Pacs_002_Page.marketIdentificationField();
+    // MX_Pacs_002_Page.priorityField();
+    MX_Pacs_002_Page.businessMsgID();
+    // MX_Pacs_002_Page.registryField();
+    // MX_Pacs_002_Page.marketIdentificationField();
     MX_Pacs_002_Page.copyDuplicateField();
     MX_Pacs_002_Page.possibleDuplicateField();
     MX_Pacs_002_Page.relatedCharSetField();
@@ -141,17 +154,17 @@ describe("Automation Suite", () => {
     MX_Pacs_002_Page.originalMsgNameIdentification();
     MX_Pacs_002_Page.originalEndToEndID();
     MX_Pacs_002_Page.transactionStatus();
-    MX_Pacs_002_Page.originatorNameField();
-    MX_Pacs_002_Page.originatorCountryField();
-    MX_Pacs_002_Page.originatorPostalDepartmentField();
-    MX_Pacs_002_Page.originatorPostalStreetField();
-    MX_Pacs_002_Page.originatorPostalPostCodeField();
-    MX_Pacs_002_Page.originatorPostalTownNameField();
-    MX_Pacs_002_Page.originatorPostalDistrictNameField();
-    MX_Pacs_002_Page.originatorPostalCountryNameField();
-    MX_Pacs_002_Page.reasonCodeField();
-    MX_Pacs_002_Page.reasonPropietaryField();
-    MX_Pacs_002_Page.clearingSystemRef();
+    // MX_Pacs_002_Page.originatorNameField();
+    // MX_Pacs_002_Page.originatorCountryField();
+    // MX_Pacs_002_Page.originatorPostalDepartmentField();
+    // MX_Pacs_002_Page.originatorPostalStreetField();
+    // MX_Pacs_002_Page.originatorPostalPostCodeField();
+    // MX_Pacs_002_Page.originatorPostalTownNameField();
+    // MX_Pacs_002_Page.originatorPostalDistrictNameField();
+    // MX_Pacs_002_Page.originatorPostalCountryNameField();
+    // MX_Pacs_002_Page.reasonCodeField();
+    // MX_Pacs_002_Page.reasonPropietaryField();
+    // MX_Pacs_002_Page.clearingSystemRef();
     MX_Pacs_002_Page.instrucingAgentBicfi();
     MX_Pacs_002_Page.instrucingClearingMemberID();
     MX_Pacs_002_Page.instrucingClearingID();
@@ -159,9 +172,15 @@ describe("Automation Suite", () => {
     MX_Pacs_002_Page.instrucedClearingMemberID();
     MX_Pacs_002_Page.instrucedClearingID();
     MX_Pacs_002_Page.save();
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.messageType("PACS002");
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_Pacs_002_Page.businessMsgText,
+    );
+    AuthorizationPage.confirmAuthorization();
   });
 
-  it("PACS_004 Automation", () => {
+  it.only("PACS_004 Automation", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
@@ -216,13 +235,21 @@ describe("Automation Suite", () => {
     MX_Pacs_004_Page.reasonCodeField();
     // MX_Pacs_004_Page.reasonPropietaryField();
     // MX_Pacs_004_Page.clearingSystemRef();
-    MX_Pacs_004_Page.instrucingAgentBicfi();
+    // MX_Pacs_004_Page.instrucingAgentBicfi();
     // MX_Pacs_004_Page.instrucingClearingMemberID();
     // MX_Pacs_004_Page.instrucingClearingID();
-    MX_Pacs_004_Page.instrucedAgentBicfi();
+    // MX_Pacs_004_Page.instrucedAgentBicfi();
     // MX_Pacs_004_Page.instrucedClearingMemberID();
     // MX_Pacs_004_Page.instrucedClearingID();
+    MX_Pacs_004_Page.debatorPartyName();
+    // MX_Pacs_004_Page.creatorPartyName();
     MX_Pacs_004_Page.save();
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.messageType("PACS004");
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_Pacs_004_Page.businessMsgText,
+    );
+    AuthorizationPage.confirmAuthorization();
   });
 
   it("PACS_009 Automation", () => {
@@ -392,7 +419,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("PACS008");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
-      MX_Pacs_008_Page.groupHeaderMsgIDText,
+      MX_Pacs_008_Page.groupMsgText,
     );
     AuthorizationPage.confirmAuthorization();
   });
@@ -573,7 +600,7 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it.only("CAMT_055 Automation", () => {
+  it("CAMT_055 Automation", () => {
     HomePage.menu1();
     // HomePage.search("CAMT53");
     HomePage.search_MX_Message();

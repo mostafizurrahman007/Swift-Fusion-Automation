@@ -2,9 +2,11 @@
 /// <reference types="cypress-xpath" />
 
 import { commonLocators } from "../../support/locators/commonLocators";
-import { getCurrentDateDDMMYYYY } from "../../utils/commonUtils";
+import { getCurrentDateDDMMYYYY, randomString } from "../../utils/commonUtils";
 
 class MX_109_Page {
+  businessMsgText = randomString();
+
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("A");
   }
@@ -65,7 +67,7 @@ class MX_109_Page {
   }
 
   businessMsg() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type("A");
+    commonLocators.ByControlName("bizMsgIdr").clear().type(this.businessMsgText);
   }
 
   msgID() {

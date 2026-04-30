@@ -2,21 +2,19 @@
 /// <reference types="cypress-xpath" />
 
 import { commonLocators } from "../../support/locators/commonLocators";
-import { getCurrentDateDDMMYYYY } from "../../utils/commonUtils";
+import { getCurrentDateDDMMYYYY, randomString } from "../../utils/commonUtils";
 
 class MX_Pacs_004_Page {
+  businessMsgText = randomString();
+
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("A");
   }
 
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput")
-      .clear()
-      .type("M");
-    commonLocators.ByID("id_btn2")
-      .should("be.visible")
-      .click();
+    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("id_btn2").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
@@ -140,7 +138,10 @@ class MX_Pacs_004_Page {
   }
 
   businessMsgID() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type("A");
+    commonLocators
+      .ByControlName("bizMsgIdr")
+      .clear()
+      .type(this.businessMsgText);
   }
 
   msgID() {
@@ -270,7 +271,11 @@ class MX_Pacs_004_Page {
   }
 
   reasonCodeField() {
-    commonLocators.ByControlName("TxInfRtrRsnInfRsnCd").clear().type(101);
+    commonLocators.ByControlName("TxInfRtrRsnInfRsnCd").click();
+    commonLocators
+      .ByTextWithTag(" CNOR - CreditorBankIsNotRegistered ")
+      .should("be.visible")
+      .click();
   }
 
   reasonPropietaryField() {
@@ -287,12 +292,8 @@ class MX_Pacs_004_Page {
 
   instrucingAgentBicfi() {
     commonLocators.ByControlName("TxInfInstgAgtFinInstnIdBICFI").dblclick();
-    commonLocators.ByID("bicSearchInput")
-      .clear()
-      .type("M");
-    commonLocators.ByID("id_btn2")
-      .should("be.visible")
-      .click();
+    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("id_btn2").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
@@ -310,12 +311,8 @@ class MX_Pacs_004_Page {
 
   instrucedAgentBicfi() {
     commonLocators.ByControlName("TxInfInstdAgtFinInstnIdBICFI").dblclick();
-    commonLocators.ByID("bicSearchInput")
-      .clear()
-      .type("K");
-    commonLocators.ByID("id_btn2")
-      .click()
-      .should("be.visible");
+    commonLocators.ByID("bicSearchInput").clear().type("K");
+    commonLocators.ByID("id_btn2").click().should("be.visible");
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
@@ -329,6 +326,32 @@ class MX_Pacs_004_Page {
       .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
       .should("be.visible")
       .click();
+  }
+
+  debatorPartyName() {
+    commonLocators
+      .ByPanelID("expansion-header-30")
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByControlName("TxInfRtrChainDbtrPtyNm")
+      .scrollIntoView()
+      .clear()
+      .type("Anik");
+  }
+
+  creatorPartyName() {
+    commonLocators
+      .ByPanelID("expansion-header-26")
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByControlName("TxInfRtrChainCdtrPtyNm")
+      .scrollIntoView()
+      .clear()
+      .type("Anik");
   }
 
   save() {

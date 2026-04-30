@@ -2,9 +2,11 @@
 /// <reference types="cypress-xpath" />
 
 import { commonLocators } from "../../support/locators/commonLocators";
-import { getCurrentDateDDMMYYYY } from "../../utils/commonUtils";
+import { getCurrentDateDDMMYYYY, randomString } from "../../utils/commonUtils";
 
 class MX_Pacs_002_Page {
+  businessMsgText = randomString();
+
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("A");
   }
@@ -74,7 +76,19 @@ class MX_Pacs_002_Page {
     commonLocators.ByTextWithTag("div", " Yes ").should("be.visible").click();
   }
 
+  businessMsgID() {
+    commonLocators
+      .ByControlName("bizMsgIdr")
+      .clear()
+      .type(this.businessMsgText);
+  }
+
   relatedCharSetField() {
+    commonLocators
+      .ByPanelID("expansion-header-0")
+      .eq(1)
+      .should("be.visible")
+      .click();
     commonLocators.ByControlName("rltdCharSet").clear().type("A");
   }
 
@@ -189,7 +203,10 @@ class MX_Pacs_002_Page {
   transactionStatus() {
     commonLocators.ByControlName("txSts").click();
     commonLocators
-      .ByTextWithTag("div", " CINC - CertificateOfIncorporationNumber ")
+      .ByTextWithTag(
+        "div",
+        " ACCC - AcceptedSettlementCompletedCreditorAccount ",
+      )
       .should("be.visible")
       .click();
   }

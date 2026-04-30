@@ -10,7 +10,8 @@ import {
 import { safeCheck } from "../../utils/commonUtils";
 
 class MX_Pacs_008_Page {
-  groupHeaderMsgIDText = 'Anik';
+  businessMsgText = randomString();
+  groupMsgText = randomString();
 
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("Auth1");
@@ -143,7 +144,10 @@ class MX_Pacs_008_Page {
   }
 
   businessMsgID() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type(1);
+    commonLocators
+      .ByControlName("bizMsgIdr")
+      .clear()
+      .type(this.businessMsgText);
   }
 
   msgID() {
@@ -155,10 +159,7 @@ class MX_Pacs_008_Page {
   }
 
   groupHeaderMsgID() {
-    commonLocators
-      .ByControlName("msgId")
-      .clear()
-      .type(this.groupHeaderMsgIDText);
+    commonLocators.ByControlName("msgId").clear().type(this.groupMsgText);
   }
 
   groupHeaderDateCreationField() {

@@ -5,7 +5,7 @@ import { commonLocators } from "../../support/locators/commonLocators";
 import { getCurrentDateDDMMYYYY, randomString } from "../../utils/commonUtils";
 
 class MX_Pacs_009_Page {
-  groupHeaderMsgIDText = randomString;
+  groupHeaderMsgIDText = randomString();
 
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("Auth1");
