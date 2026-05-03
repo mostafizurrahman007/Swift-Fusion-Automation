@@ -9,13 +9,6 @@ class HomePage {
     cy.debug();
   }
 
-  search(input) {
-    cy.get("input[placeholder='Fast Path...']")
-      .should("be.visible")
-      .clear()
-      .type(`${input}{enter}`);
-  }
-
   menu() {
     cy.log("Clicking on MX");
     cy.get("div[data-drawer-trigger=Menu]>img")
