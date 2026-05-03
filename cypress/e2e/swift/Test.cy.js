@@ -84,6 +84,7 @@ describe("Automation Suite", () => {
 
   it("CAMT_109 Automation", () => {
     HomePage.menu1();
+    // HomePage.searchByFastPath("3722");
     HomePage.search_MX_Message();
     HomePage.goToPage("CAMT.109.001.01 Cheque Cancellation Or Stop Report");
     MX_109_Page.charSetField();
@@ -124,6 +125,7 @@ describe("Automation Suite", () => {
 
   it("PACS_002 Automation", () => {
     HomePage.menu1();
+    // HomePage.searchByFastPath("3723");
     HomePage.search_MX_Message();
     HomePage.goToPage("PACS.002.001.10 FI To FI Payment Status Report");
     MX_Pacs_002_Page.charSetField();
@@ -187,6 +189,7 @@ describe("Automation Suite", () => {
 
   it("PACS_004 Automation", () => {
     HomePage.menu1();
+    HomePage.searchByFastPath("3725");
     HomePage.search_MX_Message();
     HomePage.goToPage("PACS.004.001.09 Payment Return");
     MX_Pacs_004_Page.charSetField();
@@ -259,6 +262,7 @@ describe("Automation Suite", () => {
 
   it("PACS_009 Automation", () => {
     HomePage.menu1();
+    // HomePage.searchByFastPath("3727");
     HomePage.search_MX_Message();
     HomePage.goToPage("PACS.009.001.08 Financial Institution Credit Transfer");
     MX_Pacs_009_Page.charSetField();
@@ -335,6 +339,7 @@ describe("Automation Suite", () => {
 
   it("PACS_008 Automation", () => {
     HomePage.menu1();
+    // HomePage.searchByFastPath("3726");
     HomePage.search_MX_Message();
     HomePage.goToPage("PACS.008.001.08 FI To FI Customer Credit Transfer");
     MX_Pacs_008_Page.charSetField();
@@ -431,6 +436,7 @@ describe("Automation Suite", () => {
 
   it("CAMT_105 Automation for Single Charge", () => {
     HomePage.menu1();
+    // HomePage.searchByFastPath("3718");
     HomePage.search_MX_Message();
     HomePage.goToPage("CAMT.105.001.02 Charges Payment Notification");
     MX_Camt_105_Page.chooseMessageVariant("Single Charge");
@@ -506,6 +512,7 @@ describe("Automation Suite", () => {
 
   it("CAMT_105 Automation for Multiple Charges", () => {
     HomePage.menu1();
+    // HomePage.searchByFastPath("3718");
     HomePage.search_MX_Message();
     HomePage.goToPage("CAMT.105.001.02 Charges Payment Notification");
     MX_Camt_105_Page.chooseMessageVariant("Multiple Charges");
