@@ -67,7 +67,10 @@ class MX_109_Page {
   }
 
   businessMsg() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type(this.businessMsgText);
+    commonLocators
+      .ByControlName("bizMsgIdr")
+      .clear()
+      .type(this.businessMsgText);
   }
 
   msgID() {
@@ -174,17 +177,6 @@ class MX_109_Page {
 
   save() {
     commonLocators.ByTextWithTag("button", "Save").click({ force: true });
-
-    cy.get('div[role="alert"]', { timeout: 4000 })
-      .first()
-      .should("be.visible")
-      .invoke("text")
-      .then((msg) => {
-        const alertMessage = msg.trim();
-        cy.log("Alert Message: " + alertMessage);
-
-        expect(alertMessage.toLowerCase()).to.include("saved");
-      });
   }
 }
 

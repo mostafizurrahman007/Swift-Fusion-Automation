@@ -12,6 +12,7 @@ import MX_Pacs_008_Page from "../../pages/swift/MX_Pacs_008_Page";
 import MX_Pacs_009_Page from "../../pages/swift/MX_Pacs_009_Page";
 import MX_Camt_105_Page from "../../pages/swift/MX_Camt_105_Page";
 import MX_Camt_055_Page from "../../pages/swift/MX_Camt_055_Page";
+import { verifyAlertMessage } from "../../utils/commonUtils";
 
 describe("Automation Suite", () => {
   beforeEach("Login with valid credentials", () => {
@@ -35,8 +36,9 @@ describe("Automation Suite", () => {
 
   it("MX_029 Test", () => {
     HomePage.menu1();
+    // HomePage.searchByFastPath('3709')
     HomePage.search_MX_Message();
-    HomePage.goToCamt_029();
+    HomePage.goToPage("CAMT.029.001.09 Resolution Of Investigation");
     MX_029_Page.charSetField();
     MX_029_Page.inputFromBIC();
     MX_029_Page.inputToBIC();
@@ -71,6 +73,7 @@ describe("Automation Suite", () => {
     MX_029_Page.originalMsgNameId();
     MX_029_Page.UETR();
     MX_029_Page.save();
+    verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("CAMT029");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
@@ -81,9 +84,8 @@ describe("Automation Suite", () => {
 
   it("CAMT_109 Automation", () => {
     HomePage.menu1();
-    // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
-    HomePage.goToCamt_109();
+    HomePage.goToPage("CAMT.109.001.01 Cheque Cancellation Or Stop Report");
     MX_109_Page.charSetField();
     MX_109_Page.inputFromBIC();
     MX_109_Page.inputToBIC();
@@ -111,6 +113,7 @@ describe("Automation Suite", () => {
     MX_109_Page.codeField();
     MX_109_Page.chequeCancellationAdditionalInfoField();
     MX_109_Page.save();
+    verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("CAMT109");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
@@ -121,9 +124,8 @@ describe("Automation Suite", () => {
 
   it("PACS_002 Automation", () => {
     HomePage.menu1();
-    // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
-    HomePage.goToPacs_002();
+    HomePage.goToPage("PACS.002.001.10 FI To FI Payment Status Report");
     MX_Pacs_002_Page.charSetField();
     MX_Pacs_002_Page.inputFromBIC();
     MX_Pacs_002_Page.inputToBIC();
@@ -174,6 +176,7 @@ describe("Automation Suite", () => {
     MX_Pacs_002_Page.instrucedClearingMemberID();
     MX_Pacs_002_Page.instrucedClearingID();
     MX_Pacs_002_Page.save();
+    verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("PACS002");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
@@ -182,11 +185,10 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it.only("PACS_004 Automation", () => {
+  it("PACS_004 Automation", () => {
     HomePage.menu1();
-    // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
-    HomePage.goToPacs_004();
+    HomePage.goToPage("PACS.004.001.09 Payment Return");
     MX_Pacs_004_Page.charSetField();
     MX_Pacs_004_Page.inputFromBIC();
     MX_Pacs_004_Page.inputToBIC();
@@ -246,6 +248,7 @@ describe("Automation Suite", () => {
     MX_Pacs_004_Page.debatorPartyName();
     // MX_Pacs_004_Page.creatorPartyName();
     MX_Pacs_004_Page.save();
+    verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("PACS004");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
@@ -256,9 +259,8 @@ describe("Automation Suite", () => {
 
   it("PACS_009 Automation", () => {
     HomePage.menu1();
-    // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
-    HomePage.goToPacs_009();
+    HomePage.goToPage("PACS.009.001.08 Financial Institution Credit Transfer");
     MX_Pacs_009_Page.charSetField();
     MX_Pacs_009_Page.inputFromBIC();
     MX_Pacs_009_Page.inputToBIC();
@@ -322,6 +324,7 @@ describe("Automation Suite", () => {
     MX_Pacs_009_Page.debtorBic();
     MX_Pacs_009_Page.creditorBic();
     MX_Pacs_009_Page.save();
+    verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("PACS009");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
@@ -332,9 +335,8 @@ describe("Automation Suite", () => {
 
   it("PACS_008 Automation", () => {
     HomePage.menu1();
-    // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
-    HomePage.goToPacs_008();
+    HomePage.goToPage("PACS.008.001.08 FI To FI Customer Credit Transfer");
     MX_Pacs_008_Page.charSetField();
     MX_Pacs_008_Page.inputFromBIC();
     MX_Pacs_008_Page.inputToBIC();
@@ -418,6 +420,7 @@ describe("Automation Suite", () => {
     // MX_Pacs_008_Page.remittanceStructuredReferredLineTypeNumber();
     MX_Pacs_008_Page.safeRemittanceStructuredFlow();
     MX_Pacs_008_Page.save();
+    verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("PACS008");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
@@ -428,9 +431,8 @@ describe("Automation Suite", () => {
 
   it("CAMT_105 Automation for Single Charge", () => {
     HomePage.menu1();
-    // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
-    HomePage.goToCamt_105();
+    HomePage.goToPage("CAMT.105.001.02 Charges Payment Notification");
     MX_Camt_105_Page.chooseMessageVariant("Single Charge");
     MX_Camt_105_Page.charSetField();
     MX_Camt_105_Page.inputFromBIC();
@@ -493,6 +495,7 @@ describe("Automation Suite", () => {
     // MX_Camt_105_Page.codeField();
     // MX_Camt_105_Page.chequeCancellationAdditionalInfoField();
     MX_Camt_105_Page.save();
+    verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("CAMT105");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
@@ -503,9 +506,8 @@ describe("Automation Suite", () => {
 
   it("CAMT_105 Automation for Multiple Charges", () => {
     HomePage.menu1();
-    // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
-    HomePage.goToCamt_105();
+    HomePage.goToPage("CAMT.105.001.02 Charges Payment Notification");
     MX_Camt_105_Page.chooseMessageVariant("Multiple Charges");
     MX_Camt_105_Page.charSetField();
     MX_Camt_105_Page.inputFromBIC();
@@ -594,6 +596,7 @@ describe("Automation Suite", () => {
     // MX_Camt_105_Page.chequeCancellationAdditionalInfoField();
     // MX_Camt_105_Page.save();
     MX_Camt_105_Page.save();
+    verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("CAMT105");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
@@ -602,11 +605,10 @@ describe("Automation Suite", () => {
     AuthorizationPage.confirmAuthorization();
   });
 
-  it("CAMT_055 Automation", () => {
+  it.only("CAMT_055 Automation", () => {
     HomePage.menu1();
-    // HomePage.search("CAMT53");
     HomePage.search_MX_Message();
-    HomePage.goToCamt_055();
+    HomePage.goToPage("CAMT.055.001.08 Customer Payment Cancellation Requ");
     MX_Camt_055_Page.charSetField();
     MX_Camt_055_Page.inputFromBIC();
     MX_Camt_055_Page.inputToBIC();
@@ -665,6 +667,7 @@ describe("Automation Suite", () => {
     // MX_Camt_055_Page.instrucedClearingMemberID();
     // MX_Camt_055_Page.instrucedClearingID();
     MX_Camt_055_Page.save();
+    verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("CAMT055");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(

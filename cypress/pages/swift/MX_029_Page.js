@@ -247,13 +247,7 @@ class MX_029_Page {
   }
 
   save() {
-    commonLocators
-      .ByTextWithTag("button", "Save")
-      .should("be.visible")
-      .click({ force: true });
-    cy.get('div[role="alert"]', { timeout: 4000 })
-      .should("be.visible")
-      .and("contain.text", " message saved successfully ");
+    commonLocators.ByTextWithTag("button", "Save").click({ force: true });
   }
 }
 

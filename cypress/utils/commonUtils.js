@@ -39,3 +39,13 @@ export const randomNumber = (min = 1000, max = 9999) => {
 export const randomWithPrefix = (prefix) => {
   return `${prefix}_${randomString(6)}`;
 };
+
+export const verifyAlertMessage = (expectedText) => {
+  cy.get('div[role="alert"]', { timeout: 4000 })
+    .first()
+    .should("be.visible")
+    .invoke("text")
+    .then((msg) => {
+      expect(msg.trim().toLowerCase()).to.include(expectedText.toLowerCase());
+    });
+};

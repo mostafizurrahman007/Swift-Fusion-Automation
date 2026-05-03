@@ -648,17 +648,6 @@ class MX_Camt_105_Page {
 
   save() {
     commonLocators.ByTextWithTag("button", "Save").click({ force: true });
-
-    // Target the success toast specifically, not just the first alert
-    cy.get('.toast-success div[role="alert"]', { timeout: 4000 })
-      .should("be.visible")
-      .invoke("text")
-      .then((msg) => {
-        const alertMessage = msg.trim();
-        cy.log("Alert Message: " + alertMessage);
-
-        expect(alertMessage.toLowerCase()).to.include("saved");
-      });
   }
 }
 

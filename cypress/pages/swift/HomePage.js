@@ -71,7 +71,7 @@ class HomePage {
     );
   }
 
-  search(input) {
+  searchByFastPath(input) {
     cy.get("input[placeholder='Fast Path...']")
       .should("be.visible")
       .clear()
@@ -183,89 +183,11 @@ class HomePage {
     });
   }
 
-  goToCamt_029() {
+  goToPage(text) {
     commonLocators
-      .ByTextWithTag("p", " CAMT.029.001.09 Resolution Of Investigation ", {
+      .ByTextWithTag("p", text, {
         timeout: 10000,
       })
-      .click({ force: true });
-  }
-
-  goToCamt_109() {
-    commonLocators
-      .ByTextWithTag(
-        "p",
-        " CAMT.109.001.01 Cheque Cancellation Or Stop Report ",
-        {
-          timeout: 10000,
-        },
-      )
-      .scrollIntoView()
-      .click({ force: true });
-  }
-
-  goToPacs_002() {
-    commonLocators
-      .ByTextWithTag("p", " PACS.002.001.10 FI To FI Payment Status Report ", {
-        timeout: 10000,
-      })
-      .scrollIntoView()
-      .click({ force: true });
-  }
-
-  goToPacs_004() {
-    commonLocators
-      .ByTextWithTag("p", " PACS.004.001.09 Payment Return ", {
-        timeout: 10000,
-      })
-      .scrollIntoView()
-      .click({ force: true });
-  }
-
-  goToPacs_008() {
-    commonLocators
-      .ByTextWithTag(
-        "p",
-        " PACS.008.001.08 FI To FI Customer Credit Transfer ",
-        {
-          timeout: 10000,
-        },
-      )
-      .scrollIntoView()
-      .click({ force: true });
-  }
-
-  goToPacs_009() {
-    commonLocators
-      .ByTextWithTag(
-        "p",
-        " PACS.009.001.08 Financial Institution Credit Transfer ",
-        {
-          timeout: 10000,
-        },
-      )
-      .scrollIntoView()
-      .click({ force: true });
-  }
-
-  goToCamt_105() {
-    commonLocators
-      .ByTextWithTag("p", " CAMT.105.001.02 Charges Payment Notification ", {
-        timeout: 10000,
-      })
-      .scrollIntoView()
-      .click({ force: true });
-  }
-
-  goToCamt_055() {
-    commonLocators
-      .ByTextWithTag(
-        "p",
-        " CAMT.055.001.08 Customer Payment Cancellation Requ ",
-        {
-          timeout: 10000,
-        },
-      )
       .scrollIntoView()
       .click({ force: true });
   }
