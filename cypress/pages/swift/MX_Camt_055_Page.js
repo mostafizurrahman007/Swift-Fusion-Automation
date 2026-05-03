@@ -14,14 +14,14 @@ class MX_Camt_055_Page {
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
     commonLocators.ByID("bicSearchInput").clear().type("M");
-    commonLocators.ByID("id_btn").eq(1).should("be.visible").click();
+    commonLocators.ByID("id_btn2").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
   inputToBIC() {
     commonLocators.ByControlName("toBicfi").dblclick();
     commonLocators.ByID("bicSearchInput").clear().type("K");
-    commonLocators.ByID("id_btn").eq(1).click().should("be.visible");
+    commonLocators.ByID("id_btn2").click().should("be.visible");
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
@@ -94,7 +94,7 @@ class MX_Camt_055_Page {
       .scrollIntoView({ force: true })
       .dblclick();
     commonLocators.ByID("bicSearchInput").clear().type("M");
-    commonLocators.ByID("id_btn").eq(1).should("be.visible").click();
+    commonLocators.ByID("id_btn2").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
@@ -102,7 +102,7 @@ class MX_Camt_055_Page {
     // commonLocators.ByTextWithTag('span', 'To').should('be.visible').click();
     commonLocators.ByControlName("assgneBicfi").dblclick();
     commonLocators.ByID("bicSearchInput").clear().type("K");
-    commonLocators.ByID("id_btn").eq(1).click().should("be.visible");
+    commonLocators.ByID("id_btn2").click().should("be.visible");
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
@@ -335,7 +335,7 @@ class MX_Camt_055_Page {
   instrucingAgentBicfi() {
     commonLocators.ByControlName("instgAgtBicfi").dblclick();
     commonLocators.ByID("bicSearchInput").clear().type("M");
-    commonLocators.ByID("id_btn").eq(1).should("be.visible").click();
+    commonLocators.ByID("id_btn2").should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
@@ -354,7 +354,7 @@ class MX_Camt_055_Page {
   instrucedAgentBicfi() {
     commonLocators.ByControlName("instdAgtBicfi").dblclick();
     commonLocators.ByID("bicSearchInput").clear().type("K");
-    commonLocators.ByID("id_btn").eq(1).click().should("be.visible");
+    commonLocators.ByID("id_btn2").click().should("be.visible");
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
   }
 
