@@ -607,7 +607,7 @@ describe("Automation Suite", () => {
 
   it.only("CAMT_055 Automation", () => {
     HomePage.menu1();
-    HomePage.searchByFastPath('3713')
+    HomePage.searchByFastPath("3713");
     // HomePage.search_MX_Message();
     // HomePage.goToPage("CAMT.055.001.08 Customer Payment Cancellation Requ");
     MX_Camt_055_Page.charSetField();
