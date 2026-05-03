@@ -26,8 +26,10 @@ describe("Automation Suite", () => {
       cy.log(`Logging in as: ${user.username}`);
 
       LoginPage.visit(user.url);
+      cy.url({ timeout: 15000 }).should("include", "/realms"); // validation; this part can be skipped
 
       LoginPage.login(user.username, user.password);
+      cy.url().should("include", "/landing"); // validation; this part can be skipped
     });
   });
 

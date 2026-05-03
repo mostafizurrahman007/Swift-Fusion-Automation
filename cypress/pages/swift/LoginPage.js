@@ -11,8 +11,6 @@ class LoginPage {
     //method which will be called in test runner
     cy.log(`Logging in as ${username}`);
 
-    cy.url({ timeout: 15000 }).should("include", "/realms"); // validation; this part can be skipped
-
     cy.location("origin").then((keycloakOrigin) => {
       // getting the current url origin then target the url where it accessing the page
       cy.origin(
@@ -29,8 +27,6 @@ class LoginPage {
         },
       );
     });
-
-    cy.url().should("include", "/landing"); // validation; this part can be skipped
   }
 }
 
