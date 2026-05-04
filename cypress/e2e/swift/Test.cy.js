@@ -12,6 +12,7 @@ import MX_Pacs_008_Page from "../../pages/swift/MX_Pacs_008_Page";
 import MX_Pacs_009_Page from "../../pages/swift/MX_Pacs_009_Page";
 import MX_Camt_105_Page from "../../pages/swift/MX_Camt_105_Page";
 import MX_Camt_055_Page from "../../pages/swift/MX_Camt_055_Page";
+import MX_Camt_056_Page from "../../pages/swift/MX_Camt_056_Page";
 import {
   verifyAlertMessage,
   verifyAuthorization,
@@ -623,7 +624,7 @@ describe("Automation Suite", () => {
     verifyAuthorization("messages authorized successfully!");
   });
 
-  it.only("CAMT_055 Automation", () => {
+  it("CAMT_055 Automation", () => {
     HomePage.menu1();
     HomePage.searchByFastPath("3713");
     // HomePage.search_MX_Message();
@@ -691,6 +692,48 @@ describe("Automation Suite", () => {
     AuthorizationPage.messageType("CAMT055");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
       MX_Camt_055_Page.businessMsgText,
+    );
+    AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
+  });
+
+  it.only("CAMT_056 Automation", () => {
+    HomePage.menu1();
+    HomePage.searchByFastPath("3714");
+    // HomePage.search_MX_Message();
+    // HomePage.goToPage("CAMT.056.001.08 FI To FI Payment Cancel Request");
+    MX_Camt_056_Page.charSetField();
+    MX_Camt_056_Page.inputFromBIC();
+    MX_Camt_056_Page.inputToBIC();
+    MX_Camt_056_Page.fromClearingSystemID();
+    MX_Camt_056_Page.toClearingSystemID();
+    MX_Camt_056_Page.fromMemberID();
+    MX_Camt_056_Page.toMemberID();
+    MX_Camt_056_Page.fromLei();
+    MX_Camt_056_Page.toLei();
+    MX_Camt_056_Page.businessMsg();
+    MX_Camt_056_Page.marketRegistryField();
+    MX_Camt_056_Page.marketIDField();
+    MX_Camt_056_Page.copyDuplicateField();
+    MX_Camt_056_Page.fiAssignmentID();
+    MX_Camt_056_Page.assignerAgentBicfi();
+    MX_Camt_056_Page.assigneeAgentBicfi();
+    MX_Camt_056_Page.underlyingCaseID();
+    MX_Camt_056_Page.underlyingAgentBicfi();
+    MX_Camt_056_Page.originalMessageID();
+    MX_Camt_056_Page.originalMessageNameID();
+    MX_Camt_056_Page.originalEndToEndID();
+    MX_Camt_056_Page.originalUETR();
+    MX_Camt_056_Page.originalSettlementCurrencyField();
+    MX_Camt_056_Page.originalSettlementAmt();
+    MX_Camt_056_Page.originalSettlementDate();
+    MX_Camt_056_Page.reasonCodeField();
+    MX_Camt_056_Page.save();
+    verifyAlertMessage("saved");
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.messageType("CAMT056");
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_Camt_056_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
     verifyAuthorization("messages authorized successfully!");
