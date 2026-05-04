@@ -47,18 +47,11 @@ class AuthorizationPage {
     cy.contains("button", "Authorize").should("be.visible").click();
   }
 
-  confirmAuthorization(){
-    commonLocators.ByTextWithTag('button', ' Yes, Authorize ').should('be.visible').click()
-    cy.contains('p', 'messages authorized successfully!', { timeout: 4000 })
-  .should('be.visible')
-  .invoke('text')
-  .then((msg) => {
-    const alertMessage = msg.trim();
-    cy.log("Alert Message: " + alertMessage);
-
-    expect(alertMessage.toLowerCase()).to.include("messages authorized successfully!");
-  });
-  commonLocators.ByTextWithTag('button', ' OK ').should('be.visible').click();
+  confirmAuthorization() {
+    commonLocators
+      .ByTextWithTag("button", " Yes, Authorize ")
+      .should("be.visible")
+      .click();
   }
 }
 

@@ -12,7 +12,10 @@ import MX_Pacs_008_Page from "../../pages/swift/MX_Pacs_008_Page";
 import MX_Pacs_009_Page from "../../pages/swift/MX_Pacs_009_Page";
 import MX_Camt_105_Page from "../../pages/swift/MX_Camt_105_Page";
 import MX_Camt_055_Page from "../../pages/swift/MX_Camt_055_Page";
-import { verifyAlertMessage } from "../../utils/commonUtils";
+import {
+  verifyAlertMessage,
+  verifyAuthorization,
+} from "../../utils/commonUtils";
 
 describe("Automation Suite", () => {
   beforeEach("Login with valid credentials", () => {
@@ -80,6 +83,7 @@ describe("Automation Suite", () => {
       MX_029_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
   });
 
   it("CAMT_109 Automation", () => {
@@ -121,6 +125,7 @@ describe("Automation Suite", () => {
       MX_109_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
   });
 
   it("PACS_002 Automation", () => {
@@ -185,6 +190,7 @@ describe("Automation Suite", () => {
       MX_Pacs_002_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
   });
 
   it("PACS_004 Automation", () => {
@@ -258,6 +264,7 @@ describe("Automation Suite", () => {
       MX_Pacs_004_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
   });
 
   it("PACS_009 Automation", () => {
@@ -335,6 +342,7 @@ describe("Automation Suite", () => {
       MX_Pacs_009_Page.groupHeaderMsgIDText,
     );
     AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
   });
 
   it("PACS_008 Automation", () => {
@@ -432,6 +440,7 @@ describe("Automation Suite", () => {
       MX_Pacs_008_Page.groupMsgText,
     );
     AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
   });
 
   it("CAMT_105 Automation for Single Charge", () => {
@@ -508,6 +517,7 @@ describe("Automation Suite", () => {
       MX_Camt_105_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
   });
 
   it("CAMT_105 Automation for Multiple Charges", () => {
@@ -610,6 +620,7 @@ describe("Automation Suite", () => {
       MX_Camt_105_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
   });
 
   it.only("CAMT_055 Automation", () => {
@@ -682,5 +693,6 @@ describe("Automation Suite", () => {
       MX_Camt_055_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
   });
 });

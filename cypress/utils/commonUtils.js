@@ -49,3 +49,13 @@ export const verifyAlertMessage = (expectedText) => {
       expect(msg.trim().toLowerCase()).to.include(expectedText.toLowerCase());
     });
 };
+
+export const verifyAuthorization = (expectedText, selector = "p") => {
+  cy.contains(selector, expectedText, { timeout: 4000 })
+    .should("be.visible")
+    .invoke("text")
+    .then((msg) => {
+      expect(msg.trim().toLowerCase()).to.include(expectedText.toLowerCase());
+    });
+  cy.contains("button", " OK ").should("be.visible").click();
+};
