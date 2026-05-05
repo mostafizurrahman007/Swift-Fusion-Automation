@@ -108,6 +108,35 @@ class MX_Camt_056_Page {
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
+  assignerAgentClearingSystemID() {
+    commonLocators
+      .ByControlName(
+        "FIToFIPmtCxlReqAssignmentAssgnrAgentFinInstnIdClrSysMmbIdClrSysIdCd",
+      )
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
+      .should("be.visible")
+      .click();
+  }
+
+  assignerAgentMemberID() {
+    commonLocators
+      .ByControlName(
+        "FIToFIPmtCxlReqAssignmentAssgnrAgentFinInstnIdClrSysMmbIdMmbId",
+      )
+      .clear()
+      .type(1);
+  }
+
+  assignerAgentLei() {
+    commonLocators
+      .ByControlName("FIToFIPmtCxlReqAssignmentAssgnrAgentFinInstnIdLEI")
+      .clear()
+      .type("11111111111111111111", { force: true });
+  }
+
   assigneeAgentBicfi() {
     commonLocators
       .ByControlName("FIToFIPmtCxlReqAssignmentAssgneAgentFinInstnIdBICFI")
@@ -117,11 +146,63 @@ class MX_Camt_056_Page {
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
+  assigneeAgentClearingSystemID() {
+    commonLocators
+      .ByControlName(
+        "FIToFIPmtCxlReqAssignmentAssgneAgentFinInstnIdClrSysMmbIdClrSysIdCd",
+      )
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
+      .should("be.visible")
+      .click();
+  }
+
+  assigneeAgentMemberID() {
+    commonLocators
+      .ByControlName(
+        "FIToFIPmtCxlReqAssignmentAssgneAgentFinInstnIdClrSysMmbIdMmbId",
+      )
+      .clear()
+      .type(1);
+  }
+
+  assigneeAgentLei() {
+    commonLocators
+      .ByControlName("FIToFIPmtCxlReqAssignmentAssgneAgentFinInstnIdLEI")
+      .clear()
+      .type("11111111111111111111", { force: true });
+  }
+
+  underlyingCancellationID() {
+    commonLocators
+      .ByControlName("FIToFIPmtCxlReqUndrlygTxInfCxlId")
+      .clear()
+      .type("121");
+  }
+
   underlyingCaseID() {
     commonLocators
       .ByControlName("FIToFIPmtCxlReqUndrlygTxInfCaseId")
       .clear()
       .type("12345");
+  }
+
+  underlyingPartyName() {
+    commonLocators
+      .ByControlName("FIToFIPmtCxlReqUndrlygTxInfCaseCretrPtyNm")
+      .clear()
+      .type("Anik");
+  }
+
+  underlyingOrganizationIDAnyBIC() {
+    commonLocators
+      .ByControlName("FIToFIPmtCxlReqUndrlygTxInfCaseCretrPtyIdOrgIdAnyBIC")
+      .dblclick();
+    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("id_btn").eq(1).should("be.visible").click();
+    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
   }
 
   underlyingAgentBicfi() {
@@ -131,6 +212,16 @@ class MX_Camt_056_Page {
     commonLocators.ByID("bicSearchInput").clear().type("M");
     commonLocators.ByID("id_btn").eq(1).should("be.visible").click();
     commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+  }
+
+  underlyingCountryOfResidence() {
+    commonLocators
+      .ByControlName("FIToFIPmtCxlReqUndrlygTxInfCaseCretrPtyCtryOfRes")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", "001 - Bangladesh")
+      .should("be.visible")
+      .click();
   }
 
   originalMessageID() {
@@ -191,12 +282,20 @@ class MX_Camt_056_Page {
       .type(getCurrentDateDDMMYYYY() + "{enter}");
   }
 
+  originatorName() {
+    commonLocators.ByControlName("TxInfRtrRsnInfOrgtrNm").clear().type('Anik');
+  }
+
   reasonCodeField() {
     commonLocators.ByControlName("OriginalEndToEndIdentification").click();
     commonLocators
       .ByTextWithTag("AGNT - Incorrect Agent")
       .should("be.visible")
       .click();
+  }
+
+  reasonCodeAdditionalInfo1() {
+    commonLocators.ByControlName("TxInfRtrRsnInfAddtlInf1").clear().type('All done');
   }
 
   save() {
