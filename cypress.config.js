@@ -99,24 +99,25 @@
 //   },
 // });
 
-//Modified with Allure
+//Modified with Allure along with network tab info
+
 const { defineConfig } = require("cypress");
 const xlsx = require("xlsx");
 const installLogsPrinter = require("cypress-terminal-report/src/installLogsPrinter");
+const path = require("path");
+const fs = require("fs");
 
 module.exports = defineConfig({
   video: false,
   screenshotsFolder: "cypress/screenshots",
   videosFolder: "cypress/videos",
-
   chromeWebSecurity: false,
   defaultCommandTimeout: 10000,
   pageLoadTimeout: 60000,
   experimentalModifyObstructiveThirdPartyCode: true,
 
   e2e: {
-    // baseUrl: "",
-    screenshotOnRunFailure: true,
+    screenshotOnRunFailure: true, // Allure auto-captures screenshot on failure
 
     setupNodeEvents(on, config) {
       installLogsPrinter(on, {
@@ -125,6 +126,20 @@ module.exports = defineConfig({
       });
 
       require("@shelex/cypress-allure-plugin/writer")(on, config);
+
+      // clear logs folder before every run
+      on("before:run", () => {
+        const logsDir = path.join(__dirname, "cypress/logs");
+        if (fs.existsSync(logsDir)) {
+          fs.readdirSync(logsDir).forEach((file) => {
+            fs.unlinkSync(path.join(logsDir, file));
+          });
+          console.log("🧹 cypress/logs cleared");
+        } else {
+          fs.mkdirSync(logsDir, { recursive: true });
+          console.log("📁 cypress/logs created");
+        }
+      });
 
       on("task", {
         log(message) {

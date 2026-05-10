@@ -1,9 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="cypress-xpath" />
 
-import {
-  commonLocators,
-} from "../../support/locators/commonLocators";
+import { commonLocators } from "../../support/locators/commonLocators";
 import { randomString } from "../../utils/commonUtils";
 
 class MX_029_Page {
@@ -28,10 +26,7 @@ class MX_029_Page {
   }
 
   fromClearingSystemID() {
-    commonLocators
-      .inputByPlaceholder(" Search clearing system id code")
-      .eq(0)
-      .click();
+    commonLocators.ByControlName("fromClrSysIdCd").click();
     commonLocators
       .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
       .should("be.visible")
@@ -39,10 +34,7 @@ class MX_029_Page {
   }
 
   toClearingSystemID() {
-    commonLocators
-      .inputByPlaceholder(" Search clearing system id code")
-      .eq(1)
-      .click();
+    commonLocators.ByControlName("toClrSysIdCd").click();
     commonLocators
       .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
       .should("be.visible")
@@ -50,10 +42,7 @@ class MX_029_Page {
   }
 
   assignerClearingSystemID() {
-    commonLocators
-      .inputByPlaceholder(" Search clearing system id code")
-      .eq(2)
-      .click();
+    commonLocators.ByControlName("assgnrClrSysIdCd").click();
     commonLocators
       .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
       .should("be.visible")
@@ -61,10 +50,7 @@ class MX_029_Page {
   }
 
   assigneeClearingSystemID() {
-    commonLocators
-      .inputByPlaceholder(" Search clearing system id code")
-      .eq(3)
-      .click();
+    commonLocators.ByControlName("assgneClrSysIdCd").click();
     commonLocators
       .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
       .should("be.visible")

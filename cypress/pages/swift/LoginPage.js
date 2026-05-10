@@ -5,27 +5,37 @@ class LoginPage {
   visit(url) {
     cy.log("Visiting the application");
     cy.visit(url);
+
+    const appOrigin = new URL(url).origin;
+    Cypress.env("appOrigin", appOrigin); // save app origin from Excel URL
   }
 
   login(username, password) {
-    //method which will be called in test runner
     cy.log(`Logging in as ${username}`);
 
-    cy.location("origin").then((keycloakOrigin) => {
-      // getting the current url origin then target the url where it accessing the page
-      cy.origin(
-        keycloakOrigin,
-        { args: { username, password } },
-        ({ username, password }) => {
-          //passing variable safely as it can not directly interact inside the origin so passing as argument
-          cy.get("#username").should("be.visible").clear().type(username); //interacting with username field
-          cy.get("#password").should("be.visible").clear().type(password); // interacting with password field
-          cy.get("#kc-login")
-            .should("be.visible")
-            .and("not.be.disabled")
-            .click(); // interacting with login button
-        },
-      );
+    const appOrigin = Cypress.env("appOrigin");
+
+    cy.location("origin").then((currentOrigin) => {
+      if (currentOrigin !== appOrigin) {
+        // ✅ currentOrigin IS the Keycloak URL — fully dynamic, no hardcode
+        cy.origin(
+          currentOrigin,
+          { args: { username, password } },
+          ({ username, password }) => {
+            cy.get("#username").should("be.visible").clear().type(username);
+            cy.get("#password").should("be.visible").clear().type(password);
+            cy.get("#kc-login")
+              .should("be.visible")
+              .and("not.be.disabled")
+              .click();
+          },
+        );
+      } else {
+        // ✅ no redirect happened — interact directly
+        cy.get("#username").should("be.visible").clear().type(username);
+        cy.get("#password").should("be.visible").clear().type(password);
+        cy.get("#kc-login").should("be.visible").and("not.be.disabled").click();
+      }
     });
   }
 }

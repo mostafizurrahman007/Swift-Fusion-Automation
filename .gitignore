@@ -43,6 +43,15 @@ coverage/
 # ==============================
 logs/
 *.log
+cypress/logs/*
+!cypress/logs/.gitkeep
+
+# Downloads — keep folder, ignore sensitive files
+cypress/downloads/*
+!cypress/downloads/.gitkeep
+
+# Sensitive credentials
+cypress/fixtures/credentials.xlsx
 
 # ==============================
 # Build / Output
