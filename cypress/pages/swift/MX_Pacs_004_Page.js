@@ -13,9 +13,11 @@ class MX_Pacs_004_Page {
 
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   inputToBIC() {
@@ -86,9 +88,11 @@ class MX_Pacs_004_Page {
       .ByControlName("rltdFromBicfi")
       .scrollIntoView({ force: true })
       .dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   relatedToBIC() {
@@ -292,9 +296,11 @@ class MX_Pacs_004_Page {
 
   instrucingAgentBicfi() {
     commonLocators.ByControlName("TxInfInstgAgtFinInstnIdBICFI").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   instrucingClearingMemberID() {

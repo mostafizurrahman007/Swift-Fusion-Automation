@@ -21,7 +21,6 @@ import {
 
 describe("Automation Suite", () => {
   beforeEach("Login with valid credentials", () => {
-
     cy.task("readExcel", {
       filePath: "cypress/fixtures/credentials.xlsx",
       sheetName: "login_credentials",
@@ -37,7 +36,7 @@ describe("Automation Suite", () => {
     });
   });
 
-  it.only("MX_029 Test", () => {
+  it("MX_029 Test", () => {
     HomePage.menu1();
     // HomePage.searchByFastPath('3709')
     HomePage.search_MX_Message();
@@ -750,7 +749,7 @@ describe("Automation Suite", () => {
     verifyAuthorization("messages authorized successfully!");
   });
 
-  it("CAMT_060 Automation", () => {
+  it.only("CAMT_060 Automation", () => {
     HomePage.menu1();
     HomePage.searchByFastPath("3717");
     // HomePage.search_MX_Message();

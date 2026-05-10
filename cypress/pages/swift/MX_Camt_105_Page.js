@@ -17,9 +17,11 @@ class MX_Camt_105_Page {
 
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   inputToBIC() {
@@ -88,9 +90,11 @@ class MX_Camt_105_Page {
 
   relatedInputFromBIC() {
     commonLocators.ByControlName("rltdFrBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   relatedInputToBIC() {
@@ -222,9 +226,11 @@ class MX_Camt_105_Page {
 
   chargeRequestorBIC() {
     commonLocators.ByControlName("chrgsRqstrBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   crgReqClrMbrCode() {
@@ -354,9 +360,11 @@ class MX_Camt_105_Page {
 
   mulChargeRequestorBIC() {
     commonLocators.ByControlName("record0ChrgsRqstrBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   mulCrgReqClrMbrCode() {
@@ -467,9 +475,11 @@ class MX_Camt_105_Page {
 
   mulChargeRequestorBIC2() {
     commonLocators.ByControlName("record1ChrgsRqstrBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   mulCrgReqClrMbrCode2() {

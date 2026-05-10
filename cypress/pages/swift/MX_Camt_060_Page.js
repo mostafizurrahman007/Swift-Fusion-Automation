@@ -17,9 +17,11 @@ class MX_Camt_060_Page {
 
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   inputToBIC() {

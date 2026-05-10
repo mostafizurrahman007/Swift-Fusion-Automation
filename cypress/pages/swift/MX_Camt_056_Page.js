@@ -17,9 +17,11 @@ class MX_Camt_056_Page {
 
   inputFromBIC() {
     commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   inputToBIC() {
@@ -103,9 +105,11 @@ class MX_Camt_056_Page {
     commonLocators
       .ByControlName("FIToFIPmtCxlReqAssignmentAssgnrAgentFinInstnIdBICFI")
       .dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   assignerAgentClearingSystemID() {
@@ -141,9 +145,11 @@ class MX_Camt_056_Page {
     commonLocators
       .ByControlName("FIToFIPmtCxlReqAssignmentAssgneAgentFinInstnIdBICFI")
       .dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   assigneeAgentClearingSystemID() {
@@ -200,18 +206,22 @@ class MX_Camt_056_Page {
     commonLocators
       .ByControlName("FIToFIPmtCxlReqUndrlygTxInfCaseCretrPtyIdOrgIdAnyBIC")
       .dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   underlyingAgentBicfi() {
     commonLocators
       .ByControlName("FIToFIPmtCxlReqUndrlygTxInfCaseAgtFinInstnIdBICFI")
       .dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("M");
+    commonLocators.ByID("bicSearchInput").clear().type("S");
     commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators.ByTextWithTag("td", " MUTUAL TRUST BANK LTD.").dblclick();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
   }
 
   underlyingCountryOfResidence() {
