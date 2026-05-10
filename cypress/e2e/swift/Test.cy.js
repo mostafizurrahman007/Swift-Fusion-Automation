@@ -764,6 +764,16 @@ describe("Automation Suite", () => {
     MX_Camt_060_Page.fromLei();
     MX_Camt_060_Page.toLei();
     MX_Camt_060_Page.businessMsg();
+    MX_Camt_060_Page.marketPracticeID();
+    MX_Camt_060_Page.marketPracticeCreationDate();
+    MX_Camt_060_Page.groupHeaderMsgID();
+    MX_Camt_060_Page.groupHeaderCreationDate();
+    MX_Camt_060_Page.reportingMsgNameID();
+    MX_Camt_060_Page.reportingAccountOwnerType();
+    MX_Camt_060_Page.reportingAccountAgentBIC();
+    MX_Camt_060_Page.reportingPeriodFromDate();
+    MX_Camt_060_Page.reportingPeriodToDate();
+    MX_Camt_060_Page.reportingAccountOwnerType();
     /*MX_Camt_060_Page.save();
     verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();

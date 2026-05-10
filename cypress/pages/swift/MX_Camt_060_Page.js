@@ -85,6 +85,65 @@ class MX_Camt_060_Page {
   marketRegistryField() {
     commonLocators.ByControlName("mktPrctcRegy").clear().type("123");
   }
+
+  marketPracticeID() {
+    commonLocators.ByControlName("mktPrctcId").clear().type("1230");
+  }
+
+  marketPracticeCreationDate() {
+    commonLocators
+      .ByControlName("creDt")
+      .clear()
+      .type(getCurrentDateDDMMYYYY() + "{enter}");
+  }
+
+  groupHeaderMsgID() {
+    commonLocators.ByControlName("grpHdrMsgId").clear().type("123");
+  }
+
+  groupHeaderCreationDate() {
+    commonLocators
+      .ByControlName("grpHdrCreDtTm")
+      .clear()
+      .type(getCurrentDateDDMMYYYY() + "{enter}");
+  }
+
+  reportingMsgNameID() {
+    commonLocators.ByControlName("ReqdMsgNmId").clear().type("123");
+  }
+
+  reportingAccountOwnerType() {
+    commonLocators.ByControlName("accountOwnerType").click();
+    commonLocators.ByTextWithTag("div", " Agent ").should("be.visible").click();
+  }
+
+  reportingAccountAgentBIC() {
+    commonLocators.ByControlName("bicfi").dblclick();
+    commonLocators.ByID("bicSearchInput").clear().type("S");
+    commonLocators.ByID("id_btn2").should("be.visible").click();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
+  }
+
+  reportingPeriodFromDate() {
+    commonLocators
+      .ByControlName("reptReqFrDt")
+      .clear()
+      .type(getCurrentDateDDMMYYYY() + "{enter}");
+  }
+
+  reportingPeriodToDate() {
+    commonLocators
+      .ByControlName("reptReqToDt")
+      .clear()
+      .type(getCurrentDateDDMMYYYY() + "{enter}");
+  }
+
+  reportingAccountOwnerType() {
+    commonLocators.ByControlName("reptReqTp").click();
+    commonLocators.ByTextWithTag("div", " All ").should("be.visible").click();
+  }
 }
 
 export default new MX_Camt_060_Page();
