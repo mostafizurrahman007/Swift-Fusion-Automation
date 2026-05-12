@@ -14,6 +14,7 @@ import MX_Camt_105_Page from "../../pages/swift/MX_Camt_105_Page";
 import MX_Camt_055_Page from "../../pages/swift/MX_Camt_055_Page";
 import MX_Camt_056_Page from "../../pages/swift/MX_Camt_056_Page";
 import MX_Camt_060_Page from "../../pages/swift/MX_Camt_060_Page";
+import MX_Camt_058_Page from "../../pages/swift/MX_Camt_058_Page";
 import {
   verifyAlertMessage,
   verifyAuthorization,
@@ -749,7 +750,7 @@ describe("Automation Suite", () => {
     verifyAuthorization("messages authorized successfully!");
   });
 
-  it.only("CAMT_060 Automation", () => {
+  it("CAMT_060 Automation", () => {
     HomePage.menu1();
     HomePage.searchByFastPath("3717");
     // HomePage.search_MX_Message();
@@ -777,9 +778,38 @@ describe("Automation Suite", () => {
     /*MX_Camt_060_Page.save();
     verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
-    AuthorizationPage.messageType("CAMT056");
+    AuthorizationPage.messageType("CAMT060");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
       MX_Camt_060_Page.businessMsgText,
+    );
+    AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");*/
+  });
+
+  it.only("CAMT_058 Automation", () => {
+    HomePage.menu1();
+    HomePage.searchByFastPath("3716");
+    // HomePage.search_MX_Message();
+    // HomePage.goToPage("CAMT.058.001.08 Notification To Receive Cancel Adv");
+    MX_Camt_058_Page.charSetField();
+    // MX_Camt_058_Page.inputFromBIC();
+    // MX_Camt_058_Page.inputToBIC();
+    MX_Camt_058_Page.fromClearingSystemID();
+    MX_Camt_058_Page.toClearingSystemID();
+    MX_Camt_058_Page.fromMemberID();
+    MX_Camt_058_Page.toMemberID();
+    MX_Camt_058_Page.fromLei();
+    MX_Camt_058_Page.toLei();
+    MX_Camt_058_Page.businessMsg();
+    MX_Camt_058_Page.marketPracticeCreationDate();
+    MX_Camt_058_Page.groupHeaderMsgID();
+    MX_Camt_058_Page.groupHeaderCreationDate();
+    /*MX_Camt_060_Page.save();
+    verifyAlertMessage("saved");
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.messageType("CAMT058");
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_Camt_058_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
     verifyAuthorization("messages authorized successfully!");*/
