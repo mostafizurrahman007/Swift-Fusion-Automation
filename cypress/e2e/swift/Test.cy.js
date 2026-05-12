@@ -802,6 +802,9 @@ describe("Automation Suite", () => {
     MX_Camt_058_Page.toLei();
     MX_Camt_058_Page.businessMsg();
     MX_Camt_058_Page.marketPracticeCreationDate();
+    MX_Camt_058_Page.marketPracticeCopyDuplicate();
+    MX_Camt_058_Page.marketPracticePossibleDuplicate();
+    MX_Camt_058_Page.marketPracticePriority();
     MX_Camt_058_Page.groupHeaderMsgID();
     MX_Camt_058_Page.groupHeaderCreationDate();
     MX_Camt_058_Page.originalMsgNotification();

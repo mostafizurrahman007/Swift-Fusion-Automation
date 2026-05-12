@@ -89,6 +89,24 @@ class MX_Camt_058_Page {
       .type(getCurrentDateDDMMYYYY() + "{enter}");
   }
 
+  marketPracticeCopyDuplicate() {
+    commonLocators.ByControlName("cpyDplct").click();
+    commonLocators
+      .ByTextWithTag("div", "Copy Duplicate")
+      .should("be.visible")
+      .click();
+  }
+
+  marketPracticePossibleDuplicate() {
+    commonLocators.ByControlName("psblDplct").click();
+    commonLocators.ByTextWithTag("div", "Yes").should("be.visible").click();
+  }
+
+  marketPracticePriority() {
+    commonLocators.ByControlName("priority").click();
+    commonLocators.ByTextWithTag("div", "High").should("be.visible").click();
+  }
+
   groupHeaderMsgID() {
     commonLocators.ByControlName("msgId").clear().type("123");
   }
