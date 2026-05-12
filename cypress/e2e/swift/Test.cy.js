@@ -804,6 +804,14 @@ describe("Automation Suite", () => {
     MX_Camt_058_Page.marketPracticeCreationDate();
     MX_Camt_058_Page.groupHeaderMsgID();
     MX_Camt_058_Page.groupHeaderCreationDate();
+    MX_Camt_058_Page.originalMsgNotification();
+    MX_Camt_058_Page.originalNotificationID();
+    MX_Camt_058_Page.debatorType();
+    // MX_Camt_058_Page.debatorAgentBIC();
+    MX_Camt_058_Page.originalItemNotification();
+    MX_Camt_058_Page.totalAmountCurrencyField();
+    MX_Camt_058_Page.totalAmountField();
+    MX_Camt_058_Page.reasonCodeField();
     /*MX_Camt_060_Page.save();
     verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();

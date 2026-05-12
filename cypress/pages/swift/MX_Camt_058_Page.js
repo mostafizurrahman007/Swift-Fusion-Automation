@@ -82,10 +82,6 @@ class MX_Camt_058_Page {
       .type(this.businessMsgText);
   }
 
-  marketRegistryField() {
-    commonLocators.ByControlName("msgId").clear().type("123");
-  }
-
   marketPracticeCreationDate() {
     commonLocators
       .ByControlName("creDt")
@@ -94,14 +90,60 @@ class MX_Camt_058_Page {
   }
 
   groupHeaderMsgID() {
-    commonLocators.ByControlName("grpHdrMsgId").clear().type("123");
+    commonLocators.ByControlName("msgId").clear().type("123");
   }
 
   groupHeaderCreationDate() {
     commonLocators
-      .ByControlName("grpHdrCreDtTm")
+      .ByControlName("creDtTm")
       .clear()
       .type(getCurrentDateDDMMYYYY() + "{enter}");
+  }
+
+  originalMsgNotification() {
+    commonLocators.ByControlName("orgnlMsgId").clear().type("Good");
+  }
+
+  originalNotificationID() {
+    commonLocators.ByControlName("orgnlNtfctnId").clear().type("Good");
+  }
+
+  debatorType() {
+    commonLocators.ByControlName("dbtrType").first().click();
+    commonLocators.ByTextWithTag("div", " Agent ").should("be.visible").click();
+  }
+
+  debatorAgentBIC() {
+    commonLocators.ByControlName("bicfi").dblclick();
+    commonLocators.ByID("bicSearchInput").clear().type("S");
+    commonLocators.ByID("id_btn2").should("be.visible").click();
+    commonLocators
+      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      .dblclick();
+  }
+
+  originalItemNotification() {
+    commonLocators.ByControlName("itmId").clear().type("Good");
+  }
+
+  totalAmountCurrencyField() {
+    commonLocators.ByControlName("ttlAmtCcy").click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  totalAmountField() {
+    commonLocators.ByControlName("ttlAmt").clear().type(5000);
+  }
+
+  reasonCodeField() {
+    commonLocators.ByControlName("rsnCd").click();
+    commonLocators
+      .ByTextWithTag("Duplicate Payment")
+      .should("be.visible")
+      .click();
   }
 }
 
