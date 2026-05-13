@@ -12,12 +12,7 @@ class MX_109_Page {
   }
 
   inputFromBIC() {
-    commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+    commonLocators.ByControlName("fromBicfi").clear().type("SEBDBDDH{enter}");
   }
 
   inputToBIC() {

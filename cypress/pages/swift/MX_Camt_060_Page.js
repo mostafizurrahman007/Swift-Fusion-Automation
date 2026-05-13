@@ -16,12 +16,7 @@ class MX_Camt_060_Page {
   }
 
   inputFromBIC() {
-    commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+    commonLocators.ByControlName("fromBicfi").clear().type("SEBDBDDH{enter}");
   }
 
   inputToBIC() {
@@ -118,12 +113,7 @@ class MX_Camt_060_Page {
   }
 
   reportingAccountAgentBIC() {
-    commonLocators.ByControlName("bicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+    commonLocators.ByControlName("bicfi").clear().type("SEBDBDDH{enter}");
   }
 
   reportingPeriodFromDate() {

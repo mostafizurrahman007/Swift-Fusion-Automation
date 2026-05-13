@@ -12,12 +12,7 @@ class MX_Pacs_002_Page {
   }
 
   inputFromBIC() {
-    commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+    commonLocators.ByControlName("fromBicfi").clear().type("SEBDBDDH{enter}");
   }
 
   inputToBIC() {
@@ -99,12 +94,8 @@ class MX_Pacs_002_Page {
     commonLocators
       .ByControlName("rltdFromBicfi")
       .scrollIntoView({ force: true })
-      .dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+      .clear()
+      .type("SEBDBDDH{enter}");
   }
 
   relatedToBIC() {
@@ -276,12 +267,10 @@ class MX_Pacs_002_Page {
   }
 
   instrucingAgentBicfi() {
-    commonLocators.ByControlName("instgAgtBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
     commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+      .ByControlName("instgAgtBicfi")
+      .clear()
+      .type("SEBDBDDH{enter}");
   }
 
   instrucingClearingMemberID() {

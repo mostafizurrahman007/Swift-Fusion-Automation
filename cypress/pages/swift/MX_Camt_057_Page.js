@@ -4,7 +4,7 @@
 import { commonLocators } from "../../support/locators/commonLocators";
 import { getCurrentDateDDMMYYYY, randomString } from "../../utils/commonUtils";
 
-class MX_Camt_058_Page {
+class MX_Camt_057_Page {
   businessMsgText = randomString();
 
   chooseMessageVariant(text) {
@@ -16,7 +16,14 @@ class MX_Camt_058_Page {
   }
 
   inputFromBIC() {
-    commonLocators.ByControlName("fromBicfi").clear().type("SEBDBDDH{enter}");
+    // commonLocators.ByControlName("fromBicfi").dblclick();
+    // commonLocators.ByID("bicSearchInput").clear().type("S");
+    // commonLocators.ByID("id_btn2").should("be.visible").click();
+    // commonLocators
+    //   .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      //   .dblclick();
+      
+    commonLocators.ByControlName("fromBicfi").clear().type("SEBDBDDH{enter}");  
   }
 
   inputToBIC() {
@@ -127,7 +134,14 @@ class MX_Camt_058_Page {
   }
 
   debatorAgentBIC() {
-    commonLocators.ByControlName("bicfi").clear().type("SEBDBDDH{enter}");
+    // commonLocators.ByControlName("bicfi").dblclick();
+    // commonLocators.ByID("bicSearchInput").clear().type("S");
+    // commonLocators.ByID("id_btn2").should("be.visible").click();
+    // commonLocators
+    //   .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
+      //   .dblclick();
+      
+    commonLocators.ByControlName("bicfi").clear().type("SEBDBDDH{enter}");;  
   }
 
   originalItemNotification() {
@@ -155,4 +169,4 @@ class MX_Camt_058_Page {
   }
 }
 
-export default new MX_Camt_058_Page();
+export default new MX_Camt_057_Page();

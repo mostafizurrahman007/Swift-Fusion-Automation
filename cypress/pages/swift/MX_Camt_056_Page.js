@@ -16,12 +16,7 @@ class MX_Camt_056_Page {
   }
 
   inputFromBIC() {
-    commonLocators.ByControlName("fromBicfi").dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+    commonLocators.ByControlName("fromBicfi").clear().type("SEBDBDDH{enter}");
   }
 
   inputToBIC() {
@@ -104,12 +99,8 @@ class MX_Camt_056_Page {
   assignerAgentBicfi() {
     commonLocators
       .ByControlName("FIToFIPmtCxlReqAssignmentAssgnrAgentFinInstnIdBICFI")
-      .dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+      .clear()
+      .type("SEBDBDDH{enter}");
   }
 
   assignerAgentClearingSystemID() {
@@ -144,12 +135,8 @@ class MX_Camt_056_Page {
   assigneeAgentBicfi() {
     commonLocators
       .ByControlName("FIToFIPmtCxlReqAssignmentAssgneAgentFinInstnIdBICFI")
-      .dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+      .clear()
+      .type("SEBDBDDH{enter}");
   }
 
   assigneeAgentClearingSystemID() {
@@ -205,23 +192,15 @@ class MX_Camt_056_Page {
   underlyingOrganizationIDAnyBIC() {
     commonLocators
       .ByControlName("FIToFIPmtCxlReqUndrlygTxInfCaseCretrPtyIdOrgIdAnyBIC")
-      .dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+      .clear()
+      .type("SEBDBDDH{enter}");
   }
 
   underlyingAgentBicfi() {
     commonLocators
       .ByControlName("FIToFIPmtCxlReqUndrlygTxInfCaseAgtFinInstnIdBICFI")
-      .dblclick();
-    commonLocators.ByID("bicSearchInput").clear().type("S");
-    commonLocators.ByID("id_btn2").should("be.visible").click();
-    commonLocators
-      .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      .dblclick();
+      .clear()
+      .type("SEBDBDDH{enter}");
   }
 
   underlyingCountryOfResidence() {
