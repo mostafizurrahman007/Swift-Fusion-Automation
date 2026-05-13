@@ -21,9 +21,9 @@ class MX_Camt_057_Page {
     // commonLocators.ByID("id_btn2").should("be.visible").click();
     // commonLocators
     //   .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      //   .dblclick();
-      
-    commonLocators.ByControlName("fromBicfi").clear().type("SEBDBDDH{enter}");  
+    //   .dblclick();
+
+    commonLocators.ByControlName("fromBicfi").clear().type("SEBDBDDH{enter}");
   }
 
   inputToBIC() {
@@ -120,12 +120,16 @@ class MX_Camt_057_Page {
       .type(getCurrentDateDDMMYYYY() + "{enter}");
   }
 
-  originalMsgNotification() {
-    commonLocators.ByControlName("orgnlMsgId").clear().type("Good");
+  notificationID() {
+    commonLocators.ByControlName("ntfctnId").clear().type("Good");
   }
 
-  originalNotificationID() {
-    commonLocators.ByControlName("orgnlNtfctnId").clear().type("Good");
+  totalAmtExpectedValueDate1st() {
+    commonLocators
+      .ByControlName("xpctdValDt")
+      .eq(0)
+      .clear()
+      .type(getCurrentDateDDMMYYYY() + "{enter}");
   }
 
   debatorType() {
@@ -139,12 +143,12 @@ class MX_Camt_057_Page {
     // commonLocators.ByID("id_btn2").should("be.visible").click();
     // commonLocators
     //   .ByTextWithTag("td", "HEAD OFFICE, SOUTHEAST BANK LIMITED")
-      //   .dblclick();
-      
-    commonLocators.ByControlName("bicfi").clear().type("SEBDBDDH{enter}");;  
+    //   .dblclick();
+
+    commonLocators.ByControlName("bicfi").clear().type("SEBDBDDH{enter}");
   }
 
-  originalItemNotification() {
+  itemNotification() {
     commonLocators.ByControlName("itmId").clear().type("Good");
   }
 
@@ -160,12 +164,16 @@ class MX_Camt_057_Page {
     commonLocators.ByControlName("ttlAmt").clear().type(5000);
   }
 
-  reasonCodeField() {
-    commonLocators.ByControlName("rsnCd").click();
+  totalAmtExpectedValueDate2nd() {
     commonLocators
-      .ByTextWithTag("Duplicate Payment")
-      .should("be.visible")
-      .click();
+      .ByControlName("xpctdValDt")
+      .eq(1)
+      .clear()
+      .type(getCurrentDateDDMMYYYY() + "{enter}");
+  }
+
+  save() {
+    commonLocators.ByTextWithTag("button", "Save").click({ force: true });
   }
 }
 
