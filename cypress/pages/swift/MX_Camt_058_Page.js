@@ -153,6 +153,10 @@ class MX_Camt_058_Page {
       .should("be.visible")
       .click();
   }
+
+  save() {
+    commonLocators.ByTextWithTag("button", "Save").click({ force: true });
+  }
 }
 
 export default new MX_Camt_058_Page();

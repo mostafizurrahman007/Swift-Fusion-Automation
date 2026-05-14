@@ -36,14 +36,16 @@ require("cypress-xpath");
 require("cypress-terminal-report/src/installLogsCollector")();*/
 
 import "@shelex/cypress-allure-plugin";
+
 import "./commands";
+
 import {
   startNetworkCapture,
-  getErrorRequestsSummary,
-  getLastRequestsSummary,
+  getNetworkSummary, // ← replaces getErrorRequestsSummary + getLastRequestsSummary
 } from "./networkCapture";
 
 require("cypress-xpath");
+
 require("cypress-terminal-report/src/installLogsCollector")();
 
 beforeEach(() => {
@@ -58,21 +60,10 @@ afterEach(function () {
       .replace(/\s+/g, "_")
       .replace(/[^a-zA-Z0-9_]/g, "");
 
-    // ✅ professional — combines both into one clean attachment
-    const errorText = getErrorRequestsSummary();
-    const lastText = getLastRequestsSummary(5);
+    // ✅ CHANGED — replaced errorText + lastText + manual join
+    //             with single getNetworkSummary() call
+    const networkText = getNetworkSummary();
 
-    const networkText = [
-      "╔══════════════════════════════════════════════════════════╗",
-      "║           FAILED API CALLS (4xx / 5xx)                   ║",
-      "╚══════════════════════════════════════════════════════════╝",
-      errorText || "No error responses found.",
-      "",
-      "╔══════════════════════════════════════════════════════════╗",
-      "║           LAST 5 REQUESTS BEFORE FAILURE                 ║",
-      "╚══════════════════════════════════════════════════════════╝",
-      lastText,
-    ].join("\n");
 
     cy.writeFile(`cypress/logs/curl_${safeName}.txt`, networkText, {
       timeout: 10000,

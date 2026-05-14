@@ -348,9 +348,9 @@ describe("Automation Suite", () => {
 
   it("PACS_008 Automation", () => {
     HomePage.menu1();
-    HomePage.searchByFastPath("3726");
-    // HomePage.search_MX_Message();
-    // HomePage.goToPage("PACS.008.001.08 FI To FI Customer Credit Transfer");
+    // HomePage.searchByFastPath("3726");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("PACS.008.001.08 FI To FI Customer Credit Transfer");
     MX_Pacs_008_Page.charSetField();
     MX_Pacs_008_Page.inputFromBIC();
     MX_Pacs_008_Page.inputToBIC();
@@ -446,9 +446,9 @@ describe("Automation Suite", () => {
 
   it("CAMT_105 Automation for Single Charge", () => {
     HomePage.menu1();
-    HomePage.searchByFastPath("3718");
-    // HomePage.search_MX_Message();
-    // HomePage.goToPage("CAMT.105.001.02 Charges Payment Notification");
+    // HomePage.searchByFastPath("3718");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("CAMT.105.001.02 Charges Payment Notification");
     MX_Camt_105_Page.chooseMessageVariant("Single Charge");
     MX_Camt_105_Page.charSetField();
     MX_Camt_105_Page.inputFromBIC();
@@ -523,9 +523,9 @@ describe("Automation Suite", () => {
 
   it("CAMT_105 Automation for Multiple Charges", () => {
     HomePage.menu1();
-    HomePage.searchByFastPath("3718");
-    // HomePage.search_MX_Message();
-    // HomePage.goToPage("CAMT.105.001.02 Charges Payment Notification");
+    // HomePage.searchByFastPath("3718");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("CAMT.105.001.02 Charges Payment Notification");
     MX_Camt_105_Page.chooseMessageVariant("Multiple Charges");
     MX_Camt_105_Page.charSetField();
     MX_Camt_105_Page.inputFromBIC();
@@ -753,9 +753,9 @@ describe("Automation Suite", () => {
 
   it("CAMT_060 Automation", () => {
     HomePage.menu1();
-    HomePage.searchByFastPath("3717");
-    // HomePage.search_MX_Message();
-    // HomePage.goToPage("CAMT.060.001.05 Account Reporting Request");
+    // HomePage.searchByFastPath("3717");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("CAMT.060.001.05 Account Reporting Request");
     MX_Camt_060_Page.charSetField();
     MX_Camt_060_Page.inputFromBIC();
     MX_Camt_060_Page.inputToBIC();
@@ -789,9 +789,9 @@ describe("Automation Suite", () => {
 
   it("CAMT_058 Automation", () => {
     HomePage.menu1();
-    HomePage.searchByFastPath("3716");
-    // HomePage.search_MX_Message();
-    // HomePage.goToPage("CAMT.058.001.08 Notification To Receive Cancel Adv");
+    // HomePage.searchByFastPath("3716");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("CAMT.058.001.08 Notification To Receive Cancel Adv");
     MX_Camt_058_Page.charSetField();
     MX_Camt_058_Page.inputFromBIC();
     MX_Camt_058_Page.inputToBIC();

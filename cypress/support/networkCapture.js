@@ -77,16 +77,26 @@ function formatEntries(entries) {
     .join("\n");
 }
 
-// ✅ OPTION A — only error responses (4xx, 5xx)
-export function getErrorRequestsSummary() {
+// ✅ NEW — one smart function that handles both cases
+export function getNetworkSummary() {
   const requests = Cypress.capturedRequests || [];
-  const errorRequests = requests.filter((r) => r.responseStatus >= 400);
-  return formatEntries(errorRequests);
-}
 
-// ✅ OPTION B — last 5 requests before failure
-export function getLastRequestsSummary(count = 5) {
-  const requests = Cypress.capturedRequests || [];
-  const lastRequests = requests.slice(-count); // takes last N items
-  return formatEntries(lastRequests);
+  if (!requests.length) return "No requests captured at all.";
+
+  const errorRequests = requests.filter((r) => r.responseStatus >= 400);
+  const lastRequests = requests.slice(-5);
+
+  return [
+    "╔══════════════════════════════════════════════════════════╗",
+    "║           FAILED API CALLS (4xx / 5xx)                  ║",
+    "╚══════════════════════════════════════════════════════════╝",
+    errorRequests.length
+      ? formatEntries(errorRequests)
+      : "✅ No API errors — all responses OK",
+    "",
+    "╔══════════════════════════════════════════════════════════╗",
+    "║           LAST 5 REQUESTS BEFORE FAILURE                ║",
+    "╚══════════════════════════════════════════════════════════╝",
+    formatEntries(lastRequests),
+  ].join("\n");
 }

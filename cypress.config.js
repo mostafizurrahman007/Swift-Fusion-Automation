@@ -117,7 +117,7 @@ module.exports = defineConfig({
   experimentalModifyObstructiveThirdPartyCode: true,
 
   e2e: {
-    screenshotOnRunFailure: true, // Allure auto-captures screenshot on failure
+    screenshotOnRunFailure: true,
 
     setupNodeEvents(on, config) {
       installLogsPrinter(on, {
@@ -127,20 +127,31 @@ module.exports = defineConfig({
 
       require("@shelex/cypress-allure-plugin/writer")(on, config);
 
-      // clear logs folder before every run
+      // ✅ CHANGED — now clears both logs AND screenshots, skips .gitkeep
       on("before:run", () => {
-        const logsDir = path.join(__dirname, "cypress/logs");
-        if (fs.existsSync(logsDir)) {
-          fs.readdirSync(logsDir)
-            .filter((file) => file !== ".gitkeep")
-            .forEach((file) => {
-              fs.unlinkSync(path.join(logsDir, file));
-            });
-          console.log("🧹 cypress/logs cleared");
-        } else {
-          fs.mkdirSync(logsDir, { recursive: true });
-          console.log("📁 cypress/logs created");
-        }
+        const foldersToClean = [
+          path.join(__dirname, "cypress/logs"),
+          path.join(__dirname, "cypress/screenshots"),
+        ];
+
+        foldersToClean.forEach((dir) => {
+          if (fs.existsSync(dir)) {
+            fs.readdirSync(dir)
+              .filter((f) => f !== ".gitkeep")
+              .forEach((f) => {
+                const fullPath = path.join(dir, f);
+                if (fs.lstatSync(fullPath).isDirectory()) {
+                  fs.rmSync(fullPath, { recursive: true }); // handles screenshot subfolders
+                } else {
+                  fs.unlinkSync(fullPath);
+                }
+              });
+            console.log(`🧹 ${path.basename(dir)} cleared`);
+          } else {
+            fs.mkdirSync(dir, { recursive: true });
+            console.log(`📁 ${path.basename(dir)} created`);
+          }
+        });
       });
 
       on("task", {
