@@ -131,9 +131,11 @@ module.exports = defineConfig({
       on("before:run", () => {
         const logsDir = path.join(__dirname, "cypress/logs");
         if (fs.existsSync(logsDir)) {
-          fs.readdirSync(logsDir).forEach((file) => {
-            fs.unlinkSync(path.join(logsDir, file));
-          });
+          fs.readdirSync(logsDir)
+            .filter((file) => file !== ".gitkeep")
+            .forEach((file) => {
+              fs.unlinkSync(path.join(logsDir, file));
+            });
           console.log("🧹 cypress/logs cleared");
         } else {
           fs.mkdirSync(logsDir, { recursive: true });

@@ -6,6 +6,7 @@ import { getCurrentDateDDMMYYYY, randomString } from "../../utils/commonUtils";
 
 class MX_Pacs_009_Page {
   groupHeaderMsgIDText = randomString();
+  businessMsgText = randomString();
 
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("Auth1");
@@ -133,7 +134,10 @@ class MX_Pacs_009_Page {
   }
 
   businessMsgID() {
-    commonLocators.ByControlName("bizMsgIdr").clear().type("Ank");
+    commonLocators
+      .ByControlName("bizMsgIdr")
+      .clear()
+      .type(this.businessMsgText);
   }
 
   msgID() {

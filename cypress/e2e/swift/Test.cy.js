@@ -129,7 +129,7 @@ describe("Automation Suite", () => {
     verifyAuthorization("messages authorized successfully!");
   });
 
-  it.only("PACS_002 Automation", () => {
+  it("PACS_002 Automation", () => {
     HomePage.menu1();
     // HomePage.searchByFastPath("3723");
     HomePage.search_MX_Message();
@@ -270,9 +270,9 @@ describe("Automation Suite", () => {
 
   it("PACS_009 Automation", () => {
     HomePage.menu1();
-    HomePage.searchByFastPath("3727");
-    // HomePage.search_MX_Message();
-    // HomePage.goToPage("PACS.009.001.08 Financial Institution Credit Transfer");
+    // HomePage.searchByFastPath("3727");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("PACS.009.001.08 Financial Institution Credit Transfer");
     MX_Pacs_009_Page.charSetField();
     MX_Pacs_009_Page.inputFromBIC();
     MX_Pacs_009_Page.inputToBIC();
