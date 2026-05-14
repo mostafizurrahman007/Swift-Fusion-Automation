@@ -64,12 +64,12 @@ afterEach(function () {
 
     const networkText = [
       "╔══════════════════════════════════════════════════════════╗",
-      "║           FAILED API CALLS (4xx / 5xx)                  ║",
+      "║           FAILED API CALLS (4xx / 5xx)                   ║",
       "╚══════════════════════════════════════════════════════════╝",
       errorText || "No error responses found.",
       "",
       "╔══════════════════════════════════════════════════════════╗",
-      "║           LAST 5 REQUESTS BEFORE FAILURE                ║",
+      "║           LAST 5 REQUESTS BEFORE FAILURE                 ║",
       "╚══════════════════════════════════════════════════════════╝",
       lastText,
     ].join("\n");

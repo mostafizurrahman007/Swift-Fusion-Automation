@@ -7,10 +7,6 @@ import { getCurrentDateDDMMYYYY, randomString } from "../../utils/commonUtils";
 class MX_Camt_057_Page {
   businessMsgText = randomString();
 
-  chooseMessageVariant(text) {
-    commonLocators.ByTextWithTag("div", text).should("be.visible").click();
-  }
-
   charSetField() {
     commonLocators.ByControlName("charSet").clear().type("Full Sized");
   }

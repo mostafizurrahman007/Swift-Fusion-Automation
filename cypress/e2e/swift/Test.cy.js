@@ -129,11 +129,11 @@ describe("Automation Suite", () => {
     verifyAuthorization("messages authorized successfully!");
   });
 
-  it("PACS_002 Automation", () => {
+  it.only("PACS_002 Automation", () => {
     HomePage.menu1();
-    HomePage.searchByFastPath("3723");
-    // HomePage.search_MX_Message();
-    // HomePage.goToPage("PACS.002.001.10 FI To FI Payment Status Report");
+    // HomePage.searchByFastPath("3723");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("PACS.002.001.10 FI To FI Payment Status Report");
     MX_Pacs_002_Page.charSetField();
     MX_Pacs_002_Page.inputFromBIC();
     MX_Pacs_002_Page.inputToBIC();
@@ -196,9 +196,9 @@ describe("Automation Suite", () => {
 
   it("PACS_004 Automation", () => {
     HomePage.menu1();
-    HomePage.searchByFastPath("3725");
-    // HomePage.search_MX_Message();
-    // HomePage.goToPage("PACS.004.001.09 Payment Return");
+    // HomePage.searchByFastPath("3725");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("PACS.004.001.09 Payment Return");
     MX_Pacs_004_Page.charSetField();
     MX_Pacs_004_Page.inputFromBIC();
     MX_Pacs_004_Page.inputToBIC();
@@ -827,11 +827,11 @@ describe("Automation Suite", () => {
     verifyAuthorization("messages authorized successfully!");
   });
 
-  it.only("CAMT_057 Automation", () => {
+  it("CAMT_057 Automation", () => {
     HomePage.menu1();
-    HomePage.searchByFastPath("3715");
-    // HomePage.search_MX_Message();
-    // HomePage.goToPage("CAMT.057.001.06 Notification To Receive");
+    // HomePage.searchByFastPath("3715");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("CAMT.057.001.06 Notification To Receive");
     MX_Camt_057_Page.charSetField();
     MX_Camt_057_Page.inputFromBIC();
     MX_Camt_057_Page.inputToBIC();
