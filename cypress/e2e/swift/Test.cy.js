@@ -776,7 +776,7 @@ describe("Automation Suite", () => {
     MX_Camt_060_Page.reportingPeriodFromDate();
     MX_Camt_060_Page.reportingPeriodToDate();
     MX_Camt_060_Page.reportingAccountOwnerType();
-    /*MX_Camt_060_Page.save();
+    MX_Camt_060_Page.save();
     verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("CAMT060");
@@ -784,7 +784,7 @@ describe("Automation Suite", () => {
       MX_Camt_060_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
-    verifyAuthorization("messages authorized successfully!");*/
+    verifyAuthorization("messages authorized successfully!");
   });
 
   it("CAMT_058 Automation", () => {
@@ -793,8 +793,8 @@ describe("Automation Suite", () => {
     // HomePage.search_MX_Message();
     // HomePage.goToPage("CAMT.058.001.08 Notification To Receive Cancel Adv");
     MX_Camt_058_Page.charSetField();
-    // MX_Camt_058_Page.inputFromBIC();
-    // MX_Camt_058_Page.inputToBIC();
+    MX_Camt_058_Page.inputFromBIC();
+    MX_Camt_058_Page.inputToBIC();
     MX_Camt_058_Page.fromClearingSystemID();
     MX_Camt_058_Page.toClearingSystemID();
     MX_Camt_058_Page.fromMemberID();
@@ -811,12 +811,12 @@ describe("Automation Suite", () => {
     MX_Camt_058_Page.originalMsgNotification();
     MX_Camt_058_Page.originalNotificationID();
     MX_Camt_058_Page.debatorType();
-    // MX_Camt_058_Page.debatorAgentBIC();
+    MX_Camt_058_Page.debatorAgentBIC();
     MX_Camt_058_Page.originalItemNotification();
     MX_Camt_058_Page.totalAmountCurrencyField();
     MX_Camt_058_Page.totalAmountField();
     MX_Camt_058_Page.reasonCodeField();
-    /*MX_Camt_058_Page.save();
+    MX_Camt_058_Page.save();
     verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("CAMT058");
@@ -824,7 +824,7 @@ describe("Automation Suite", () => {
       MX_Camt_058_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
-    verifyAuthorization("messages authorized successfully!");*/
+    verifyAuthorization("messages authorized successfully!");
   });
 
   it.only("CAMT_057 Automation", () => {
@@ -856,7 +856,7 @@ describe("Automation Suite", () => {
     MX_Camt_057_Page.totalAmountCurrencyField();
     MX_Camt_057_Page.totalAmountField();
     MX_Camt_057_Page.totalAmtExpectedValueDate2nd();
-    /*MX_Camt_057_Page.save();
+    MX_Camt_057_Page.save();
     verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
     AuthorizationPage.messageType("CAMT057");
@@ -864,6 +864,6 @@ describe("Automation Suite", () => {
       MX_Camt_057_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
-    verifyAuthorization("messages authorized successfully!");*/
+    verifyAuthorization("messages authorized successfully!");
   });
 });

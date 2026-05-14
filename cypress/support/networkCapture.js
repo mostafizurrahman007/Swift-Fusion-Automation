@@ -25,12 +25,10 @@ export function startNetworkCapture() {
     req.on("response", (res) => {
       entry.responseStatus = res.statusCode;
       const contentType = res.headers?.["content-type"] || "";
-
       if (contentType.includes("text/html")) {
         entry.responseBody = "[HTML response skipped]";
         return;
       }
-
       const body = res.body;
       const bodyStr = typeof body === "string" ? body : JSON.stringify(body);
       entry.responseBody =
@@ -52,19 +50,15 @@ function toCurl(entry) {
     )
     .map(([k, v]) => `-H "${k}: ${v}"`)
     .join(" \\\n  ");
-
   const body = entry.requestBody
     ? `\\\n  -d '${JSON.stringify(entry.requestBody)}'`
     : "";
-
   return `curl -X ${entry.method} "${entry.url}" \\\n  ${headers} ${body}`.trim();
 }
 
-export function getNetworkSummary() {
-  const requests = Cypress.capturedRequests || [];
-  if (!requests.length) return "No API requests captured.";
-
-  return requests
+function formatEntries(entries) {
+  if (!entries.length) return "No relevant requests captured.";
+  return entries
     .map((entry, i) =>
       [
         `${"━".repeat(60)}`,
@@ -81,4 +75,18 @@ export function getNetworkSummary() {
       ].join("\n"),
     )
     .join("\n");
+}
+
+// ✅ OPTION A — only error responses (4xx, 5xx)
+export function getErrorRequestsSummary() {
+  const requests = Cypress.capturedRequests || [];
+  const errorRequests = requests.filter((r) => r.responseStatus >= 400);
+  return formatEntries(errorRequests);
+}
+
+// ✅ OPTION B — last 5 requests before failure
+export function getLastRequestsSummary(count = 5) {
+  const requests = Cypress.capturedRequests || [];
+  const lastRequests = requests.slice(-count); // takes last N items
+  return formatEntries(lastRequests);
 }
