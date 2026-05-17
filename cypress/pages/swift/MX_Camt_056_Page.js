@@ -189,12 +189,6 @@ class MX_Camt_056_Page {
       .type("Anik");
   }
 
-  underlyingOrganizationIDAnyBIC() {
-    commonLocators
-      .ByControlName("FIToFIPmtCxlReqUndrlygTxInfCaseCretrPtyIdOrgIdAnyBIC")
-      .clear()
-      .type("SEBDBDDH{enter}");
-  }
 
   underlyingAgentBicfi() {
     commonLocators

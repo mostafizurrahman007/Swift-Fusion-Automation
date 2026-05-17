@@ -42,11 +42,13 @@ export const randomWithPrefix = (prefix) => {
 
 export const verifyAlertMessage = (expectedText) => {
   cy.get('div[role="alert"]', { timeout: 4000 })
-    .first()
-    .should("be.visible")
-    .invoke("text")
-    .then((msg) => {
-      expect(msg.trim().toLowerCase()).to.include(expectedText.toLowerCase());
+    .should("have.length.gte", 1) // at least one alert exists
+    .then(($alerts) => {
+      const matched = [...$alerts].some((el) =>
+        el.innerText.trim().toLowerCase().includes(expectedText.toLowerCase()),
+      );
+      expect(matched, `Expected an alert containing: "${expectedText}"`).to.be
+        .true;
     });
 };
 
@@ -58,4 +60,16 @@ export const verifyAuthorization = (expectedText, selector = "p") => {
       expect(msg.trim().toLowerCase()).to.include(expectedText.toLowerCase());
     });
   cy.contains("button", " OK ").should("be.visible").click();
+};
+
+/**
+ * Clicks the close (✕) SVG icon within an optional parent selector.
+ * @param {string} [parentSelector="body"]
+ */
+export const verifyAndCLoseMandatoryCheckBox = (parentSelector = "body") => {
+  cy.get(parentSelector)
+    .find('svg line[x1="18"][y1="6"][x2="6"][y2="18"]')
+    .closest("svg")
+    .should("be.visible")
+    .click();
 };

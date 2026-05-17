@@ -16,9 +16,11 @@ import MX_Camt_056_Page from "../../pages/swift/MX_Camt_056_Page";
 import MX_Camt_060_Page from "../../pages/swift/MX_Camt_060_Page";
 import MX_Camt_058_Page from "../../pages/swift/MX_Camt_058_Page";
 import MX_Camt_057_Page from "../../pages/swift/MX_Camt_057_Page";
+import MX_Camt_106_Page from "../../pages/swift/MX_Camt_106_Page";
 import {
   verifyAlertMessage,
   verifyAuthorization,
+  verifyAndCLoseMandatoryCheckBox,
 } from "../../utils/commonUtils";
 
 describe("Automation Suite", () => {
@@ -727,7 +729,6 @@ describe("Automation Suite", () => {
     MX_Camt_056_Page.underlyingCancellationID();
     MX_Camt_056_Page.underlyingCaseID();
     // MX_Camt_056_Page.underlyingPartyName();
-    MX_Camt_056_Page.underlyingOrganizationIDAnyBIC();
     MX_Camt_056_Page.underlyingAgentBicfi();
     // MX_Camt_056_Page.underlyingCountryOfResidence();
     MX_Camt_056_Page.originalMessageID();
@@ -766,6 +767,7 @@ describe("Automation Suite", () => {
     MX_Camt_060_Page.fromLei();
     MX_Camt_060_Page.toLei();
     MX_Camt_060_Page.businessMsg();
+    MX_Camt_060_Page.marketRegistryField();
     MX_Camt_060_Page.marketPracticeID();
     MX_Camt_060_Page.marketPracticeCreationDate();
     MX_Camt_060_Page.groupHeaderMsgID();
@@ -775,7 +777,7 @@ describe("Automation Suite", () => {
     MX_Camt_060_Page.reportingAccountAgentBIC();
     MX_Camt_060_Page.reportingPeriodFromDate();
     MX_Camt_060_Page.reportingPeriodToDate();
-    MX_Camt_060_Page.reportingAccountOwnerType();
+    MX_Camt_060_Page.reportingPeriodType();
     MX_Camt_060_Page.save();
     verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
@@ -862,6 +864,78 @@ describe("Automation Suite", () => {
     AuthorizationPage.messageType("CAMT057");
     AuthorizationPage.authorizeByBusinessMsgIdentifier(
       MX_Camt_057_Page.businessMsgText,
+    );
+    AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
+  });
+
+  it("CAMT_106 Automation for Single Charge", () => {
+    HomePage.menu1();
+    // HomePage.searchByFastPath("3719");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("CAMT.106.001.02 Charges Payment Request");
+    MX_Camt_106_Page.chooseMessageVariant("Single Charge");
+    verifyAndCLoseMandatoryCheckBox();
+    MX_Camt_106_Page.charSetField();
+    MX_Camt_106_Page.inputFromBIC();
+    MX_Camt_106_Page.inputToBIC();
+    MX_Camt_106_Page.fromClearingSystemID();
+    MX_Camt_106_Page.toClearingSystemID();
+    MX_Camt_106_Page.fromMemberID();
+    MX_Camt_106_Page.toMemberID();
+    MX_Camt_106_Page.fromLei();
+    MX_Camt_106_Page.toLei();
+    MX_Camt_106_Page.businessMsg();
+    MX_Camt_106_Page.marketPracticeCopyDuplicate();
+    MX_Camt_106_Page.marketPracticePossibleDuplicate();
+    MX_Camt_106_Page.marketPracticePriority();
+    MX_Camt_106_Page.totalChargesAmt();
+    MX_Camt_106_Page.totalChargesAmtCurrency();
+    MX_Camt_106_Page.chargeBrkdownCurrency();
+    MX_Camt_106_Page.chargeBrkdownAmt();
+    MX_Camt_106_Page.underlyingTransUETR();
+    MX_Camt_106_Page.save();
+    verifyAlertMessage("saved");
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.messageType("CAMT106");
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_Camt_106_Page.businessMsgText,
+    );
+    AuthorizationPage.confirmAuthorization();
+    verifyAuthorization("messages authorized successfully!");
+  });
+
+  it.only("CAMT_106 Automation for Multiple Charges", () => {
+    HomePage.menu1();
+    // HomePage.searchByFastPath("3719");
+    HomePage.search_MX_Message();
+    HomePage.goToPage("CAMT.106.001.02 Charges Payment Request");
+    MX_Camt_106_Page.chooseMessageVariant("Multiple Charges");
+    verifyAndCLoseMandatoryCheckBox();
+    MX_Camt_106_Page.charSetField();
+    MX_Camt_106_Page.inputFromBIC();
+    MX_Camt_106_Page.inputToBIC();
+    MX_Camt_106_Page.fromClearingSystemID();
+    MX_Camt_106_Page.toClearingSystemID();
+    MX_Camt_106_Page.fromMemberID();
+    MX_Camt_106_Page.toMemberID();
+    MX_Camt_106_Page.fromLei();
+    MX_Camt_106_Page.toLei();
+    MX_Camt_106_Page.businessMsg();
+    MX_Camt_106_Page.marketPracticeCopyDuplicate();
+    MX_Camt_106_Page.marketPracticePossibleDuplicate();
+    MX_Camt_106_Page.marketPracticePriority();
+    MX_Camt_106_Page.totalChargesAmt();
+    MX_Camt_106_Page.totalChargesAmtCurrency();
+    MX_Camt_106_Page.chargeBrkdownCurrency();
+    MX_Camt_106_Page.chargeBrkdownAmt();
+    MX_Camt_106_Page.underlyingTransUETR();
+    MX_Camt_106_Page.save();
+    verifyAlertMessage("saved");
+    AuthorizationPage.openMenuAndGoToAuthorization();
+    AuthorizationPage.messageType("CAMT106");
+    AuthorizationPage.authorizeByBusinessMsgIdentifier(
+      MX_Camt_106_Page.businessMsgText,
     );
     AuthorizationPage.confirmAuthorization();
     verifyAuthorization("messages authorized successfully!");

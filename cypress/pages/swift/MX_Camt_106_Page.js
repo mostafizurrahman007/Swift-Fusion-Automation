@@ -4,10 +4,11 @@
 import { commonLocators } from "../../support/locators/commonLocators";
 import { getCurrentDateDDMMYYYY, randomString } from "../../utils/commonUtils";
 
-class MX_Camt_060_Page {
+class MX_Camt_106_Page {
   businessMsgText = randomString();
 
   chooseMessageVariant(text) {
+    commonLocators.ByControlName("messageVariant").should("be.visible").click();
     commonLocators.ByTextWithTag("div", text).should("be.visible").click();
   }
 
@@ -20,7 +21,7 @@ class MX_Camt_060_Page {
   }
 
   inputToBIC() {
-    commonLocators.ByControlName("toBicfi").dblclick();
+    commonLocators.ByControlName("toBicfi").scrollIntoView().focus().dblclick();
     commonLocators.ByID("bicSearchInput").clear().type("K");
     commonLocators.ByID("id_btn2").click().should("be.visible");
     commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
@@ -49,11 +50,11 @@ class MX_Camt_060_Page {
   }
 
   fromMemberID() {
-    commonLocators.ByControlName("fromMembId").clear().type(1);
+    commonLocators.ByControlName("fromMmbId").clear().type(1);
   }
 
   toMemberID() {
-    commonLocators.ByControlName("toMembId").clear().type(1);
+    commonLocators.ByControlName("toMmbId").clear().type(1);
   }
 
   fromLei() {
@@ -77,62 +78,54 @@ class MX_Camt_060_Page {
       .type(this.businessMsgText);
   }
 
-  marketRegistryField() {
-    commonLocators.ByControlName("mktPrctcRegy").clear().type(123);
+  marketPracticeCopyDuplicate() {
+    commonLocators.ByControlName("cpyDplct").click();
+    commonLocators.ByTextWithTag("div", " COPY ").should("be.visible").click();
   }
 
-  marketPracticeID() {
-    commonLocators.ByControlName("mktPrctcId").clear().type(1230);
+  marketPracticePossibleDuplicate() {
+    commonLocators.ByControlName("pssblDplct").click();
+    commonLocators.ByTextWithTag("div", " Yes ").should("be.visible").click();
   }
 
-  marketPracticeCreationDate() {
+  marketPracticePriority() {
+    commonLocators.ByControlName("prty").click();
+    commonLocators.ByTextWithTag("div", " High ").should("be.visible").click();
+  }
+
+  totalChargesAmt() {
+    commonLocators.ByControlName("ttlChrgsPerRcrdAmt").clear().type(1000);
+  }
+
+  totalChargesAmtCurrency() {
     commonLocators
-      .ByControlName("creDt")
-      .clear()
-      .type(getCurrentDateDDMMYYYY() + "{enter}");
-  }
-
-  groupHeaderMsgID() {
-    commonLocators.ByControlName("grpHdrMsgId").clear().type("123");
-  }
-
-  groupHeaderCreationDate() {
+      .ByControlName("ttlChrgsPerRcrdAmtCcy")
+      .should("be.visible")
+      .click();
     commonLocators
-      .ByControlName("grpHdrCreDtTm")
-      .clear()
-      .type(getCurrentDateDDMMYYYY() + "{enter}");
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
   }
 
-  reportingMsgNameID() {
-    commonLocators.ByControlName("ReqdMsgNmId").clear().type("123");
-  }
-
-  reportingAccountOwnerType() {
-    commonLocators.ByControlName("accountOwnerType").click();
-    commonLocators.ByTextWithTag("div", " Agent ").should("be.visible").click();
-  }
-
-  reportingAccountAgentBIC() {
-    commonLocators.ByControlName("bicfi").first().clear().type("SEBDBDDH{enter}");
-  }
-
-  reportingPeriodFromDate() {
+  chargeBrkdownCurrency() {
+    commonLocators.ByControlName("amtCcy").should("be.visible").click();
     commonLocators
-      .ByControlName("reptReqFrDt")
-      .clear()
-      .type(getCurrentDateDDMMYYYY() + "{enter}");
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
   }
 
-  reportingPeriodToDate() {
+  chargeBrkdownAmt() {
+    commonLocators.ByControlName("amt").clear().type(1000);
+  }
+
+  underlyingTransUETR() {
     commonLocators
-      .ByControlName("reptReqToDt")
+      .ByControlName("undrlygTxUetr")
+      .should("be.visible")
       .clear()
-      .type(getCurrentDateDDMMYYYY() + "{enter}");
-  }
-
-  reportingPeriodType() {
-    commonLocators.ByControlName("reptReqTp").click();
-    commonLocators.ByTextWithTag("div", " All ").should("be.visible").click();
+      .type("de2da6c9-18be-48d4-8053-867ed90a316a");
   }
 
   save() {
@@ -140,4 +133,4 @@ class MX_Camt_060_Page {
   }
 }
 
-export default new MX_Camt_060_Page();
+export default new MX_Camt_106_Page();
