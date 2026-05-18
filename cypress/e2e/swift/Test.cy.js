@@ -869,7 +869,7 @@ describe("Automation Suite", () => {
     verifyAuthorization("messages authorized successfully!");
   });
 
-  it("CAMT_106 Automation for Single Charge", () => {
+  it.only("CAMT_106 Automation for Single Charge", () => {
     HomePage.menu1();
     // HomePage.searchByFastPath("3719");
     HomePage.search_MX_Message();
@@ -889,11 +889,58 @@ describe("Automation Suite", () => {
     MX_Camt_106_Page.marketPracticeCopyDuplicate();
     MX_Camt_106_Page.marketPracticePossibleDuplicate();
     MX_Camt_106_Page.marketPracticePriority();
+    MX_Camt_106_Page.relatedCharSetField();
+    MX_Camt_106_Page.relatedInputFromBIC();
+    MX_Camt_106_Page.relatedInputToBIC();
+    MX_Camt_106_Page.relatedFromClearingSystemID();
+    MX_Camt_106_Page.relatedToClearingSystemID();
+    MX_Camt_106_Page.relatedFromMemberID();
+    MX_Camt_106_Page.relatedToMemberID();
+    MX_Camt_106_Page.relatedFromLei();
+    MX_Camt_106_Page.relatedToLei();
+    MX_Camt_106_Page.relatedBusinessMsgID();
+    MX_Camt_106_Page.relatedMsgDefinitionID();
+    MX_Camt_106_Page.relatedBusinessService();
+    MX_Camt_106_Page.relatedMarketDateCreationField();
+    MX_Camt_106_Page.relatedCopyDuplicateField();
+    MX_Camt_106_Page.relatedPriorityField();
+    MX_Camt_106_Page.chargesRequestorBIC();
+    MX_Camt_106_Page.chargesRequestorClearingSystemID();
+    MX_Camt_106_Page.chargesRequestorMemberID();
+    MX_Camt_106_Page.chargesRequestorLei();
+    MX_Camt_106_Page.chargesAccountAgentBIC();
+    MX_Camt_106_Page.chargesAccountAgentClearingSystemID();
+    MX_Camt_106_Page.chargesAccountAgentMemberID();
+    MX_Camt_106_Page.chargesAccountAgentLei();
     MX_Camt_106_Page.totalChargesAmt();
     MX_Camt_106_Page.totalChargesAmtCurrency();
     MX_Camt_106_Page.chargeBrkdownCurrency();
     MX_Camt_106_Page.chargeBrkdownAmt();
+    MX_Camt_106_Page.chargeBrkdownTypeCode();
+    MX_Camt_106_Page.underlyingMsgID();
+    MX_Camt_106_Page.underlyingAccServiceRef();
+    MX_Camt_106_Page.underlyingPaymentInfoID();
+    MX_Camt_106_Page.underlyingEnd2EndID();
     MX_Camt_106_Page.underlyingTransUETR();
+    MX_Camt_106_Page.underlyingTransID();
+    MX_Camt_106_Page.underlyingMandateID();
+    MX_Camt_106_Page.underlyingChequeNumber();
+    MX_Camt_106_Page.underlyingAccountOwnerTransID();
+    MX_Camt_106_Page.underlyingAccountServerTransID();
+    MX_Camt_106_Page.underlyingProcessingID();
+    MX_Camt_106_Page.debatorAgentBIC();
+    MX_Camt_106_Page.debatorAgentClearingSystemID();
+    MX_Camt_106_Page.debatorAgentMemberID();
+    MX_Camt_106_Page.debatorAgentLei();
+    MX_Camt_106_Page.debatorAgentAccountIDType();
+    MX_Camt_106_Page.debatorAgentAccountIBAN();
+    MX_Camt_106_Page.debatorAgentAccountTypeOptional();
+    MX_Camt_106_Page.debatorAgentAccountTypeProprietary();
+    MX_Camt_106_Page.debatorAgentAccountCurrency();
+    MX_Camt_106_Page.debatorAgentAccountName();
+    MX_Camt_106_Page.debatorAgentAccountProxyTypeOptional();
+    MX_Camt_106_Page.instrucedAgentCode();
+    MX_Camt_106_Page.instrucedInstructionInfo();
     MX_Camt_106_Page.save();
     verifyAlertMessage("saved");
     AuthorizationPage.openMenuAndGoToAuthorization();
@@ -905,7 +952,7 @@ describe("Automation Suite", () => {
     verifyAuthorization("messages authorized successfully!");
   });
 
-  it.only("CAMT_106 Automation for Multiple Charges", () => {
+  it("CAMT_106 Automation for Multiple Charges", () => {
     HomePage.menu1();
     // HomePage.searchByFastPath("3719");
     HomePage.search_MX_Message();
