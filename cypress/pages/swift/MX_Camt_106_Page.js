@@ -104,6 +104,42 @@ class MX_Camt_106_Page {
     commonLocators.ByControlName("rltdCharSet").clear().type("Related");
   }
 
+  //Hidden Related for Multiple Charge page
+
+  mulRelatedCharSetField() {
+    commonLocators
+      .ByPanelID("expansion-header-1")
+      .first()
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
+    commonLocators.ByControlName("rltdCharSet").clear().type("Related");
+  }
+
+  mulRelatedInputFromBIC() {
+    commonLocators
+      .ByPanelID("expansion-header-31")
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByControlName("rltdFromBicfi")
+      .clear()
+      .type("SEBDBDDH{enter}");
+  }
+
+  mulRelatedInputToBIC() {
+    commonLocators
+      .ByPanelID("expansion-header-32")
+      .should("be.visible")
+      .click();
+    commonLocators.ByControlName("rltdToBicfi").dblclick();
+    commonLocators.ByID("bicSearchInput").clear().type("K");
+    commonLocators.ByID("id_btn2").click().should("be.visible");
+    commonLocators.ByTextWithTag("td", "BANGLADESH KRISHI BANK").dblclick();
+  }
+
+  //////////////////////////
+
   relatedInputFromBIC() {
     commonLocators
       .ByPanelID("expansion-header-19")
@@ -221,6 +257,72 @@ class MX_Camt_106_Page {
       .type(11111111111111111111);
   }
 
+  // For Multiple charge
+
+  mulChargesRequestorBIC1() {
+    commonLocators
+      .ByControlName("record0ChrgsRqstrBicfi")
+      .clear()
+      .type("SEBDBDDH{enter}");
+  }
+
+  mulChargesRequestorClearingSystemID1() {
+    commonLocators.ByControlName("record0ChrgsRqstrClrSysIdCd").click();
+    commonLocators
+      .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulChargesRequestorMemberID1() {
+    commonLocators.ByControlName("record0ChrgsRqstrMmbId").clear().type(1);
+  }
+
+  mulChargesRequestorLei1() {
+    commonLocators
+      .ByControlName("record0ChrgsRqstrLei")
+      .clear()
+      .type(11111111111111111111);
+  }
+
+  mulChargesRequestorName1() {
+    commonLocators.ByControlName("record0ChrgsRqstrNm").clear().type("Anik");
+  }
+
+  ////////////////////////////
+
+  // Postal addresss optional
+
+  crgPayReqPostalDep() {
+    commonLocators
+      .ByPanelID("expansion-header-10")
+      .should("be.visible")
+      .click();
+    commonLocators.ByControlName("chrgsRqstrDept").clear().type("Accounts");
+  }
+
+  crgPayReqPostalStreet() {
+    commonLocators.ByControlName("chrgsRqstrStrtNm").clear().type("Mirpur");
+  }
+
+  crgPayReqPostalTown() {
+    commonLocators.ByControlName("chrgsRqstrTwnNm").clear().type("Dhaka");
+  }
+
+  crgPayReqPostalDistrict() {
+    commonLocators.ByControlName("chrgsRqstrDstrctNm").clear().type("Dhaka");
+  }
+
+  crgPayReqPostalCountry() {
+    commonLocators.ByControlName("chrgsRqstrCtry").should("be.visible").click();
+    commonLocators
+      .ByTextWithTag("div", " 001 - Bangladesh ")
+      .should("be.visible")
+      .click();
+  }
+
+  // Postal address close
+
   chargesAccountAgentBIC() {
     commonLocators
       .ByControlName("chrgsAcctAgtBicfi")
@@ -246,6 +348,86 @@ class MX_Camt_106_Page {
       .clear()
       .type(11111111111111111111);
   }
+
+  crgAccAgentAccountIDType() {
+    commonLocators
+      .ByControlName("chrgsAcctAgtAcctIdType")
+      .should("be.visible")
+      .click();
+    commonLocators.ByTextWithTag("div", " IBAN ").should("be.visible").click();
+  }
+
+  crgAccAgentAccountIBAN() {
+    commonLocators
+      .ByControlName("chrgsAcctAgtAcctIban")
+      .clear()
+      .type("GB00 XXXX 0000 0000 0000 00");
+  }
+
+  crgAccAgentAccountTypeOptional() {
+    commonLocators
+      .ByControlName("chrgsAcctAgtAcctTpType")
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " Proprietary ")
+      .should("be.visible")
+      .click();
+  }
+
+  crgAccAgentAccountTypeProprietary() {
+    commonLocators
+      .ByControlName("chrgsAcctAgtAcctTpPrtry")
+      .clear()
+      .type("Savings");
+  }
+
+  crgAccAgentAccountCurrency() {
+    commonLocators
+      .ByControlName("chrgsAcctAgtAcctCcy")
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  crgAccAgentAccountName() {
+    commonLocators
+      .ByControlName("chrgsAcctAgtAcctNm")
+      .clear()
+      .type("Savings Account");
+  }
+
+  crgAccAgentAccountProxyTypeOptional() {
+    commonLocators
+      .ByControlName("chrgsAcctAgtAcctPrxyTpType")
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " Proprietary ")
+      .should("be.visible")
+      .click({ force: true });
+  }
+  // For Multiple charge
+  mulTotalNumberOfChargesRecords() {
+    commonLocators.ByControlName("ttlChrgsNbOfRcrds").clear().type(1);
+  }
+
+  mulTotalChargesAmt() {
+    commonLocators.ByControlName("ttlChrgsAmt").clear().type(1000);
+  }
+
+  mulTotalChargesAmtCurrency() {
+    commonLocators.ByControlName("ttlChrgsCcy").should("be.visible").click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  ////////////////
 
   totalChargesAmt() {
     commonLocators.ByControlName("ttlChrgsPerRcrdAmt").clear().type(1000);
@@ -426,6 +608,234 @@ class MX_Camt_106_Page {
   instrucedInstructionInfo() {
     commonLocators.ByControlName("instrForInstdAgtInstrInf").clear().type("Ok");
   }
+
+  // For multiple Record
+  mulRecord1TotalChargesAmt() {
+    commonLocators
+      .ByControlName("record0TtlChrgsPerRcrdAmt")
+      .clear()
+      .type(1000);
+  }
+
+  mulRecord1TotalChargesAmtCurrency() {
+    commonLocators
+      .ByControlName("record0TtlChrgsPerRcrdAmtCcy")
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulRecord1ChargeBrkdownCurrency() {
+    commonLocators.ByControlName("amtCcy").should("be.visible").click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulRecord1ChargeBrkdownAmt() {
+    commonLocators.ByControlName("amt").clear().type(1000);
+  }
+
+  mulRecord1ChargeBrkdownTypeCode() {
+    commonLocators.ByControlName("tpCd").should("be.visible").click();
+    commonLocators
+      .ByTextWithTag("div", " COMM - Commission ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulRecord1UnderlyingMsgID() {
+    commonLocators.ByControlName("record0UndrlygTxMsgId").clear().type(111);
+  }
+
+  mulRecord1UnderlyingMsgNameID() {
+    commonLocators.ByControlName("record0UndrlygTxMsgNmId").clear().type(111);
+  }
+
+  mulRecord1UnderlyingAccServiceRef() {
+    commonLocators
+      .ByControlName("record0UndrlygTxAcctSvcrRef")
+      .clear()
+      .type("ok");
+  }
+
+  mulRecord1UnderlyingPaymentInfoID() {
+    commonLocators
+      .ByControlName("record0UndrlygTxPmtInfId")
+      .clear()
+      .type(12350);
+  }
+
+  mulRecord1UnderlyingInstructionID() {
+    commonLocators.ByControlName("record0UndrlygTxInstrId").clear().type(1234);
+  }
+
+  mulRecord1UnderlyingEnd2EndID() {
+    commonLocators
+      .ByControlName("record0UndrlygTxEndToEndId")
+      .clear()
+      .type(12345);
+  }
+
+  mulRecord1UnderlyingTransUETR() {
+    commonLocators
+      .ByControlName("record0UndrlygTxUetr")
+      .should("be.visible")
+      .clear()
+      .type("de2da6c9-18be-48d4-8053-867ed90a316a");
+  }
+
+  mulRecord1UnderlyingTransID() {
+    commonLocators.ByControlName("record0UndrlygTxTxId").clear().type(121);
+  }
+
+  mulRecord1UnderlyingMandateID() {
+    commonLocators.ByControlName("record0UndrlygTxMndtId").clear().type(122);
+  }
+
+  mulRecord1UnderlyingChequeNumber() {
+    commonLocators
+      .ByControlName("record0UndrlygTxChqNb")
+      .clear()
+      .type(123456789);
+  }
+
+  mulRecord1UnderlyingAccountOwnerTransID() {
+    commonLocators
+      .ByControlName("record0UndrlygTxAcctOwnrTxId")
+      .clear()
+      .type(121);
+  }
+
+  mulRecord1UnderlyingAccountServerTransID() {
+    commonLocators
+      .ByControlName("record0UndrlygTxAcctSvcrTxId")
+      .clear()
+      .type(121);
+  }
+
+  mulRecord1UnderlyingProcessingID() {
+    commonLocators.ByControlName("record0UndrlygTxPrcgId").clear().type(12567);
+  }
+
+  mulRecordDebatorAgentBIC() {
+    commonLocators
+      .ByControlName("record0DbtrAgtBicfi")
+      .clear()
+      .type("SEBDBDDH{enter}");
+  }
+
+  mulRecord1DebatorAgentClearingSystemID() {
+    commonLocators.ByControlName("record0DbtrAgtClrSysIdCd").click();
+    commonLocators
+      .ByTextWithTag("div", " VA - VaticanCityClearingSystemID ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulRecord1DebatorAgentMemberID() {
+    commonLocators.ByControlName("record0DbtrAgtMmbId").clear().type(1);
+  }
+
+  mulRecordDebatorAgentLei() {
+    commonLocators
+      .ByControlName("record0DbtrAgtLei")
+      .clear()
+      .type(11111111111111111111);
+  }
+
+  mulRecord1DebatorAgentAccountIDType() {
+    commonLocators
+      .ByControlName("record0DbtrAgtAcctIdType")
+      .should("be.visible")
+      .click();
+    commonLocators.ByTextWithTag("div", " IBAN ").should("be.visible").click();
+  }
+
+  mulRecord1DebatorAgentAccountIBAN() {
+    commonLocators
+      .ByControlName("record0DbtrAgtAcctIban")
+      .clear()
+      .type("GB00 XXXX 0000 0000 0000 00");
+  }
+
+  mulRecord1DebatorAgentAccountTypeOptional() {
+    commonLocators
+      .ByControlName("record0DbtrAgtAcctTpType")
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " Proprietary ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulRecord1DebatorAgentAccountTypeProprietary() {
+    commonLocators
+      .ByControlName("record0DbtrAgtAcctTpPrtry")
+      .clear()
+      .type("Savings");
+  }
+
+  mulRecord1DebatorAgentAccountCurrency() {
+    commonLocators
+      .ByControlName("record0DbtrAgtAcctCcy")
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " USD - US Dollar ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulRecord1DebatorAgentAccountName() {
+    commonLocators
+      .ByControlName("record0DbtrAgtAcctNm")
+      .clear()
+      .type("Savings Account");
+  }
+
+  mulRecord1DebatorAgentAccountProxyTypeOptional() {
+    commonLocators
+      .ByControlName("record0DbtrAgtAcctPrxyTpType")
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " Proprietary ")
+      .should("be.visible")
+      .click({ force: true });
+  }
+
+  mulRecord1ChargesID() {
+    commonLocators
+      .ByControlName("record0ChrgsId")
+      .clear()
+      .type(1);
+  }
+
+  mulRecord1InstrucedAgentCode() {
+    commonLocators
+      .ByControlName("record0InstrForInstdAgtCd")
+      .should("be.visible")
+      .click();
+    commonLocators
+      .ByTextWithTag("div", " REMD - Reminder ")
+      .should("be.visible")
+      .click();
+  }
+
+  mulRecord1InstrucedInstructionInfo() {
+    commonLocators
+      .ByControlName("record0InstrForInstdAgtInstrInf")
+      .clear()
+      .type("Ok");
+  }
+
+  //////////////////////
 
   save() {
     commonLocators.ByTextWithTag("button", "Save").click({ force: true });
