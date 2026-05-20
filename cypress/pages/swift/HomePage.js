@@ -85,6 +85,13 @@ class HomePage {
       .click();
   }
 
+  search_MT_Message() {
+    commonLocators
+      .ByTextWithTag("p", "MT Messages", { timeout: 10000 })
+      .should("be.visible")
+      .click();
+  }
+
   search_MX_Message1() {
     cy.task("log", "--- PROOF GATHERING MODE: Starting Sequence ---");
 

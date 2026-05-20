@@ -23,7 +23,7 @@ import {
   verifyAndCLoseMandatoryCheckBox,
 } from "../../utils/commonUtils";
 
-describe("Automation Suite", () => {
+describe("Automation Suite for MX Messages", () => {
   beforeEach("Login with valid credentials", () => {
     cy.task("readExcel", {
       filePath: "cypress/fixtures/credentials.xlsx",
@@ -964,7 +964,7 @@ describe("Automation Suite", () => {
     verifyAuthorization("messages authorized successfully!");
   });
 
-  it.only("CAMT_106 Automation for Multiple Charges", () => {
+  it("CAMT_106 Automation for Multiple Charges", () => {
     HomePage.menu1();
     // HomePage.searchByFastPath("3719");
     HomePage.search_MX_Message();
