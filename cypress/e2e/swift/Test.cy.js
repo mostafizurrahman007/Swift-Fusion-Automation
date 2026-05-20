@@ -4,19 +4,19 @@
 import LoginPage from "../../pages/swift/LoginPage";
 import HomePage from "../../pages/swift/HomePage";
 import AuthorizationPage from "../../pages/swift/AuthorizationPage";
-import MX_029_Page from "../../pages/swift/MX_029_Page";
-import MX_109_Page from "../../pages/swift/MX_109_Page";
-import MX_Pacs_002_Page from "../../pages/swift/MX_Pacs_002_Page";
-import MX_Pacs_004_Page from "../../pages/swift/MX_Pacs_004_Page";
-import MX_Pacs_008_Page from "../../pages/swift/MX_Pacs_008_Page";
-import MX_Pacs_009_Page from "../../pages/swift/MX_Pacs_009_Page";
-import MX_Camt_105_Page from "../../pages/swift/MX_Camt_105_Page";
-import MX_Camt_055_Page from "../../pages/swift/MX_Camt_055_Page";
-import MX_Camt_056_Page from "../../pages/swift/MX_Camt_056_Page";
-import MX_Camt_060_Page from "../../pages/swift/MX_Camt_060_Page";
-import MX_Camt_058_Page from "../../pages/swift/MX_Camt_058_Page";
-import MX_Camt_057_Page from "../../pages/swift/MX_Camt_057_Page";
-import MX_Camt_106_Page from "../../pages/swift/MX_Camt_106_Page";
+import MX_029_Page from "../../pages/swift/MX/MX_029_Page";
+import MX_109_Page from "../../pages/swift/MX/MX_109_Page";
+import MX_Pacs_002_Page from "../../pages/swift/MX/MX_Pacs_002_Page";
+import MX_Pacs_004_Page from "../../pages/swift/MX/MX_Pacs_004_Page";
+import MX_Pacs_008_Page from "../../pages/swift/MX/MX_Pacs_008_Page";
+import MX_Pacs_009_Page from "../../pages/swift/MX/MX_Pacs_009_Page";
+import MX_Camt_105_Page from "../../pages/swift/MX/MX_Camt_105_Page";
+import MX_Camt_055_Page from "../../pages/swift/MX/MX_Camt_055_Page";
+import MX_Camt_056_Page from "../../pages/swift/MX/MX_Camt_056_Page";
+import MX_Camt_060_Page from "../../pages/swift/MX/MX_Camt_060_Page";
+import MX_Camt_058_Page from "../../pages/swift/MX/MX_Camt_058_Page";
+import MX_Camt_057_Page from "../../pages/swift/MX/MX_Camt_057_Page";
+import MX_Camt_106_Page from "../../pages/swift/MX/MX_Camt_106_Page";
 import {
   verifyAlertMessage,
   verifyAuthorization,
